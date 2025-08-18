@@ -24,20 +24,35 @@ function Welcome() {
                 </p>
             </div>
             <div>
-                <button
+                {/* <button
                     className='px-6 sm:px-8 py-1 sm:py-1.5 bg-orange-600 text-white rounded-full w-fit mx-auto font-bold tracking-normal transition-all hover:bg-orange-500'
                     onClick={handleClick}
                 >
                     Register now
                 </button>
-                <p className='text-sm text-black mt-1'>For interns selection</p>
+                <p className='text-sm text-black mt-1'>For interns selection</p> */}
+                <a
+                    href='https://chat.whatsapp.com/HWUMSzHQWkyLv3VwWgnRFu'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <button
+                        className='px-6 sm:px-8 py-1 sm:py-1.5 bg-orange-600 text-white rounded-full w-fit mx-auto font-bold tracking-normal transition-all hover:bg-orange-500'
+                        // onClick={handleClick}
+                    >
+                        Join Our Community
+                    </button>
+                </a>
+
             </div>
 
-            {!loaded && (
-                <div className='absolute inset-0 bg-white flex items-center justify-center'>
-                    <p className='text-gray-500'>Loading...</p>
-                </div>
-            )}
+            {
+                !loaded && (
+                    <div className='absolute inset-0 bg-white flex items-center justify-center'>
+                        <p className='text-gray-500'>Loading...</p>
+                    </div>
+                )
+            }
 
             <div className='relative'>
                 <img
@@ -47,7 +62,7 @@ function Welcome() {
                     onLoad={() => setLoaded(true)}
                 />
             </div>
-        </section>
+        </section >
     );
 }
 
