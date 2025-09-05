@@ -4,6 +4,10 @@ export interface Intern {
     role: string;
     position: string;
     image: string;
+    email: string;
+    phone: string;
+    status: string;
+    place: string;
     social: {
         linkedin: string;
         github: string;
