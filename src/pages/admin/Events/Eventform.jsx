@@ -525,6 +525,8 @@ function EventForm({ onSuccess, editingEvent }) {
                         {formData.thumbnail && (
                             <div className="relative inline-block mt-2">
                                 <img
+                                 draggable={false} // prevent dragging
+                                 onDragStart={(e) => e.preventDefault()}
                                     src={formData.thumbnail}
                                     alt="Thumbnail preview"
                                     className="h-20 w-20 object-cover rounded"
@@ -573,6 +575,8 @@ function EventForm({ onSuccess, editingEvent }) {
                             {formData.gallery.map((image, index) => (
                                 <div key={index} className="relative">
                                     <img
+                                         draggable={false} // prevent dragging
+                                         onDragStart={(e) => e.preventDefault()}
                                         src={image}
                                         alt={`Gallery preview ${index}`}
                                         className="h-20 w-20 object-cover rounded"

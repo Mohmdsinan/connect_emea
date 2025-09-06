@@ -8,11 +8,13 @@ function Card({ item }) {
     <div className={`bg-slate-200 relative rounded-xl  overflow-hidden flex items-center max-w-[600px] mx-auto ${item.id % 2 !== 0 ? ' ' : 'flex flex-row-reverse'}`}>
       <div className={`relative   items-end flex  h-full overflow-hidden `}>
         <div className={`w-40 h-40 bg-orange-500 rounded-full   absolute ${item.id % 2 !== 0 ? '-left-3' : '-right-3'} -bottom-8 `} />
-        <img src={item.image} alt='icon' className="object-cover w-40 h-40 z-20" />
+        <img  draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={item.image} alt='icon' className="object-cover w-40 h-40 z-20" />
       </div>
       <div className="flex-1 p-4 mt-10 z-10">
         {/* <img src={QouteUp} alt='Quote Up' className="h-16 w-16 mb-2" /> */}
-        <img src={QouteDown} alt='Quote Down' className={`top-0 absolute h-14 w-[70px] mb-4 ${item.id % 2 !== 0 ? 'left-28' : 'right-36'} `} />
+        <img  draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={QouteDown} alt='Quote Down' className={`top-0 absolute h-14 w-[70px] mb-4 ${item.id % 2 !== 0 ? 'left-28' : 'right-36'} `} />
         <p className="text-gray-600 mb-2 leading-tight">
           <span className="leading-tight">
             {item.content}

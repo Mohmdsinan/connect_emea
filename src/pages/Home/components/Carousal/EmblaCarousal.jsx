@@ -1,17 +1,37 @@
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useState, useRef } from 'react'
+import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from 'embla-carousel-react'
 import {
   NextButton,
   PrevButton,
   usePrevNextButtons
 } from './EmblaArrowBtn'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ChevronsRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import Autoplay from 'embla-carousel-autoplay'
 // import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import classNames from 'classnames'
-import { useState } from 'react'
+import { set } from 'react-hook-form';
 const TWEEN_FACTOR_BASE = 0.84
+
+// Animation presets
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const gridItemVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: (i) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut", delay: i * 0.05 },
+  }),
+};
 
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max)
@@ -19,7 +39,7 @@ const numberWithinRange = (number, min, max) =>
 const EmblaCarousel = (props) => {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 3000 })
+    Autoplay({ playOnInit: true, delay: 3000, stopOnInteraction: false })
   ])
   const [isPlaying, setIsPlaying] = useState(true)
   const tweenFactor = useRef(0)
@@ -121,7 +141,7 @@ const EmblaCarousel = (props) => {
       })
     })
   }, [])
-
+  const [selected, setSelected] = useState(null);
   useEffect(() => {
     const autoplay = emblaApi?.plugins()?.autoplay
     if (!autoplay) return
@@ -141,7 +161,7 @@ const EmblaCarousel = (props) => {
 
   useEffect(() => {
     if (!emblaApi) return
-
+    emblaApi.scrollTo(1, false);
     setTweenFactor(emblaApi)
     setTweenNodes(emblaApi)
     tweenOpacity(emblaApi)
@@ -159,7 +179,14 @@ const EmblaCarousel = (props) => {
   }, [emblaApi, tweenOpacity, tweenScale, updateActiveIndex])
 
 
-  const handleClick = (id) => {
+  const handleClick = (id, index) => {
+    // console.log('clicked')
+    if (activeIndex === index) {
+      setSelected(slides.find(slide => slide.id === id));
+    }
+    // navigate('/event/' + id)
+  }
+  const handleClickAction = (id) => {
     // console.log('clicked')
     navigate('/event/' + id)
   }
@@ -169,14 +196,15 @@ const EmblaCarousel = (props) => {
       <div className="embla__viewport2" ref={emblaRef}>
         <div className="embla__container2">
           {slides.map((event, index) => (
-            <div className={classNames(
-              'embla__slide2 relative overflow-hidden rounded-2xl border  !cursor-pointer',
-              // 'lg:!opacity-100',
-            )}
-              key={index}
-              onClick={() => handleClick(event.id)}
+            <motion.div
+              key={event.id}
+              initial={false}
+              layoutId={`card-${event.id}`}
+              className="embla__slide2 relative overflow-hidden rounded-2xl border cursor-pointer"
+              onClick={() => handleClick(event.id, index)}
             >
-              <img
+              <motion.img
+                layoutId={`image-${event.id}`}
                 className="embla__slide__img2"
                 src={event.image}
                 alt="Your alt text"
@@ -196,7 +224,7 @@ const EmblaCarousel = (props) => {
               <div className='absolute top-2 right-2 z-30 cursor-pointer text-white bg-black/10 rounded-full' onClick={() => handleClick(event.id)}>
                 <ArrowUpRight />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -221,6 +249,51 @@ const EmblaCarousel = (props) => {
               />
             ))}
           </div> */}
+
+        {/* Expanded Event Modal */}
+        <AnimatePresence>
+          {selected && (
+            <motion.div
+              className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelected(null)}
+            >
+              <motion.div
+                layoutId={`card-${selected.id}`}
+                className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+                transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
+              >
+                <motion.img
+                  layoutId={`image-${selected.id}`}
+                  src={selected.image}
+                  alt={selected.title}
+                  className="w-full h-60 object-cover"
+                />
+                <div className="p-5">
+                  <p className="text-xs uppercase text-gray-500">
+                    {selected.category}
+                  </p>
+                  <h2 className="text-xl font-bold mb-2">{selected.title}</h2>
+                  <p className="text-gray-600">{selected.description}</p>
+                  <div className="flex items-center justify-between mt-4">
+                    <button
+                      className="px-4 py-1 bg-black text-white rounded-lg"
+                      onClick={() => setSelected(null)}
+                    >
+                      Close
+                    </button>
+                    <div className='flex justify-end w-full'>
+                      <button onClick={() => handleClickAction(selected.id)} className=' bg-orange-500 rounded-md px-4 py-1 uppercase flex gap-2 items-center text-[12px] justify-center font-semibold text-white transition-all ease-in-out hover:bg-orange-400 '>open<ChevronsRight className='w-4' /></button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

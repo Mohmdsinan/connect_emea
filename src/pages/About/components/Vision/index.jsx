@@ -11,7 +11,8 @@ function Vision() {
         </p>
       </div>
       <div className='md:w-1/2 flex items-center justify-center mx-auto'>
-        <img src={img} alt='about' className='w-auto max-w-[260px] mx-auto' />
+        <img  draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={img} alt='about' className='w-auto max-w-[260px] mx-auto' />
       </div>
     </div>
   )

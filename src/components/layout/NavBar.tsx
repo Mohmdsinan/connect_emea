@@ -54,10 +54,11 @@ function NavBar() {
   };
 
   return (
-    <nav className=" p-4 bg-white/50 text-black  sm:py-6  md:py-10 w-full z-50 fixed backdrop-blur-sm right-0 left-0">
+    <nav className=" p-4 bg-white/50 text-black  sm:py-6   w-full z-50 fixed backdrop-blur-sm right-0 left-0">
       <div className="w-limit flex justify-between items-center mx-auto">
         <div onClick={handleHome} className="cursor-pointer">
-          <img src={Logo} alt="logo" className="h-8" />
+          <img  draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={Logo} alt="logo" className="h-8" />
         </div>
 
         {/* Desktop Links */}

@@ -32,6 +32,8 @@ function EventSection() {
       <div>
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
+
+      
     </div>
   );
 }

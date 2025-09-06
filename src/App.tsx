@@ -8,12 +8,17 @@ import { Home, Team, Event, About, Join } from "@/pages";
 
 import SingleEvent from "@/pages/SingleEvent";
 import { GuestLayout } from "@/layout";
-import FormData from "@/pages/Protected/FormData";
+
 
 import AdminLayout from "@/layout/adminLayout";
 import Dashboard from "@/pages/admin/dashboard";
 import Interns from "./pages/admin/interns";
 import Events from "./pages/admin/events";
+import Queries from "./pages/admin/queries";
+import FormRes from "./pages/admin/FormRes";
+
+// import FormData from "@/pages/admin/formdata";
+
 
 import Login from "./pages/admin/login";
 import NotFound from "./notfound";
@@ -29,7 +34,7 @@ const router = createBrowserRouter([
       { path: "/events", element: <Event /> },
       { path: "/event/:id", element: <SingleEvent /> },
       { path: "/join", element: <Join /> },
-      { path: "/admin/responses", element: <FormData /> },
+      // { path: "/admin/responses", element: <FormData /> },
     ],
   },
 
@@ -53,6 +58,14 @@ const router = createBrowserRouter([
         path: "events",
         element: <Events />,
       },
+      {
+        path: "queries",
+        element: <Queries />,
+      },
+      {
+        path: "responses",
+        element: <FormRes />,
+      }
     ],
   },
   {

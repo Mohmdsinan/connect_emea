@@ -26,7 +26,7 @@ import TeamsData from '@/const/data/Teams';
 
 function Interns() {
     // Use TeamsData as internsData
-    const internsData = TeamsData.InternsData;
+    const internsData = [...TeamsData.InternsData, ...TeamsData.FoundersData];
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('All');
     const [roleFilter, setRoleFilter] = useState('All');
@@ -197,7 +197,8 @@ function Interns() {
                                     <div className="flex items-center gap-3">
                                         <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                                             {intern.image ? (
-                                                <img src={intern.image} alt={intern.name} className="w-10 h-10 rounded-full object-cover" />
+                                                <img draggable={false} // prevent dragging
+                                                    onDragStart={(e) => e.preventDefault()} src={intern.image} alt={intern.name} className="w-10 h-10 rounded-full object-cover" />
                                             ) : (
                                                 <User className="w-6 h-6 text-orange-600" />
                                             )}

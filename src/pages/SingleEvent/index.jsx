@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Events from '@/const/data/Events.tsx';
-import Tab from './components/tabs';
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Events from "@/const/data/Events.tsx";
+import Tab from "./components/tabs";
+import { motion } from "framer-motion";
 
 const Spinner = () => {
     return (
@@ -11,71 +11,90 @@ const Spinner = () => {
         </div>
     );
 };
+
 function SingleEvent() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate data fetching
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1000);
-
-        return () => clearTimeout(timer); // Cleanup the timer on component unmount
+        const timer = setTimeout(() => setLoading(false), 1000);
+        return () => clearTimeout(timer);
     }, []);
 
-    // Convert id to a number if necessary
     const eventId = Number(id);
-
-    // Find the event with the matching id
     const event = Events.find((event) => event.id === eventId);
 
+    if (loading) return <Spinner />;
+
+    if (!event) {
+        return (
+            <div className="text-center my-10">
+                <h1 className="text-2xl font-semibold">Event Not Found</h1>
+                <p className="mt-4 text-gray-600">
+                    We couldn’t find the event you were looking for. Please check the URL
+                    or return to the home page.
+                </p>
+            </div>
+        );
+    }
+
     return (
-        <div className='w-limit px-2'>
-            {loading ? (
-                <Spinner />
-            ) : (
-                event ? (
-                    <div className='flex flex-col mx-auto '>
-                        <div className='flex justify-between flex-col sm:flex-row'>
-                            <div className='sm:w-1/2 mx-auto p-2 text-center sm:text-left'>
-                                <h2 className='font-semibold text-2xl'>{event.title}</h2>
-                                <p>{event.big_description}</p>
-                                {event.link && (
-                                    <div className='my-4 flex items-center justify-center'>
-                                        <a
-                                            href={event.link}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            className='rounded-md px-10 py-1.5 bg-orange-500 text-white font-semibold'
-                                        >
-                                           Join
-                                        </a>
-                                    </div>
-                                )}
-                            </div>
-                            <div className='sm:w-1/2 mx-auto my-4 sm:my-0'>
-                                <div className='bg-slate-300 w-80 h-80 rounded-lg mx-auto relative overflow-hidden'>
-                                    <img
-                                        src={event.image}
-                                        alt=""
-                                        className="absolute inset-0 object-cover w-full h-full "
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 className='font-semibold text-xl text-left pl-2'>About</h2>
-                            <Tab about={event.about} />
-                        </div>
+        <div className="w-limit px-4 py-8">
+            {/* Event Header */}
+            <motion.div
+                className="flex flex-col sm:flex-row items-center gap-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
+                {/* Left: Info */}
+                <div className="sm:w-1/2 space-y-4 text-center sm:text-left">
+                    <h2 className="font-bold text-3xl">{event.title}</h2>
+                    <p className="text-gray-700 leading-relaxed">{event.big_description}</p>
+                    {event.link && (
+                        <motion.a
+                            href={event.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block mt-4 px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Join Event
+                        </motion.a>
+                    )}
+                </div>
+
+                {/* Right: Image */}
+                <motion.div
+                    className="sm:w-1/2 w-full max-w-md mx-auto"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                    <div className="rounded-xl overflow-hidden shadow-lg">
+                        <img
+                         draggable={false} // prevent dragging
+                         onDragStart={(e) => e.preventDefault()}
+                            src={event.image}
+                            alt={event.title}
+                            className="w-full h-80 object-cover"
+                        />
                     </div>
-                ) : (
-                    <div className='text-center my-10'>
-                        <h1 className='text-xl font-semibold'>Event Not Found</h1>
-                        <p className='mt-4 text-gray-600'>We could not find the event you were looking for. Please check the URL or return to the home page.</p>
-                    </div>
-                )
-            )}
+                </motion.div>
+            </motion.div>
+
+            {/* About Section */}
+            <motion.div
+                className="mt-10"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+            >
+                <h2 className="font-semibold text-2xl mb-4">About</h2>
+                <Tab about={event.about} />
+            </motion.div>
         </div>
     );
 }

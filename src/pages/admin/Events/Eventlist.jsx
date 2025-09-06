@@ -154,6 +154,8 @@ function EventsList() {
                                         <div className="flex items-center">
                                             {event.thumbnail && (
                                                 <img
+                                                draggable={false} // prevent dragging
+                                                onDragStart={(e) => e.preventDefault()}
                                                     src={event.thumbnail}
                                                     alt={event.title}
                                                     className="h-10 w-10 object-cover rounded mr-3"
@@ -271,6 +273,8 @@ function EventsList() {
                                                         <div className="grid gap-4 py-4">
                                                             {viewEvent.thumbnail && (
                                                                 <img
+                                                                draggable={false} // prevent dragging
+                                                                onDragStart={(e) => e.preventDefault()}
                                                                     src={viewEvent.thumbnail}
                                                                     alt={viewEvent.title}
                                                                     className="w-full h-48 object-cover rounded-md"
@@ -351,7 +355,10 @@ function EventsList() {
                                                                     <Label className="text-sm font-medium">Gallery</Label>
                                                                     <div className="grid grid-cols-2 gap-2 mt-2">
                                                                         {viewEvent.gallery.map((image, index) => (
-                                                                            <img key={index} src={image} alt={`Gallery ${index}`} className="w-full h-24 object-cover rounded" />
+                                                                            <img 
+                                                                            draggable={false} // prevent dragging
+                                                                            onDragStart={(e) => e.preventDefault()}
+                                                                             key={index} src={image} alt={`Gallery ${index}`} className="w-full h-24 object-cover rounded" />
                                                                         ))}
                                                                     </div>
                                                                 </div>

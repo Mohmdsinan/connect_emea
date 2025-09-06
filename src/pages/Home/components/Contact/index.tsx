@@ -7,6 +7,8 @@ function Contact() {
       <div className="flex bg-white rounded-3xl shadow-xl shadow-black/20 border overflow-hidden mx-auto w-fit md:w-full max-w-[900px]">
         <div className="w-[50%] bg-gray-500 hidden md:block">
           <img
+           draggable={false} // prevent dragging
+           onDragStart={(e) => e.preventDefault()}
             src={ContactImg}
             alt="Queries"
             className="object-cover h-full w-full "

@@ -21,7 +21,8 @@ function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <img src={Logo} alt="logo" className="h-8 md:h-10" />
+            <img   draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={Logo} alt="logo" className="h-8 md:h-10" />
             <div className="flex items-end justify-end gap-4">
               {socialLink.map((item, index) => (
                 <div key={index}>

@@ -1,38 +1,86 @@
 import React, { useState } from 'react'
 import { inFront, BootCamp, Image3, Image4, Image5, Image6, Image7 } from "@/assets/images/Us";
+
+import {
+    motion,
+    AnimatePresence,
+    easeIn,
+    easeOut,
+} from "framer-motion";
+
+// Motion variants
+const imageVariants = {
+    enter: (direction) => ({
+        x: direction === 0 ? 300 : -300,
+        opacity: 0,
+        scale: 0.8,
+    }),
+    center: {
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.5, ease: easeOut },
+    },
+    exit: (direction) => ({
+        x: direction === 0 ? -300 : 300,
+        opacity: 0,
+        scale: 1.2,
+        transition: { duration: 0.5, ease: easeIn },
+    }),
+};
 function Content() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const images = [
         inFront,
-        Image3, 
-        Image7, 
+        Image3,
+        Image7,
         Image6,
         BootCamp,
-        Image4, 
+        Image4,
         Image5,
 
     ];
+    const [direction, setDirection] = useState(0); // 0 forward, 1 backward
     const handleImageChange = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Loop through the images
+        setDirection(0);
+        setCurrentIndex((prev) => (prev + 1) % images.length);
     };
 
     return (
         <div className='flex flex-col lg:flex-row justify-between w-limit gap-6 lg:gap-0'>
             <div className='my-6 lg:my-0 lg:w-1/2 flex items-center justify-center mx-auto'>
-                <div className="relative  h-[300px] w-[300px] flex items-center justify-center">
-                    <div className="bg-orange-500 rotate-6 rounded-xl absolute z-10  w-[300px] h-[300px] border-2 border-white overflow-hidden cursor-pointer" onClick={handleImageChange}>
-                        <img
-                            src={images[currentIndex]}
-                            alt=""
-                            className="absolute inset-0 object-cover w-full h-full "
-                        />
+                <div className="relative h-[300px] w-[300px] flex items-center justify-center">
+                    <div
+                        className="bg-black/60 rotate-6 rounded-xl absolute z-10 w-[300px] h-[300px] border-2 border-black overflow-hidden cursor-pointer select-none"
+                        onClick={handleImageChange}
+                    >
+                        <AnimatePresence mode="wait" custom={direction}>
+                            <motion.img
+                                key={currentIndex}
+                                src={images[currentIndex]}
+                                alt="Connect activity"
+                                className="absolute inset-0 object-cover w-full h-full"
+                                custom={direction}
+                                variants={imageVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                            />
+                        </AnimatePresence>
                     </div>
-                    <div className="bg-slate-400 rounded-xl absolute w-[300px] h-[300px] border-2 border-white overflow-hidden" >
-                        <img
-                            src={images[currentIndex + 1]}
-                            alt=""
-                            className="absolute inset-0 object-cover w-full h-full "
-                        />
+                    <div className="bg-orange-400/50 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
+                        <AnimatePresence>
+                            <motion.img
+                                key={(currentIndex + 1) % images.length}
+                                src={images[(currentIndex + 1) % images.length]}
+                                alt="Next Connect activity"
+                                className="absolute inset-0 object-cover w-full h-full"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                            />
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>

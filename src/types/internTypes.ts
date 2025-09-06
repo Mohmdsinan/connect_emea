@@ -3,7 +3,7 @@ export interface Intern {
     name: string;
     role: string;
     position: string;
-    image: string;
+    image: string | null;
     email: string;
     phone: string;
     status: string;

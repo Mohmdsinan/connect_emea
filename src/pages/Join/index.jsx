@@ -13,6 +13,8 @@ function Join() {
 
       <div className='relative'>
         <img
+         draggable={false} // prevent dragging
+         onDragStart={(e) => e.preventDefault()}
           src={Closed}
           alt='closed'
           className='w-full h-auto rounded-lg object-cover'

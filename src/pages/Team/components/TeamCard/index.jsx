@@ -20,13 +20,17 @@ const TeamCard = ({ data, id, size }) => {
         >
             <div className={`bg-gradient-to-r ${id % 2 === 0 ? 'from-orange-400 to-orange-500' : 'from-orange-500 to-orange-400'} rounded-full flex items-center justify-center overflow-hidden !pt-6 mx-auto shadow-lg !z-0 ${sizeClass}`}>
                 {isLoading && <UserRound className="w-20 h-20 text-white" />}
-                <img
-                    src={data?.image}
-                    alt={data?.name}
-                    onLoad={handleImageLoad}
-                    onError={() => setIsLoading(false)}
-                    className={`object-cover ${isLoading ? "hidden" : "block"} transition-opacity duration-300`}
-                />
+                {data?.image && (
+                    <img
+                        src={data?.image}
+                        alt={data?.name}
+                        onLoad={handleImageLoad}
+                        onError={() => setIsLoading(false)}
+                        className={`object-cover ${isLoading ? "hidden" : "block"} transition-opacity duration-300 select-none pointer-events-auto`}
+                        draggable={false}              // prevent dragging
+                        onDragStart={(e) => e.preventDefault()}
+                    />
+                )}
             </div>
             <div className="text-center space-y-2 mt-3">
                 <p className="font-medium text-md sm:text-lg">{data?.name}</p>

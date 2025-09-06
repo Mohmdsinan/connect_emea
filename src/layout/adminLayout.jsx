@@ -106,6 +106,16 @@ function AdminLayout() {
       icon: <Spade className="h-5 w-5" />,
       route: "/dashboard/events",
     },
+    {
+      name: "Form Data",
+      icon: <Users className="h-5 w-5" />,
+      route: "/dashboard/responses",
+    },
+    {
+      name: "Queries",
+      icon: <Users className="h-5 w-5" />,
+      route: "/dashboard/queries",
+    }
   ];
 
   const handleNavigate = useCallback(
@@ -239,21 +249,21 @@ function AdminLayout() {
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>
-                      Are you sure you want to sign out?
-                    </AlertDialogTitle>
-                    <AlertDialogDescription>
-                      You will be redirected to the sign in page. Make sure
-                      you've saved your work before signing out.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleSignOut}>
-                      Sign Out
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Are you sure you want to sign out?
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    You will be redirected to the sign in page. Make sure
+                    you've saved your work before signing out.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleSignOut}>
+                    Sign Out
+                  </AlertDialogAction>
+                </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
           </div>

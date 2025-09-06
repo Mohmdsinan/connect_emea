@@ -7,20 +7,55 @@ import WhyWe from './components/WhyWe';
 import Chapter from './components/Chapter';
 import Journey from './components/Journey';
 import Welcome from './components/Welcome';
+import ViewMotion from '@/components/viewmotion';
+import { TimelineDemo } from './components/Journey/test';
+import { motion } from 'framer-motion'
 
 
 const Home = () => {
   return (
     <div className='w-limit bg-white'>
       <Welcome />
-      <EventSection />
-      <WtConnect />
-      <WhyWe />
-      {/* <Testimonials /> */}
-      <Chapter />
-      <Journey />
+
+      <ViewMotion delay={0.1}>
+        <EventSection />
+      </ViewMotion>
+
+      <ViewMotion delay={0.1}>
+        <WtConnect />
+      </ViewMotion>
+
+      <ViewMotion delay={0.2}>
+        <WhyWe />
+      </ViewMotion>
+
+      {/* <ViewMotion delay={0.2}>
+        <Testimonials />
+      </ViewMotion> */}
+
+      <ViewMotion delay={0.3}>
+        <Chapter />
+      </ViewMotion>
+
+      <ViewMotion delay={0.3}>
+        <Journey />
+      </ViewMotion>
+
+      {/* <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="my-10"
+      >
+        <TimelineDemo />
+      </motion.div> */}
       <About />
-      <Contact />
+
+
+      <ViewMotion delay={0.4}>
+        <Contact />
+      </ViewMotion>
+
     </div>
   );
 };

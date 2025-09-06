@@ -16,7 +16,8 @@ function SpecialCard({ data, color }) {
                 '': color === 'black',
                 'hover:shadow-white/50': color === 'white'
             })} >
-                <img src={data.image} alt={data.title} className='w-full h-full object-cover rounded-md' />
+                <img  draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()} src={data.image} alt={data.title} className='w-full h-full object-cover rounded-md' />
             </div>
             <div className='text-[12px] flex justify-between flex-wrap'>
                 <p>Date: {data.date}</p>

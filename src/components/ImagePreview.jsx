@@ -17,6 +17,8 @@ export default function ImagePreview({
         <>
             <div className={`relative group overflow-hidden rounded-lg ${size}`}>
                 <img
+                    draggable={false} // prevent dragging
+                    onDragStart={(e) => e.preventDefault()}
                     src={src}
                     alt={alt}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

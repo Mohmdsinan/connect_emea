@@ -19,11 +19,11 @@ function NormalCard({ data, onClick, layoutId, key }) {
                 <div className='absolute top-2 right-2 cursor-pointer z-10 text-white' onClick={handleClick}>
                     <ArrowUpRight className='w-6' />
                 </div>
-                <div className='text-[12px] flex justify-between z-10 flex-wrap'>
+                <div className='text-[9px] sm:text-[12px] flex justify-between z-10 flex-wrap '>
                     <p>Date: {data.date}</p>
                     <p>Time: {data.time}</p>
                 </div>
-                <h1 className='z-10 font-semibold'>{data.title}</h1>
+                <h1 className='z-10 font-semibold text-xs sm:text-sm line-clamp-2 sm:line-clamp-none'>{data.title}</h1>
                 <div className="absolute inset-0 z-0 bg-gradient-to-t from-white/50 via-transparent to-transparent"></div>
             </div>
 
