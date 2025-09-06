@@ -29,28 +29,28 @@ const Home = () => {
         <WhyWe />
       </ViewMotion>
 
-      {/* <ViewMotion delay={0.2}>
+      <ViewMotion delay={0.2}>
         <Testimonials />
-      </ViewMotion> */}
+      </ViewMotion>
 
       <ViewMotion delay={0.3}>
         <Chapter />
       </ViewMotion>
 
-      <ViewMotion delay={0.3}>
-        <Journey />
-      </ViewMotion>
+{/* <Journey /> */}
 
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
         className="my-10"
       >
         <TimelineDemo />
-      </motion.div> */}
-      <About />
+      </motion.div>
 
+      <ViewMotion delay={0.3}>
+        <About />
+      </ViewMotion>
 
       <ViewMotion delay={0.4}>
         <Contact />

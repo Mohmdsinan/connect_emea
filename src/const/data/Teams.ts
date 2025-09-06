@@ -149,7 +149,7 @@ const InternsData: Intern[] = [
         id: 2,
         name: 'Muhammed Shamil',
         role: roles[3],
-        position: positions[2],
+        position: positions[5],
         image: Shamil,
         email: 'shamil@example.com',
         phone: '+91-9876543211',
@@ -159,6 +159,38 @@ const InternsData: Intern[] = [
             linkedin: 'https://www.linkedin.com/in/muhammed-shamil-65878227a/',
             github: 'https://github.com/muhammedshamil8',
             instagram: 'https://zamil.me/'
+        },
+    },
+    {
+        id: 17,
+        name: 'Mohammed Rizwan',
+        role: roles[2],
+        position: positions[4],
+        image: Rizwan,
+        email: 'rizwan@example.com',
+        phone: '+91-9876543226',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/mohammed-rizwan-70662a232/',
+            github: 'https://github.com/rizwnkt',
+            instagram: 'https://www.instagram.com/rizwnkt/'
+        },
+    },
+    {
+        id: 11,
+        name: 'Dayyan Ali',
+        role: roles[2],
+        position: positions[2],
+        image: Dayyan,
+        email: 'dayyan@example.com',
+        phone: '+91-9876543220',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/dayyan-ali',
+            github: 'https://github.com/Dayyan404',
+            instagram: 'https://www.instagram.com/dayyan._ali?igsh=MXdvbmw2OHFkNjhmdw=='
         },
     },
     {
@@ -289,22 +321,7 @@ const InternsData: Intern[] = [
             instagram: 'https://www.instagram.com/_ra_fee?igsh=MWppaDYza2N2NXQwYg=='
         },
     },
-    {
-        id: 11,
-        name: 'Dayyan Ali',
-        role: roles[2],
-        position: positions[2],
-        image: Dayyan,
-        email: 'dayyan@example.com',
-        phone: '+91-9876543220',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/dayyan-ali',
-            github: 'https://github.com/Dayyan404',
-            instagram: 'https://www.instagram.com/dayyan._ali?igsh=MXdvbmw2OHFkNjhmdw=='
-        },
-    },
+
     {
         id: 12,
         name: 'Muhammed Sunain',
@@ -385,22 +402,7 @@ const InternsData: Intern[] = [
             instagram: ''
         },
     },
-    {
-        id: 17,
-        name: 'Mohammed Rizwan',
-        role: roles[2],
-        position: positions[4],
-        image: Rizwan,
-        email: 'rizwan@example.com',
-        phone: '+91-9876543226',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/mohammed-rizwan-70662a232/',
-            github: 'https://github.com/rizwnkt',
-            instagram: 'https://www.instagram.com/rizwnkt/'
-        },
-    },
+
     {
         id: 18,
         name: 'Muhsina',

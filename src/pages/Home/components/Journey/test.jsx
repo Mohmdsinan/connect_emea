@@ -7,23 +7,21 @@ export function TimelineDemo() {
             title: "Welcome",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Built and launched Aceternity UI and Aceternity UI Pro from scratch
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        New members join our student community, get onboarded, and start
+                        connecting with peers across different departments.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg"
+                            alt="orientation"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+                            alt="welcome event"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -32,30 +30,21 @@ export function TimelineDemo() {
             title: "Explore",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        I usually run out of copy, but when I see content this big, I try to
-                        integrate lorem ipsum.
-                    </p>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Lorem ipsum is for people who are too lazy to write copy. But we are
-                        not. Here are some more example of beautiful designs I built.
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Students explore clubs, events, hackathons, and workshops that match
+                        their interests — from tech to arts to entrepreneurship.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
-
                         <img
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                            alt="club fair"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                            alt="student activities"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -64,23 +53,21 @@ export function TimelineDemo() {
             title: "Build",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Built and launched Aceternity UI and Aceternity UI Pro from scratch
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Members collaborate on projects, research, and competitions — building
+                        both technical and leadership skills.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
+                            alt="teamwork"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                            alt="innovation"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -89,30 +76,21 @@ export function TimelineDemo() {
             title: "Learn",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        I usually run out of copy, but when I see content this big, I try to
-                        integrate lorem ipsum.
-                    </p>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Lorem ipsum is for people who are too lazy to write copy. But we are
-                        not. Here are some more example of beautiful designs I built.
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Through workshops, peer-to-peer sessions, and mentorship, students
+                        enhance their academic and professional knowledge.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
-
                         <img
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1529070538774-1843cb3265df"
+                            alt="workshop"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1503676382389-4809596d5290"
+                            alt="study group"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -121,45 +99,26 @@ export function TimelineDemo() {
             title: "Refine",
             content: (
                 <div>
-                    <p
-                        className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Deployed 5 new components on Aceternity today
+                    <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Students polish their skills and portfolios by:
                     </p>
                     <div className="mb-8">
-                        <div
-                            className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                            ✅ Card grid component
-                        </div>
-                        <div
-                            className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                            ✅ Startup template Aceternity
-                        </div>
-                        <div
-                            className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                            ✅ Random file upload lol
-                        </div>
-                        <div
-                            className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                            ✅ Himesh Reshammiya Music CD
-                        </div>
-                        <div
-                            className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                            ✅ Salman Bhai Fan Club registrations open
-                        </div>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-700 dark:text-neutral-300">✅ Contributing to open-source</div>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-700 dark:text-neutral-300">✅ Presenting research papers</div>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-700 dark:text-neutral-300">✅ Attending mock interviews</div>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-700 dark:text-neutral-300">✅ Hosting community events</div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg"
+                            alt="student showcase"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238"
+                            alt="skills growth"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -168,30 +127,21 @@ export function TimelineDemo() {
             title: "Lead",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        I usually run out of copy, but when I see content this big, I try to
-                        integrate lorem ipsum.
-                    </p>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Lorem ipsum is for people who are too lazy to write copy. But we are
-                        not. Here are some more example of beautiful designs I built.
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Senior members mentor juniors, organize campus-wide events, and take
+                        leadership roles in clubs and student bodies.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
-
                         <img
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+                            alt="student leaders"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.pexels.com/photos/256659/pexels-photo-256659.jpeg"
+                            alt="mentorship"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),
@@ -200,30 +150,21 @@ export function TimelineDemo() {
             title: "Graduate",
             content: (
                 <div>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        I usually run out of copy, but when I see content this big, I try to
-                        integrate lorem ipsum.
-                    </p>
-                    <p
-                        className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-                        Lorem ipsum is for people who are too lazy to write copy. But we are
-                        not. Here are some more example of beautiful designs I built.
+                    <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                        Students graduate with not only degrees but also lifelong networks,
+                        practical experience, and community-driven memories.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
-
                         <img
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"
+                            alt="graduation ceremony"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                         <img
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60" />
+                            src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238"
+                            alt="student success"
+                            className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+                        />
                     </div>
                 </div>
             ),

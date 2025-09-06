@@ -20,19 +20,21 @@ export { default as Muhsina } from "./Muhsina.png";
 export { default as Nasrin } from "./Nasrin.png";
 export { default as Anshif } from "./Anshif.png";
 export { default as Hasna } from "./Hasna.png";
-export { default as Hasil} from "./Hasil.png"
-export { default as Haniya} from "./Haniya.png"
-export { default as Dilshad} from "./Dilshad.png"
-export { default as Fadil} from "./Fadil.png"
-export { default as Fahmiya} from "./Fahmiya.png"
-export { default as Fawar} from "./Fawar.png"
-export { default as Jasim} from "./Jasim.png"
-export { default as Murshida} from "./Murshida.png"
-export { default as Musfira} from "./Musfira.png"
-export { default as Mushrifa} from "./Mushrifa.png"
-export { default as Nourin} from "./Nourin.png"
-export { default as Swalih} from "./Swalih.png"
-export { default as ShanaShirin} from "./ShanaShirin.png"
+export { default as Hasil } from "./Hasil.png"
+export { default as Haniya } from "./Haniya.png"
+export { default as Dilshad } from "./Dilshad.png"
+export { default as Fadil } from "./Fadil.png"
+export { default as Fahmiya } from "./Fahmiya.png"
+export { default as Fawar } from "./Fawar.png"
+export { default as Jasim } from "./Jasim.png"
+export { default as Murshida } from "./Murshida.png"
+export { default as Musfira } from "./Musfira.png"
+export { default as Mushrifa } from "./Mushrifa.png"
+export { default as Nourin } from "./Nourin.png"
+export { default as Swalih } from "./Swalih.png"
+export { default as ShanaShirin } from "./ShanaShirin.png"
+export { default as Sinan } from "./sinan.png"
+export { default as Salmanjnr } from "./salmanjnr.png"
 
 
 

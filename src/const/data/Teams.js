@@ -28,7 +28,9 @@ import {
     Swalih,
     Haniya,
     Nourin,
-    Fadil
+    Fadil,
+    Sinan,
+    Salmanjnr
 
 } from '@/assets/images/interns'
 
@@ -157,11 +159,91 @@ const InternsData = [
         social: {
             linkedin: 'https://www.linkedin.com/in/muhammed-shamil-65878227a/',
             github: 'https://github.com/muhammedshamil8',
-            instagram: 'https://zamil.me/'
+            instagram: 'https://www.instagram.com/shamil._.kp/'
         },
     },
     {
         id: 3,
+        name: 'Mohammed Rizwan',
+        role: roles[2],
+        position: positions[4],
+        image: Rizwan,
+        email: 'rizwan@example.com',
+        phone: '+91-9876543226',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/mohammed-rizwan-70662a232/',
+            github: 'https://github.com/rizwnkt',
+            instagram: 'https://www.instagram.com/rizwnkt/'
+        },
+    },
+    {
+        id: 11,
+        name: 'Dayyan Ali',
+        role: roles[2],
+        position: positions[2],
+        image: Dayyan,
+        email: 'dayyan@example.com',
+        phone: '+91-9876543220',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/dayyan-ali',
+            github: 'https://github.com/Dayyan404',
+            instagram: 'https://www.instagram.com/dayyan._ali?igsh=MXdvbmw2OHFkNjhmdw=='
+        },
+    },
+    {
+        id: 18,
+        name: 'Muhsina',
+        role: roles[4],
+        position: positions[3],
+        image: Muhsina,
+        email: 'muhsina@example.com',
+        phone: '+91-9876543227',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: '',
+            github: '',
+            instagram: ''
+        },
+    },
+    {
+        id: 19,
+        name: 'Anshif',
+        role: roles[4],
+        position: positions[7],
+        image: Anshif,
+        email: 'anshif@example.com',
+        phone: '+91-9876543228',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/muhammed-anshif-350703323/',
+            github: '',
+            instagram: 'https://www.instagram.com/anshhi._f'
+        },
+    },
+    {
+        id: 20,
+        name: 'Fathima Nasrin C',
+        role: roles[4],
+        position: positions[6],
+        image: Nasrin,
+        email: 'nasrin@example.com',
+        phone: '+91-9876543229',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/fathima-nasrin-c-4202932a2/',
+            github: 'https://github.com/Fathimanasrinc',
+            instagram: 'https://www.instagram.com/ftmnasrinc?igsh=MTdxc3k1aHNxMDhoZg=='
+        },
+    },
+    {
+        id: 17,
         name: 'Fabin',
         role: roles[4],
         position: positions[1],
@@ -288,22 +370,7 @@ const InternsData = [
             instagram: 'https://www.instagram.com/_ra_fee?igsh=MWppaDYza2N2NXQwYg=='
         },
     },
-    {
-        id: 11,
-        name: 'Dayyan Ali',
-        role: roles[2],
-        position: positions[2],
-        image: Dayyan,
-        email: 'dayyan@example.com',
-        phone: '+91-9876543220',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/dayyan-ali',
-            github: 'https://github.com/Dayyan404',
-            instagram: 'https://www.instagram.com/dayyan._ali?igsh=MXdvbmw2OHFkNjhmdw=='
-        },
-    },
+
     {
         id: 12,
         name: 'Muhammed Sunain',
@@ -384,70 +451,7 @@ const InternsData = [
             instagram: ''
         },
     },
-    {
-        id: 17,
-        name: 'Mohammed Rizwan',
-        role: roles[2],
-        position: positions[4],
-        image: Rizwan,
-        email: 'rizwan@example.com',
-        phone: '+91-9876543226',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/mohammed-rizwan-70662a232/',
-            github: 'https://github.com/rizwnkt',
-            instagram: 'https://www.instagram.com/rizwnkt/'
-        },
-    },
-    {
-        id: 18,
-        name: 'Muhsina',
-        role: roles[4],
-        position: positions[3],
-        image: Muhsina,
-        email: 'muhsina@example.com',
-        phone: '+91-9876543227',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 19,
-        name: 'Anshif',
-        role: roles[4],
-        position: positions[7],
-        image: Anshif,
-        email: 'anshif@example.com',
-        phone: '+91-9876543228',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/muhammed-anshif-350703323/',
-            github: '',
-            instagram: 'https://www.instagram.com/anshhi._f'
-        },
-    },
-    {
-        id: 20,
-        name: 'Fathima Nasrin C',
-        role: roles[4],
-        position: positions[6],
-        image: Nasrin,
-        email: 'nasrin@example.com',
-        phone: '+91-9876543229',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: 'https://www.linkedin.com/in/fathima-nasrin-c-4202932a2/',
-            github: 'https://github.com/Fathimanasrinc',
-            instagram: 'https://www.instagram.com/ftmnasrinc?igsh=MTdxc3k1aHNxMDhoZg=='
-        },
-    },
+
     {
         id: 21,
         name: 'Mushrifa K',
@@ -459,8 +463,8 @@ const InternsData = [
         status: 'Active',
         place: 'Kerala',
         social: {
-            linkedin: '',
-            github: '',
+            linkedin: 'https://www.linkedin.com/in/mushrifa-kalathingal-52455032b?',
+            github: 'https://github.com/Mushrifakalathingal',
             instagram: ''
         },
     },
@@ -475,57 +479,9 @@ const InternsData = [
         status: 'Active',
         place: 'Kerala',
         social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 23,
-        name: 'Afrin Ayisha MD',
-        role: roles[3],
-        position: positions[1],
-        image: null,//Afrin,
-        email: 'afrinayshamd@gmail.com',
-        phone: '(807) 803-8995 ',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 24,
-        name: 'Mohammed Sinan',
-        role: roles[3],
-        position: positions[1],
-        image: null,//Sinan,
-        email: 'sinankdty@gmail.com',
-        phone: '(940) 069-9044 ',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 25,
-        name: 'Hilfa fathima P.M',
-        role: roles[5],
-        position: positions[1],
-        image: null,//Hilfa,
-        email: 'hilfamuneer@gmail.com',
-        phone: '(907) 226-2133',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
+            linkedin: 'https://www.linkedin.com/in/fahmiya-tp-5105b1279?',
+            github: 'https://github.com/fahmiya-sadath',
+            instagram: 'https://www.instagram.com/fahmyaaahh'
         },
     },
     {
@@ -539,7 +495,7 @@ const InternsData = [
         status: 'Active',
         place: 'Kerala',
         social: {
-            linkedin: '',
+            linkedin: 'https://www.linkedin.com/in/murshida-kaithakath',
             github: '',
             instagram: ''
         },
@@ -571,11 +527,143 @@ const InternsData = [
         status: 'Active',
         place: 'Kerala',
         social: {
+            linkedin: 'https://www.linkedin.com/in/muhammed-swalih-a4588b326?',
+            github: '',
+            instagram: 'https://www.instagram.com/swxliih?'
+        },
+    },
+
+    {
+        id: 24,
+        name: 'Mohammed Sinan',
+        role: roles[3],
+        position: positions[1],
+        image: Sinan,//Sinan,
+        email: 'sinankdty@gmail.com',
+        phone: '(940) 069-9044 ',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/mohammed-sinan-285400326?',
+            github: '',
+            instagram: 'https://www.instagram.com/__sinxn_k'
+        },
+    },
+    {
+        id: 31,
+        name: 'Haniya sherine',
+        role: roles[3],
+        position: positions[1],
+        image: Haniya,
+        email: 'haaniyaa0505@gmail.com',
+        phone: '(994) 753-1857',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
             linkedin: '',
             github: '',
             instagram: ''
         },
     },
+    {
+        id: 32,
+        name: 'Muhammed Salman',
+        role: roles[4],
+        position: positions[1],
+        image: Salmanjnr, // Salman,
+        email: 'salushinu80@gmail.com',
+        phone: '(952) 685-5307',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/muhammed-salman-1804052b7?',
+            github: 'https://github.com/Sa-lm-an',
+            instagram: 'https://www.instagram.com/__salm_.an/'
+        },
+    },
+    {
+        id: 33,
+        name: 'Musfira. Ch',
+        role: roles[3],
+        position: positions[1],
+        image: Musfira,
+        email: 'mmusfira589@gmail.com',
+        phone: '(813) 680-8325',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/musfira-ch-21252a29a?',
+            github: 'https://github.com/musfirra',
+            instagram: 'https://www.instagram.com/musfi.rra?'
+        },
+    },
+    {
+        id: 34,
+        name: 'Fawar Rahman',
+        role: roles[2],
+        position: positions[1],
+        image: Fawar,
+        email: 'fawarrahmanfrt@gmail.com',
+        phone: '(813) 982-3141',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: '',
+            github: '',
+            instagram: ''
+        },
+    },
+
+    {
+        id: 36,
+        name: 'Nourin Zahid',
+        role: roles[2],
+        position: positions[1],
+        image: Nourin,
+        email: 'nourinmk16@gmail.com',
+        phone: '(920) 726-4712',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/nourin-zahid-m-k-53b2b52ba?',
+            github: 'https://github.com/Nnxgguk',
+            instagram: ''
+        },
+    },
+    {
+        id: 25,
+        name: 'Hilfa fathima P.M',
+        role: roles[5],
+        position: positions[1],
+        image: null,//Hilfa,
+        email: 'hilfamuneer@gmail.com',
+        phone: '(907) 226-2133',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: '',
+            github: '',
+            instagram: ''
+        },
+    },
+
+    {
+        id: 23,
+        name: 'Afrin Ayisha MD',
+        role: roles[3],
+        position: positions[1],
+        image: null,//Afrin,
+        email: 'afrinayshamd@gmail.com',
+        phone: '(807) 803-8995 ',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: '',
+            github: '',
+            instagram: ''
+        },
+    },
+
     {
         id: 29,
         name: 'FATHIMA RAFA K',
@@ -608,70 +696,7 @@ const InternsData = [
             instagram: ''
         },
     },
-    {
-        id: 31,
-        name: 'Haniya sherine',
-        role: roles[3],
-        position: positions[1],
-        image: Haniya,
-        email: 'haaniyaa0505@gmail.com',
-        phone: '(994) 753-1857',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 32,
-        name: 'Muhammed Salman',
-        role: roles[4],
-        position: positions[1],
-        image: null, // Salman,
-        email: 'salushinu80@gmail.com',
-        phone: '(952) 685-5307',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 33,
-        name: 'Musfira. Ch',
-        role: roles[3],
-        position: positions[1],
-        image: Musfira,
-        email: 'mmusfira589@gmail.com',
-        phone: '(813) 680-8325',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 34,
-        name: 'Fawar Rahman',
-        role: roles[2],
-        position: positions[1],
-        image: Fawar,
-        email: 'fawarrahmanfrt@gmail.com',
-        phone: '(813) 982-3141',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
+
     {
         id: 35,
         name: 'Muhammed hani',
@@ -680,22 +705,6 @@ const InternsData = [
         image: null,//hani,
         email: 'hanikp369@gmail.com',
         phone: '(984) 758-7513',
-        status: 'Active',
-        place: 'Kerala',
-        social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
-        },
-    },
-    {
-        id: 36,
-        name: 'Nourin Zahid',
-        role: roles[2],
-        position: positions[1],
-        image: Nourin,
-        email: 'nourinmk16@gmail.com',
-        phone: '(920) 726-4712',
         status: 'Active',
         place: 'Kerala',
         social: {

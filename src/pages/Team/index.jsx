@@ -75,7 +75,7 @@ const Team = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-row items-center justify-center mb-10 w-full max-w-[1200px] mx-auto"
+          className="flex flex-row items-center justify-center mb-10 w-full max-w-[1200px] mx-auto p-2"
         >
           <AnimatedTooltip items={alumni} />
         </motion.div>

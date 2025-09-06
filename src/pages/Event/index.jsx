@@ -93,6 +93,8 @@ const Event = () => {
     navigate('/event/' + id);
   }
 
+  const isMobile = window.innerWidth < 768;
+
   return (
     <div>
       {/* Upcoming Events */}
@@ -151,22 +153,22 @@ const Event = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col md:flex-row md:p-4 gap-4 w-limit overflow-hidden"
+          viewport={{ once: true, amount: 0.1 }}
+          className="flex flex-col md:flex-row p-1 md:p-4 gap-4 w-limit overflow-hidden"
         >
           <div className="flex md:flex-col flex-row gap-2 items-center justify-center md:justify-start md:items-start font-bold py-6">
             <h2 className="text-[36px] md:text-[20px]">All</h2>
             <h1 className="text-[36px]">Events</h1>
           </div>
-          <div className="flex-grow w-full mx-0 md:mx-auto pastEventsGrid grid grid-cols-2">
+          <div className="flex-grow w-full mx-0 md:mx-auto pastEventsGrid grid grid-cols-2 ">
             {Events.map((event, index) => (
               <motion.div
                 key={event.id}
-                className="mx-auto w-full"
+                className="mx-auto w-full "
                 variants={gridItemVariants}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
                 custom={index}
               >
                 <NormalCard

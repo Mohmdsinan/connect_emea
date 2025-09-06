@@ -143,7 +143,7 @@ export const AnimatedTooltip = ({
           )}
 
           <Dialog open={openModalIndex === idx} onOpenChange={handleCancel}>
-            <DialogContent className="w-[400px]">
+            <DialogContent className="max-w-[400px]">
               <X
                 className="absolute -top-8 md:-top-6 right-0 md:-right-6 z-40 text-white text-xl cursor-pointer  "
                 onClick={handleCancel}
@@ -153,12 +153,12 @@ export const AnimatedTooltip = ({
                   <div className="bg-secondary basis-5/12 relative">
                     <div className="absolute right-4 bottom-4">
                       <div className="bg-white text-secondary w-fit h-fit shadow-xl rounded-full px-2 py-[2px] text-xs">
-                        {item.joined_year} Joined
+                        {item.joined_year ? item.joined_year : "2022"} Joined
                       </div>
                     </div>
                   </div>
                   <div className="bg-white basis-7/12 flex gap-2 items-center p-4 pt-0">
-                    <div className="border-[5px] border-white relative -mt-16 overflow-hidden rounded-full bg-white">
+                    <div className="border-[5px] border-white relative -mt-16 overflow-hidden rounded-full bg-gray-100">
                       <img
                         src={`${item.image}`}
                         alt={item.name}

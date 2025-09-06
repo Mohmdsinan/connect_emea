@@ -23,7 +23,7 @@ function Points() {
             className="mx-auto px-4 my-4"
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.15 }}
             variants={containerVariants}
         >
             <motion.h1
@@ -36,13 +36,19 @@ function Points() {
                 at your campus!
             </motion.h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="columns-1 md:columns-2 gap-10">
                 {Cards.map((item) => (
-                    <motion.div key={item.id} variants={cardVariants}>
+                    <motion.div
+                        key={item.id}
+                        variants={cardVariants}
+                        className="mb-6 break-inside-avoid"
+                    >
                         <Card item={item} />
                     </motion.div>
                 ))}
             </div>
+
+
         </motion.div>
     );
 }
