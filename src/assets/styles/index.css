@@ -49,7 +49,7 @@
 /* events page css */
 .pastEventsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
 }
 
@@ -62,10 +62,10 @@
     max-height: 320px;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 615px) {
     .pastEventsGrid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
     .customMinimumWidth {
@@ -73,14 +73,14 @@
         max-width: 90%;
     }
     .customMinimumHeight{
-        min-height: 400px;
-        max-height: 400px;
+        min-height: 300px;
+        max-height: 300px;
     }
 }
 @media (max-width: 400px) {
     .customMinimumHeight{
-        min-height: 320px;
-        max-height: 320px;
+        min-height: 200px;
+        max-height: 200px;
     }
 }
 
