@@ -109,7 +109,7 @@ function AdminLayout() {
   ];
 
   const handleNavigate = useCallback(
-    (route: string) => {
+    (route) => {
       navigate(route);
       setMobileOpen(false);
     },
@@ -121,7 +121,7 @@ function AdminLayout() {
       await signOut(auth);
       toast.success("You have successfully signed out");
       navigate("/admin/login");
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message);
     }
   };
@@ -239,21 +239,21 @@ function AdminLayout() {
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>
-                    Are you sure you want to sign out?
-                  </AlertDialogTitle>
-                  <AlertDialogDescription>
-                    You will be redirected to the sign in page. Make sure you've
-                    saved your work before signing out.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={handleSignOut}>
-                    Sign Out
-                  </AlertDialogAction>
-                </AlertDialogFooter>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Are you sure you want to sign out?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      You will be redirected to the sign in page. Make sure
+                      you've saved your work before signing out.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction onClick={handleSignOut}>
+                      Sign Out
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
           </div>

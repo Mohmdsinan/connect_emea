@@ -8,6 +8,7 @@ import {
   Image7,
 } from "@/assets/images/Us";
 import { useState } from "react";
+import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 
 interface Point {
   title: string;
@@ -33,7 +34,7 @@ function WhyWe() {
         <>
           The traditional education system often lacks real-world application.{" "}
           <span className="font-bold">Connect steps in</span> to fill that gap,
-          offering opportunities for students to apply what they’ve learned.
+          offering opportunities for students to apply what they've learned.
         </>
       ),
     },
@@ -60,41 +61,97 @@ function WhyWe() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Function to update the image index
+  const [direction, setDirection] = useState(0); // 0 for forward, 1 for backward
 
   const images = [BootCamp, Image5, Image6, Image7, inFront, Image4, Image3];
+
   const handleImageChange = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Loop through the images
+    setDirection(0); // forward direction
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // const handlePreviousImage = () => {
+  //   setDirection(1); // backward direction
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  //   );
+  // };
+
+  // Variants for animation
+  const imageVariants = {
+    enter: (direction: number) => ({
+      x: direction === 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.8,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: easeOut,
+      },
+    },
+    exit: (direction: number) => ({
+      x: direction === 0 ? -300 : 300,
+      opacity: 0,
+      scale: 1.2,
+      transition: {
+        duration: 0.5,
+        ease: easeIn,
+      },
+    }),
   };
 
   return (
     <section className="flex flex-col gap-4 p-4">
       <div className="grid md:grid-cols-2 w-full gap-10">
         <div className="flex items-center justify-center">
-          <div className="relative  h-[300px] w-[300px] flex items-center justify-center">
+          <div className="relative h-[300px] w-[300px] flex items-center justify-center">
+            {/* Main image with animation */}
             <div
-              className="bg-orange-500 rotate-6 rounded-xl absolute z-10  w-[300px] h-[300px] border-2 border-black overflow-hidden cursor-pointer select-none"
+              className="bg-black/60 rotate-6 rounded-xl absolute z-10 w-[300px] h-[300px] border-2 border-black overflow-hidden cursor-pointer select-none"
               onClick={handleImageChange}
+              onContextMenu={(e) => {
+                e.preventDefault();
+                // handlePreviousImage();
+              }}
             >
-              <img
-                src={images[currentIndex]}
-                alt=""
-                className="absolute inset-0 object-cover w-full h-full "
-              />
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.img
+                  key={currentIndex}
+                  src={images[currentIndex]}
+                  alt="Connect activity"
+                  className="absolute inset-0 object-cover w-full h-full"
+                  custom={direction}
+                  variants={imageVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                />
+              </AnimatePresence>
             </div>
 
-            <div className="bg-slate-400 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
-              <img
-                src={images[currentIndex + 1]}
-                alt=""
-                className="absolute inset-0 object-cover w-full h-full "
-              />
+            {/* Background image */}
+            <div className="bg-orange-400/50 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={(currentIndex + 1) % images.length}
+                  src={images[(currentIndex + 1) % images.length]}
+                  alt="Next Connect activity"
+                  className="absolute inset-0 object-cover w-full h-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
             </div>
           </div>
         </div>
         <div className="flex items-start flex-col gap-6 ">
-          <h1 className="font-semibold   md:indent-10 mx-auto md:mx-0 my-4 md:my-0 text-[28px] sm:text-[38px]">
+          <h1 className="font-semibold md:indent-10 mx-auto md:mx-0 my-4 md:my-0 text-[28px] sm:text-[38px]">
             Why we exist
           </h1>
           {points.map((item, index) => (
@@ -106,7 +163,6 @@ function WhyWe() {
               </div>
               <div className="md:px-2 space-y-1">
                 <h1 className="font-semibold text-xl md:text-2xl -mt-1">
-                  {/* bullet */}
                   {item.title}
                 </h1>
                 <p className="text-md md:text-lg">{item.content}</p>

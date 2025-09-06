@@ -53,6 +53,7 @@ function Events() {
     const [actionType, setActionType] = useState('');
     const [viewEvent, setViewEvent] = useState(null);
     const [sheetOpen, setSheetOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         title: '',
@@ -108,6 +109,7 @@ function Events() {
 
     // Fetch events from Firebase
     const fetchEvents = async () => {
+        setLoading(true);
         try {
             const querySnapshot = await getDocs(collection(db, "events"));
             const eventsData = [];
@@ -120,6 +122,8 @@ function Events() {
             console.log(eventsData)
         } catch (error) {
             console.error("Error fetching events: ", error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -448,12 +452,17 @@ function Events() {
                             </div>
 
                             {events.length === 0 ? (
-                                <div className="text-center py-8">
-                                    <Calendar className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                                    <p className="text-gray-500 text-lg">No events created yet</p>
-                                    <p className="text-gray-400">Click "Add Event" to create your first event</p>
-                                </div>
-                            ) : (
+                                loading ? (
+                                    <div className="text-center py-8">
+                                        <p className="text-gray-500 text-lg">Loading events...</p>
+                                    </div>
+                                ) : (
+                                    <div className="text-center py-8">
+                                        <Calendar className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                                        <p className="text-gray-500 text-lg">No events created yet</p>
+                                        <p className="text-gray-400">Click "Add Event" to create your first event</p>
+                                    </div>
+                                )) : (
                                 <div className="overflow-x-auto">
                                     <table className="w-full table-auto">
                                         <thead>
