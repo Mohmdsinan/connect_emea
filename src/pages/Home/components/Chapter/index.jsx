@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { EventsBG, PlacementBG, MembersBG } from "@/assets/avatars";
 
 const containerVariants = {
@@ -105,8 +105,8 @@ function Chapter() {
                 transition={{ duration: 0.3 }}
               >
                 <img
-                   draggable={false} // prevent dragging
-                   onDragStart={(e) => e.preventDefault()}
+                  draggable={false} // prevent dragging
+                  onDragStart={(e) => e.preventDefault()}
                   src={stat.img}
                   alt={stat.subtitle}
                   className="absolute inset-0 object-cover w-full h-full"
