@@ -2,8 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ChevronsRight } from 'lucide-react';
 import classNames from 'classnames';
+import { motion } from "framer-motion";
 
-function SpecialCard({ data, color }) {
+function SpecialCard({ data, color, layoutId, onClick, key }) {
     const navigate = useNavigate();
 
     const handleClick = (e) => {
@@ -11,13 +12,16 @@ function SpecialCard({ data, color }) {
         navigate('/event/' + data.id);
     }
     return (
-        <div className='sm:p-4 min-w-[180px] max-w-[240px] sm:max-w-[280px] space-y-2 cursor-pointer mx-auto ' onClick={handleClick}>
+        <div className='sm:p-4 min-w-[180px] max-w-[240px] sm:max-w-[280px] space-y-2 cursor-pointer mx-auto ' layoutId={layoutId} key={key} onClick={onClick} >
             <div className={classNames('h-60 w-full bg-gray-300 rounded-md shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out', {
                 '': color === 'black',
                 'hover:shadow-white/50': color === 'white'
             })} >
-                <img  draggable={false} // prevent dragging
-              onDragStart={(e) => e.preventDefault()} src={data.image} alt={data.title} className='w-full h-full object-cover rounded-md' />
+                <motion.img
+                    loading="lazy"
+                    layoutId={`image1-${data.id}`}
+                    draggable={false} // prevent dragging
+                    onDragStart={(e) => e.preventDefault()} src={data.image} alt={data.title} className='w-full h-full object-cover rounded-md' />
             </div>
             <div className='text-[12px] flex justify-between flex-wrap'>
                 <p>Date: {data.date}</p>

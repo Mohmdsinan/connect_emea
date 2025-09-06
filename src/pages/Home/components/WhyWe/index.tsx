@@ -105,7 +105,7 @@ const WhyWe: React.FC = () => {
     setDirection(0);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
-
+  const isMobile = window.innerWidth < 768;
   return (
     <section className="flex flex-col gap-6 p-4">
       <div className="grid md:grid-cols-2 w-full gap-10">
@@ -118,6 +118,7 @@ const WhyWe: React.FC = () => {
             >
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.img
+                  loading="lazy"
                   key={currentIndex}
                   src={images[currentIndex]}
                   alt="Connect activity"
@@ -133,6 +134,7 @@ const WhyWe: React.FC = () => {
             <div className="bg-orange-400/50 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
               <AnimatePresence>
                 <motion.img
+                  loading="lazy"
                   key={(currentIndex + 1) % images.length}
                   src={images[(currentIndex + 1) % images.length]}
                   alt="Next Connect activity"
@@ -153,7 +155,7 @@ const WhyWe: React.FC = () => {
             className="font-semibold md:indent-10 mx-auto md:mx-0 my-4 md:my-0 text-[28px] sm:text-[38px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             Why we exist
@@ -166,7 +168,7 @@ const WhyWe: React.FC = () => {
               custom={index}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
               variants={pointVariants}
             >
               <div className="px-2">

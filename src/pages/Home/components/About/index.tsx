@@ -29,14 +29,14 @@ function About() {
       icon: <Code className="text-green-500 w-10 h-10 mb-4 mx-auto" />,
     },
   ];
-
+  const isMobile = window.innerWidth < 768;
   return (
     <div className="space-y-10">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="my-6"
       >
@@ -58,7 +58,7 @@ function About() {
             key={index}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
             transition={{
               duration: 0.6,
               ease: "easeOut",

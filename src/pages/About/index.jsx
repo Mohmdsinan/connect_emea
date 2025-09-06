@@ -5,13 +5,14 @@ import Mission from "./components/Mission";
 import Vision from "./components/Vision";
 
 const About = () => {
+  const isMobile = window.innerWidth < 768;
   return (
     <>
       {/* Content section */}
       <motion.div
         initial={{ opacity: 0.6, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }} 
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         transition={{ duration: 0.6 }}
         className="bg-black p-6 py-10 my-4"
       >
@@ -23,7 +24,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <Mission />
@@ -32,7 +33,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Vision />

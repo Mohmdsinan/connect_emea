@@ -511,14 +511,14 @@ const InternsData = [
         status: 'Active',
         place: 'Kerala',
         social: {
-            linkedin: '',
-            github: '',
-            instagram: ''
+            linkedin: 'https://www.linkedin.com/in/muhammed-fadil-866348338?',
+            github: 'https://github.com/fdl6600',
+            instagram: 'https://www.instagram.com/fadhil_.fdl'
         },
     },
     {
         id: 28,
-        name: 'Muhammed swalih p',
+        name: 'Muhammed swalih',
         role: roles[5],
         position: positions[1],
         image: Swalih,
@@ -715,7 +715,7 @@ const InternsData = [
     },
     {
         id: 37,
-        name: 'MOHAMMED RAMEES T',
+        name: 'MOHAMMED RAMEES',
         role: roles[4],
         position: positions[1],
         image: null,//RAMEES,

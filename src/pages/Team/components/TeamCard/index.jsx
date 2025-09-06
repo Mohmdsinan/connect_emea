@@ -37,17 +37,17 @@ const TeamCard = ({ data, id, size }) => {
                 <span className="font-light text-xs sm:text-sm text-gray-800">{data?.role}</span>
                 <div className="flex items-center justify-center gap-4">
                     {data?.social.github && (
-                        <a href={data?.social.github} target="_blank" rel="noopener noreferrer">
+                        <a href={data?.social.github} target="_blank" rel="noopener noreferrer" aria-label={`Visit  ${data?.name} github`}>
                             <Github className="w-[14px] sm:w-5 h-[14px] sm:h-5 hover:text-gray-700 transition-colors" />
                         </a>
                     )}
                     {data?.social.linkedin && (
-                        <a href={data?.social.linkedin} target="_blank" rel="noopener noreferrer">
+                        <a href={data?.social.linkedin} aria-label={`Visit  ${data?.name} linkedin`} target="_blank" rel="noopener noreferrer">
                             <Linkedin className="w-[14px] sm:w-5 h-[14px] sm:h-5 hover:text-gray-700 transition-colors" />
                         </a>
                     )}
                     {data?.social.instagram && (
-                        <a href={data?.social.instagram} target="_blank" rel="noopener noreferrer">
+                        <a href={data?.social.instagram} aria-label={`Visit  ${data?.name} instagram`} target="_blank" rel="noopener noreferrer">
                             <Instagram className="w-[14px] sm:w-5 h-[14px] sm:h-5 hover:text-gray-700 transition-colors" />
                         </a>
                     )}

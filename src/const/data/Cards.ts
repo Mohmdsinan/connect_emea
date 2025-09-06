@@ -13,7 +13,7 @@ interface Card {
 const Cards: Card[] = [
     {
         id: 1,
-        name: 'Riyad',
+        name: 'Dr.Riyad',
         role: 'Professor & Principal of EMEA College',
         office: 'Department of Computer Science',
         image: Riyad,

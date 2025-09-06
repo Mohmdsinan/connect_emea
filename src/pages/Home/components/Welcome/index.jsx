@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Icon from '@/assets/avatars/welcome.png';
+import Icon from '@/assets/avatars/welcome.webp';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 

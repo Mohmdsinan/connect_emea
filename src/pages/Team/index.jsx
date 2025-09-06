@@ -24,6 +24,7 @@ const Team = () => {
   const allMembers = [...TeamsData.InternsData, ...TeamsData.FoundersData];
   const alumni = allMembers.filter(member => member.status === "Alumni");
   const interns = allMembers.filter(member => member.status === "Active");
+  const isMobile = window.innerWidth < 768;
   return (
     <div className="pb-4 w-limit space-y-12">
       {/* Page Title */}
@@ -31,7 +32,7 @@ const Team = () => {
         variants={sectionVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         className="font-semibold text-2xl flex items-center justify-center mb-4"
       >
         Our Team
@@ -42,7 +43,7 @@ const Team = () => {
         variants={sectionVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
       >
         <Founders FoundersData={TeamsData.FoundersData} />
       </motion.div>
@@ -54,7 +55,7 @@ const Team = () => {
         variants={sectionVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
       >
         <Interns InternsData={interns} />
       </motion.div>
@@ -64,7 +65,7 @@ const Team = () => {
         variants={sectionVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         className="mt-8"
       >
         <h1 className="font-semibold text-2xl flex items-center justify-center mb-4">
@@ -73,7 +74,7 @@ const Team = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-row items-center justify-center mb-10 w-full max-w-[1200px] mx-auto p-2"
         >

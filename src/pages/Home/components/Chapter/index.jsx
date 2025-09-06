@@ -56,7 +56,7 @@ const pointVariants  = {
 //     style: "absolute -bottom-32 left-24",
 //   },
 // ];
-
+const isMobile = window.innerWidth < 768;
 const Chapter = () => {
   return (
     <section className="flex flex-col gap-4 p-4 my-10">
@@ -64,7 +64,7 @@ const Chapter = () => {
         className="font-semibold text-center my-4 text-[28px] sm:text-[38px]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         Why you should join{" "}
@@ -77,7 +77,7 @@ const Chapter = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
         >
           <ul className="space-y-4 list-disc list-inside px-4">
             {points.map((item, index) => (
@@ -102,7 +102,7 @@ const Chapter = () => {
           className="relative flex h-full items-center justify-center select-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex relative items-end gap-6 md:-mt-20 mb-24 md:mb-0">

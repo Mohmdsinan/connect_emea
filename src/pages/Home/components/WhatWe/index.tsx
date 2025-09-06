@@ -22,6 +22,7 @@ const WtConnect: React.FC = () => {
   const text =
     "Connect is a vibrant, student-driven community that bridges the gap between academia and industry. Through collaborative learning, real-world experiences, and expert guidance, we provide the resources and environment you need to build your dream career.";
 
+    const isMobile = window.innerWidth < 768;
   return (
     <section className="flex flex-col gap-6 p-4">
       <motion.div
@@ -29,7 +30,7 @@ const WtConnect: React.FC = () => {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
       >
         <motion.h1
           className="font-semibold text-center mx-auto text-[26px] sm:text-[38px]"
@@ -52,7 +53,7 @@ const WtConnect: React.FC = () => {
               }
               initial={{ opacity: 0, y: 5 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
               transition={{ delay: index * 0.03 }}
             >
               {word + " "}

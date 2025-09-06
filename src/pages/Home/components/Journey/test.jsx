@@ -1,6 +1,9 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline.jsx";
 
+// images
+import { orientation, club_fair, innovation, student_activities, study_group, teamwork, welcome_event, workshop } from "@/assets/images/Journey";
+
 export function TimelineDemo() {
     const data = [
         {
@@ -13,12 +16,14 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg"
+                            loading="lazy"
+                            src={orientation}
                             alt="orientation"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
-                            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+                            loading="lazy"
+                            src={welcome_event}
                             alt="welcome event"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
@@ -36,12 +41,14 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                            loading="lazy"
+                            src={club_fair}
                             alt="club fair"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
-                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                            loading="lazy"
+                            src={student_activities}
                             alt="student activities"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
@@ -59,12 +66,14 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
+                            loading="lazy"
+                            src={teamwork}
                             alt="teamwork"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
-                            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                            loading="lazy"
+                            src={innovation}
                             alt="innovation"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
@@ -82,12 +91,14 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://images.unsplash.com/photo-1529070538774-1843cb3265df"
+                            loading="lazy"
+                            src={workshop}
                             alt="workshop"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
-                            src="https://images.unsplash.com/photo-1503676382389-4809596d5290"
+                            loading="lazy"
+                            src={study_group}
                             alt="study group"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
@@ -110,11 +121,13 @@ export function TimelineDemo() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
+                            loading="lazy"
                             src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg"
                             alt="student showcase"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
+                            loading="lazy"
                             src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238"
                             alt="skills growth"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
@@ -133,11 +146,13 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
+                            loading="lazy"
                             src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
                             alt="student leaders"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
+                            loading="lazy"
                             src="https://images.pexels.com/photos/256659/pexels-photo-256659.jpeg"
                             alt="mentorship"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
@@ -156,11 +171,13 @@ export function TimelineDemo() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <img
+                            loading="lazy"
                             src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"
                             alt="graduation ceremony"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                         />
                         <img
+                            loading="lazy"
                             src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238"
                             alt="student success"
                             className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"

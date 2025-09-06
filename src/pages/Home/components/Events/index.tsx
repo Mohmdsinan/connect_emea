@@ -8,19 +8,21 @@ function EventSection() {
   const sortedEvents = Events.sort((a, b) => {
     const [monthA, dayA, yearA] = a.date.split("/").map(Number);
     const [monthB, dayB, yearB] = b.date.split("/").map(Number);
-    const dateA = new Date(yearA, monthA - 1, dayA); 
+    const dateA = new Date(yearA, monthA - 1, dayA);
     const dateB = new Date(yearB, monthB - 1, dayB);
 
-    return dateB.getTime() - dateA.getTime(); 
+    return dateB.getTime() - dateA.getTime();
   });
 
   // console.log(sortedEvents);
   const latestEvents = sortedEvents.slice(0, 5);
 
-  const SLIDES = latestEvents.map((event) => ({
-    ...event,
-  }));
-  
+  const SLIDES = [...latestEvents, ...latestEvents, ...latestEvents].map(
+    (event, index) => ({
+      ...event,
+      _id: `${event.id}-${index}`,
+    })
+  );
 
   // console.log(SLIDES);
 
@@ -32,8 +34,6 @@ function EventSection() {
       <div>
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
-
-      
     </div>
   );
 }

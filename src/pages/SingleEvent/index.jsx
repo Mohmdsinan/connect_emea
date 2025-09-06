@@ -37,7 +37,7 @@ function SingleEvent() {
             </div>
         );
     }
-
+    const isMobile = window.innerWidth < 768;
     return (
         <div className="w-limit px-4 py-8">
             {/* Event Header */}
@@ -89,7 +89,7 @@ function SingleEvent() {
                 className="mt-10"
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
                 transition={{ duration: 0.6 }}
             >
                 <h2 className="font-semibold text-2xl mb-4">About</h2>

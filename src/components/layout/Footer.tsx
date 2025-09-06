@@ -14,19 +14,32 @@ function Footer() {
           <div className="flex flex-col">
             <h1 className="font-semibold text-xl md:text-2xl">ConnectEMEA</h1>
             {navLinks.map((link, index) => (
-              <div key={index} className="flex text-sm md:text-md items-start justify-start gap-4">
-                <a href={link.href}>{link.label}</a>
+              <div
+                key={index}
+                className="flex text-sm md:text-md items-start justify-start gap-4"
+              >
+                <a href={link.href}  aria-label={link.label} >{link.label}</a>
               </div>
             ))}
           </div>
 
           <div className="flex flex-col gap-4">
-            <img   draggable={false} // prevent dragging
-              onDragStart={(e) => e.preventDefault()} src={Logo} alt="logo" className="h-8 md:h-10" />
+            <img
+              draggable={false} // prevent dragging
+              onDragStart={(e) => e.preventDefault()}
+              src={Logo}
+              alt="logo"
+              className="h-8 md:h-10"
+            />
             <div className="flex items-end justify-end gap-4">
               {socialLink.map((item, index) => (
                 <div key={index}>
-                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit our ${item.label} page`}
+                  >
                     <item.Icon className="w-4 md:w-5 h-4 md:h-5" />
                   </a>
                 </div>

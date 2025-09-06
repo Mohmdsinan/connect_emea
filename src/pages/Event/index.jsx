@@ -39,31 +39,31 @@ const Event = () => {
   // const [Events, setEvents] = useState([]);
   // const [loading, setLoading] = useState(false);
 
-
-  // Sort events by date (latest first)
+  // 1. Sort events (latest first)
   const sortedEvents = Events.sort((a, b) => {
     const [dayA, monthA, yearA] = a.date.split("/").map(Number);
     const [dayB, monthB, yearB] = b.date.split("/").map(Number);
     return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
   });
 
+  // 2. Upcoming Events = today or future
   const UpcomingEvents = sortedEvents.filter((e) => {
     const [d, m, y] = e.date.split("/").map(Number);
     return new Date(y, m - 1, d) >= currentDate;
   });
 
-  const PastEvents = sortedEvents.filter((e) => {
+  // 3. Past Events = strictly before today
+  let PastEvents = sortedEvents.filter((e) => {
     const [d, m, y] = e.date.split("/").map(Number);
     return new Date(y, m - 1, d) < currentDate;
   });
 
-  const RecentEvents = PastEvents.slice(0, 5);
+  // 4. Recent Events = latest 4 past events
+  const RecentEvents = PastEvents.slice(0, 4);
 
-  // Fill up Upcoming with recent if < 4
-  const needed = 4 - UpcomingEvents.length;
-  if (needed > 0) {
-    UpcomingEvents.push(...RecentEvents.slice(0, needed));
-  }
+  // 5. Balance Past Events (excluding recent ones)
+  const OtherPastEvents = PastEvents.slice(4);
+
 
   // useEffect(() => {
   //   fetchEvents();
@@ -98,19 +98,20 @@ const Event = () => {
   return (
     <div>
       {/* Upcoming Events */}
-      {UpcomingEvents.length !== 0 && (
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="bg-black text-white w-full overflow-hidden"
-        >
-          <div className="w-limit w-full flex gap-4 p-4">
-            <div className="flex flex-col items-start font-bold py-6 pt-8">
-              <h2 className="text-[12px] md:text-[20px]">Upcoming</h2>
-              <h1 className="text-[18px] md:text-[36px]">Events</h1>
-            </div>
+
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
+        className="bg-black text-white w-full overflow-hidden"
+      >
+        <div className="w-limit w-full flex gap-4 p-4 h-60">
+          <div className="flex flex-col items-start font-bold py-6 pt-8">
+            <h2 className="text-[12px] md:text-[20px]">Upcoming</h2>
+            <h1 className="text-[18px] md:text-[36px]">Events</h1>
+          </div>
+          {UpcomingEvents.length !== 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -119,9 +120,14 @@ const Event = () => {
             >
               <SlickCarousel slides={UpcomingEvents} color="white" />
             </motion.div>
-          </div>
-        </motion.section>
-      )}
+          ) : (
+            <div className="flex justify-center items-center my-10 w-full">
+              <h1 className="text-2xl font-bold">No upcoming events</h1>
+            </div>
+          )}
+
+        </div>
+      </motion.section>
 
       {/* Recent Events */}
       {RecentEvents.length !== 0 && (
@@ -129,7 +135,7 @@ const Event = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           className="flex p-4 gap-4 w-limit overflow-hidden bg-white"
         >
           <div className="flex flex-col items-start font-bold py-6">
@@ -148,20 +154,21 @@ const Event = () => {
       )}
 
       {/* All Events Grid */}
-      {Events.length !== 0 && (
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row p-1 md:p-4 gap-4 w-limit overflow-hidden"
-        >
-          <div className="flex md:flex-col flex-row gap-2 items-center justify-center md:justify-start md:items-start font-bold py-6">
-            <h2 className="text-[36px] md:text-[20px]">All</h2>
-            <h1 className="text-[36px]">Events</h1>
-          </div>
+
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: isMobile ? 0.05 : 0.1 }}
+        className="flex flex-col md:flex-row p-1 md:p-4 gap-4 w-limit overflow-hidden"
+      >
+        <div className="flex md:flex-col flex-row gap-2 items-center justify-center md:justify-start md:items-start font-bold py-6">
+          <h2 className="text-[36px] md:text-[20px]">All</h2>
+          <h1 className="text-[36px]">Events</h1>
+        </div>
+        {OtherPastEvents.length !== 0 ? (
           <div className="flex-grow w-full mx-0 md:mx-auto pastEventsGrid grid grid-cols-2 ">
-            {Events.map((event, index) => (
+            {OtherPastEvents.map((event, index) => (
               <motion.div
                 key={event.id}
                 className="mx-auto w-full "
@@ -179,8 +186,13 @@ const Event = () => {
               </motion.div>
             ))}
           </div>
-        </motion.section>
-      )}
+        ) : (
+          <div className="flex justify-center items-center my-10 w-full">
+            <h1 className="text-2xl font-bold">No past events</h1>
+          </div>
+        )}
+
+      </motion.section>
 
       {/* No Events */}
       {Events.length === 0 && (
@@ -211,6 +223,7 @@ const Event = () => {
               transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
             >
               <motion.img
+                loading="lazy"
                 layoutId={`image-${selected.id}`}
                 src={selected.image}
                 alt={selected.title}

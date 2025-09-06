@@ -56,6 +56,7 @@ function Content() {
                     >
                         <AnimatePresence mode="wait" custom={direction}>
                             <motion.img
+                                loading="lazy"
                                 key={currentIndex}
                                 src={images[currentIndex]}
                                 alt="Connect activity"
@@ -71,6 +72,7 @@ function Content() {
                     <div className="bg-orange-400/50 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
                         <AnimatePresence>
                             <motion.img
+                                loading="lazy"
                                 key={(currentIndex + 1) % images.length}
                                 src={images[(currentIndex + 1) % images.length]}
                                 alt="Next Connect activity"

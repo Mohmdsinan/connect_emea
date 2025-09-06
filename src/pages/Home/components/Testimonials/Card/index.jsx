@@ -36,7 +36,7 @@ function Card({ item }) {
 
         {/* Author Info */}
         <div className={`flex flex-col ${item.id % 2 !== 0 ? 'items-start md:items-end' : 'items-start'} border-t pt-4 border-gray-200`}>
-          <h5 className="font-bold text-gray-900 text-lg">{item.name}</h5>
+          <p className="font-bold text-gray-900 text-lg">{item.name}</p>
           <p className="text-sm text-amber-600 font-medium">{item.role}</p>
           <p className="text-sm text-amber-600 ">{item.office}</p>
         </div>

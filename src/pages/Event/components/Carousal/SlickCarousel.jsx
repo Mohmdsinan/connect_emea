@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Special } from "../EventCard";
 import classNames from 'classnames';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronsRight, ChevronLeft } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
+
+
 function SampleNextArrow(props) {
     const { className, style, onClick, color } = props;
     const isDisabled = className && className.includes("slick-disabled");
@@ -14,7 +17,7 @@ function SampleNextArrow(props) {
             className={classNames(className, `rounded-xl flex items-center justify-center   absolute left-[20px] top-[310px] sm:top-[330px] z-10 custom-arrow `,
                 {
                     '!text-gray-500': isDisabled,
-                    [`${color === 'black' ? '!text-black': '!text-white'}`]: !isDisabled
+                    [`${color === 'black' ? '!text-black' : '!text-white'}`]: !isDisabled
                 })}
             style={{
                 ...style,
@@ -38,7 +41,7 @@ function SamplePrevArrow(props) {
             className={classNames(className, `rounded-xl flex items-center justify-center  absolute left-[-10px] top-[310px] sm:top-[330px] z-10 custom-arrow  `,
                 {
                     '!text-gray-500': isDisabled,
-                    [`${color === 'black' ? '!text-black': '!text-white'}`]: !isDisabled
+                    [`${color === 'black' ? '!text-black' : '!text-white'}`]: !isDisabled
                 }
             )}
             style={{
@@ -60,6 +63,7 @@ function SamplePrevArrow(props) {
 
 function SlickCarousel(props) {
     const { slides, color } = props;
+    const [selected, setSelected] = useState(null);
     var settings = {
         dots: false,
         infinite: false,
@@ -98,10 +102,57 @@ function SlickCarousel(props) {
             <Slider {...settings} >
                 {slides.map((event, index) => (
                     <div className="rounded-xl  sm:mx-0" key={index}>
-                        <Special data={event} color={color} />
+                        <Special data={event} color={color} layoutId={`card1-${event.id}`}
+                            onClick={() => setSelected(event)} key={index} />
                     </div>
                 ))}
             </Slider>
+
+            {/* Expanded Event Modal */}
+            <AnimatePresence>
+                {selected && (
+                    <motion.div
+                        className="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelected(null)}
+                    >
+                        <motion.div
+                            layoutId={`card1-${selected.id}`}
+                            className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+                            onClick={(e) => e.stopPropagation()}
+                            transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
+                        >
+                            <motion.img
+                                loading="lazy"
+                                layoutId={`image1-${selected.id}`}
+                                src={selected.image}
+                                alt={selected.title}
+                                className="w-full h-60 object-cover"
+                            />
+                            <div className="p-5">
+                                <p className="text-xs uppercase text-gray-500">
+                                    {selected.category}
+                                </p>
+                                <h2 className="text-xl font-bold mb-2">{selected.title}</h2>
+                                <p className="text-gray-600">{selected.description}</p>
+                                <div className="flex items-center justify-between mt-4">
+                                    <button
+                                        className="px-4 py-1 bg-black text-white rounded-lg"
+                                        onClick={() => setSelected(null)}
+                                    >
+                                        Close
+                                    </button>
+                                    <div className='flex justify-end w-full'>
+                                        <button onClick={() => handleClickAction(selected.id)} className=' bg-orange-500 rounded-md px-4 py-1 uppercase flex gap-2 items-center text-[12px] justify-center font-semibold text-white transition-all ease-in-out hover:bg-orange-400 '>open<ChevronsRight className='w-4' /></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

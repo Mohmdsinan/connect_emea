@@ -46,6 +46,8 @@ const EmblaCarousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const navigate = useNavigate();
   const tweenNodes = useRef([])
+  const [loading, setLoading] = useState(true);
+  const [imgLoaded, setImgLoaded] = useState(false);
   //   const { selectedIndex, scrollSnaps, onDotButtonClick } =
   //     useDotButton(emblaApi)
   // console.log('slides', slides)
@@ -161,6 +163,7 @@ const EmblaCarousel = (props) => {
 
   useEffect(() => {
     if (!emblaApi) return
+    setLoading(false);
     emblaApi.scrollTo(1, false);
     setTweenFactor(emblaApi)
     setTweenNodes(emblaApi)
@@ -182,7 +185,7 @@ const EmblaCarousel = (props) => {
   const handleClick = (id, index) => {
     // console.log('clicked')
     if (activeIndex === index) {
-      setSelected(slides.find(slide => slide.id === id));
+      setSelected(slides.find(slide => slide._id === id));
     }
     // navigate('/event/' + id)
   }
@@ -195,33 +198,50 @@ const EmblaCarousel = (props) => {
     <div className="embla2">
       <div className="embla__viewport2" ref={emblaRef}>
         <div className="embla__container2">
+
           {slides.map((event, index) => (
             <motion.div
-              key={event.id}
-              initial={false}
-              layoutId={`card-${event.id}`}
+              key={event._id}
+              layoutId={`card-${event._id}`}
               className="embla__slide2 relative overflow-hidden rounded-2xl border cursor-pointer"
-              onClick={() => handleClick(event.id, index)}
+              onClick={() => handleClick(event._id, index)}
             >
+              {/* Skeleton Loader */}
+              {!imgLoaded && (
+                <div className="absolute top-0 left-0 w-full h-[300px] bg-gray-200 animate-pulse rounded-2xl" />
+              )}
+
+              {/* Image */}
               <motion.img
-                layoutId={`image-${event.id}`}
-                className="embla__slide__img2"
+                layoutId={`image-${event._id}`}
+                className={classNames(
+                  "embla__slide__img2 transition-opacity duration-500",
+                  imgLoaded ? "opacity-100" : "opacity-0"
+                )}
                 src={event.image}
-                alt="Your alt text"
+                alt={event.title}
+                loading="lazy"
+                onLoad={() => setImgLoaded(true)}
               />
-              {/* card */}
-              <div className="absolute z-30 bottom-4 w-[100%] mx-auto" >
-                <div className='bg-white/70 w-[95%] rounded-xl  mx-auto py-3 backdrop-blur-sm border'>
-                  <h1 className='text-md font-semibold text-center mb-2'>{event.title}</h1>
-                  <div className='flex justify-around'>
-                    <p className='text-sm'>Date: {event.date}</p>
-                    <p className='text-sm'>Time: {event.time}</p>
+
+              {/* Card content */}
+              <div className="absolute z-30 bottom-4 w-full mx-auto">
+                <div className="bg-white/70 w-[95%] rounded-xl mx-auto py-3 backdrop-blur-sm border">
+                  <h1 className="text-md font-semibold text-center mb-2">
+                    {event.title}
+                  </h1>
+                  <div className="flex justify-around">
+                    <p className="text-sm">Date: {event.date}</p>
+                    <p className="text-sm">Time: {event.time}</p>
                   </div>
                 </div>
               </div>
 
-              {/* arrow */}
-              <div className='absolute top-2 right-2 z-30 cursor-pointer text-white bg-black/10 rounded-full' onClick={() => handleClick(event.id)}>
+              {/* Arrow */}
+              <div
+                className="absolute top-2 right-2 z-30 cursor-pointer text-white bg-black/10 rounded-full"
+                onClick={() => handleClick(event._id)}
+              >
                 <ArrowUpRight />
               </div>
             </motion.div>
@@ -234,10 +254,10 @@ const EmblaCarousel = (props) => {
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
-
-        <a href='/events' className='text-md mx-auto font-semibold z-30 -mt-4 cursor-pointer hover:text-orange-500 transition-all ease-in-out'>
+        <a href='/events' className='text-md mx-auto font-semibold z-30  cursor-pointer text-white px-3 py-1 rounded-md hover:bg-orange-400  transition-all ease-in-out bg-orange-500 mt-3'>
           Show more
         </a>
+
         {/* <div className="embla__dots">
             {scrollSnaps.map((_, index) => (
               <DotButton
@@ -261,13 +281,13 @@ const EmblaCarousel = (props) => {
               onClick={() => setSelected(null)}
             >
               <motion.div
-                layoutId={`card-${selected.id}`}
+                layoutId={`card-${selected._id}`}
                 className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
                 transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
               >
                 <motion.img
-                  layoutId={`image-${selected.id}`}
+                  layoutId={`image-${selected._id}`}
                   src={selected.image}
                   alt={selected.title}
                   className="w-full h-60 object-cover"

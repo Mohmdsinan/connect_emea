@@ -4,6 +4,7 @@ import SheHikeLogo from '@/assets/icons/SheHike_Logo2.png'
 import { motion } from "motion/react";
 
 function Communities() {
+  const isMobile = window.innerWidth < 768;
   return (
     <div className='flex flex-col'>
       <h1 className='text-3xl font-semibold text-center my-10'>Communities for joy</h1>
@@ -11,7 +12,7 @@ function Communities() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className='flex items-center flex-col'
         >
@@ -25,7 +26,7 @@ function Communities() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className='flex items-center flex-col'
         >
