@@ -2,7 +2,7 @@ import { useState } from "react";
 import navLinks from "@/const/navLinks";
 import Logo from "@/assets/icons/connect.svg";
 import { LayoutPanelTop, X } from "lucide-react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ function NavBar() {
   const [navOpen, setNavOpen] = useState(false);
   const location = useLocation();
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
   const underlineStyle: React.CSSProperties = {
     position: "relative",
     display: "inline-block",
@@ -49,7 +49,8 @@ function NavBar() {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      setOpen(true);
+      // setOpen(true);
+      navigate('/')
     }
   };
 
