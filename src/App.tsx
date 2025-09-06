@@ -16,6 +16,7 @@ import Interns from "./pages/admin/interns";
 import Events from "./pages/admin/events";
 
 import Login from "./pages/admin/login";
+import NotFound from "./notfound";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/admin/responses", element: <FormData /> },
     ],
   },
+
   {
     path: "/dashboard",
     element: <AdminLayout />,
@@ -50,14 +52,17 @@ const router = createBrowserRouter([
       {
         path: "events",
         element: <Events />,
-      }
+      },
     ],
   },
   {
     path: "/signin",
     element: <Login />,
   },
-  { path: "*", element: <Navigate to="/" /> },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 export default function App() {
