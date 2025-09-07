@@ -970,7 +970,7 @@ const Events: Event[] = [
     },
   },
   {
-    id: 27,
+    id: 30,
     title: "Level Up: Mastering Content Writing",
     date: "27/01/2023",
     time: "08:00 PM",

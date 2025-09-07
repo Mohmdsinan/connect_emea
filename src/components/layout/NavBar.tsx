@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import navLinks from "@/const/navLinks";
 import Logo from "@/assets/icons/connect.svg";
 import { LayoutPanelTop, X } from "lucide-react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Dialog,
   DialogContent,
@@ -13,53 +14,64 @@ import {
 
 function NavBar() {
   const [navOpen, setNavOpen] = useState(false);
-  const location = useLocation();
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const underlineStyle: React.CSSProperties = {
-    position: "relative",
-    display: "inline-block",
-  };
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const activeUnderlineStyle: React.CSSProperties = {
-    content: "''",
-    display: "block",
-    width: "50%",
-    height: "2px",
-    backgroundColor: "currentColor",
-    position: "absolute",
-    left: "25%",
-    bottom: "-1px",
-    transition: "width 0.3s ease, left 0.3s ease",
-  };
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
   };
 
-  // Function to get the label of the current route from navLinks
   const getCurrentRouteLabel = () => {
     const currentLink = navLinks.find(
       (link) => link.href === location.pathname
     );
-    return currentLink ? currentLink.label : ""; // Default to "Home" if no match
+    return currentLink ? currentLink.label : "";
   };
 
   const handleHome = () => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      // setOpen(true);
-      navigate('/')
+      navigate("/");
     }
   };
 
+  // 🔥 Hide on scroll down, show on scroll up
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNav(false); // scrolling down
+      } else {
+        setShowNav(true); // scrolling up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav className=" p-4 bg-white/50 text-black  sm:py-6   w-full z-50 fixed backdrop-blur-sm right-0 left-0">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: showNav ? 0 : -100 }} // slide up / down
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="p-4 bg-white/50 text-black sm:py-6 w-full z-50 fixed backdrop-blur-sm right-0 left-0"
+    >
       <div className="w-limit flex justify-between items-center mx-auto">
+        {/* Logo */}
         <div onClick={handleHome} className="cursor-pointer">
-          <img  draggable={false} // prevent dragging
-              onDragStart={(e) => e.preventDefault()} src={Logo} alt="logo" className="h-8" />
+          <img
+            draggable={false}
+            onDragStart={(e) => e.preventDefault()}
+            src={Logo}
+            alt="logo"
+            className="h-8"
+          />
         </div>
 
         {/* Desktop Links */}
@@ -73,19 +85,13 @@ function NavBar() {
                   isActive ? "text-orange-500" : "text-gray-800"
                 } hover:text-orange-500`
               }
-              style={underlineStyle}
             >
-              {({ isActive }) => (
-                <>
-                  {link.label}
-                  {isActive && <span style={activeUnderlineStyle} />}
-                </>
-              )}
+              {link.label}
             </NavLink>
           ))}
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Toggle */}
         <div className="md:hidden">
           <button onClick={toggleNav} className="focus:outline-none">
             <div className="border flex items-center justify-center gap-1 rounded-lg bg-black p-[5px] transition-transform duration-300">
@@ -94,7 +100,6 @@ function NavBar() {
                   {getCurrentRouteLabel()}
                 </p>
               )}
-
               <div
                 className={`transform transition-transform duration-300 ${
                   navOpen ? "rotate-90" : ""
@@ -110,7 +115,7 @@ function NavBar() {
           </button>
         </div>
 
-        {/* Mobile Navigation Links */}
+        {/* Mobile Menu */}
         <div
           className={`absolute top-16 right-4 z-50 w-36 bg-white text-black rounded-lg shadow-lg flex flex-col items-start p-4 transition-all duration-300 transform ${
             navOpen
@@ -127,13 +132,14 @@ function NavBar() {
                   isActive ? "text-orange-500" : "text-gray-800"
                 }`
               }
-              onClick={() => setNavOpen(false)} // Close the mobile menu on link click
+              onClick={() => setNavOpen(false)}
             >
               {link.label}
             </NavLink>
           ))}
         </div>
-        {/* Dialog from shadcn */}
+
+        {/* Dialog */}
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogContent className="bg-white">
             <DialogHeader>
@@ -163,7 +169,7 @@ function NavBar() {
           </DialogContent>
         </Dialog>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

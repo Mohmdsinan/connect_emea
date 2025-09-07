@@ -34,7 +34,7 @@ function SampleNextArrow(props) {
 }
 function SamplePrevArrow(props) {
     const { className, style, onClick, color } = props;
-    console.log('color:', color);
+    // console.log('color:', color);
     const isDisabled = className && className.includes("slick-disabled");
     return (
         <div

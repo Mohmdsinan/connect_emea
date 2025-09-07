@@ -33,7 +33,7 @@ function Points() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
                 Your journey of growth right <br />
-                at your campus!
+                at <span className="text-orange-500">your campus!</span>
             </motion.h1>
 
             <div className="columns-1 md:columns-2 gap-10">

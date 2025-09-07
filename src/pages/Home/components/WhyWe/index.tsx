@@ -28,7 +28,7 @@ const points: Point[] = [
       <>
         True learning happens outside textbooks and lectures. While academic
         knowledge is vital,{" "}
-        <span className="font-bold">community and hands-on experience</span> are
+        <span className="font-semibold text-orange-500">community and hands-on experience</span> are
         where students truly grow.
       </>
     ),
@@ -38,7 +38,7 @@ const points: Point[] = [
     content: (
       <>
         The traditional education system often lacks real-world application.{" "}
-        <span className="font-bold">Connect steps in</span> to fill that gap,
+        <span className=" font-semibold text-orange-500">Connect steps in</span> to fill that gap,
         offering opportunities for students to apply what they've learned.
       </>
     ),
@@ -48,7 +48,7 @@ const points: Point[] = [
     content: (
       <>
         We create a space where students can{" "}
-        <span className="font-bold">turn theory into practice</span>, surrounded
+        <span className=" font-semibold text-orange-500">turn theory into practice</span>, surrounded
         by like-minded peers who share their drive for success.
       </>
     ),
@@ -58,7 +58,7 @@ const points: Point[] = [
     content: (
       <>
         At Connect, we{" "}
-        <span className="font-bold">challenge, inspire, and support</span> each
+        <span className=" font-semibold text-orange-500">challenge, inspire, and support</span> each
         other, achieving more together than we could alone.
       </>
     ),

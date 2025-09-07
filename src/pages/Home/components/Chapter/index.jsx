@@ -2,42 +2,75 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EventsBG, PlacementBG, MembersBG } from "@/assets/avatars";
 
-
-
 const points = [
   {
     title: "Work on Real Projects",
-    content:
-      "Get hands-on experience with collaborative projects that solve real-world problems. Perfect for rebels who want to make an impact now.",
+    content: (
+      <>
+        Get hands-on experience with{" "}
+        <span className="font-semibold text-orange-500">
+          collaborative projects
+        </span>{" "}
+        that solve real-world problems. Perfect for rebels who want to make an
+        impact now.
+      </>
+    ),
   },
   {
     title: "Free Skill Development",
-    content:
-      "Access a wide range of resources to build new skills across different fields—completely free. Because your passion shouldn't come with a price tag.",
+    content: (
+      <>
+        Access a wide range of resources to{" "}
+        <span className="font-semibold text-orange-500">
+          build new skills
+        </span>{" "}
+        across different fields—completely free. Because your passion shouldn’t
+        come with a price tag.
+      </>
+    ),
   },
   {
     title: "Network with Peers",
-    content:
-      "Connect with supportive, like-minded friends who share your drive and ambition. Build a community that fuels your passion.",
+    content: (
+      <>
+        <span className="font-semibold text-orange-500">Connect</span> with
+        supportive, like-minded friends who share your drive and ambition. Build
+        a community that fuels your passion.
+      </>
+    ),
   },
   {
     title: "Free Mentorship",
-    content:
-      "Learn directly from industry pros who’ve been where you want to go. Gain insights, advice, and guidance without spending a dime.",
+    content: (
+      <>
+        Learn directly from{" "}
+        <span className="font-semibold text-orange-500">industry pros</span> who
+        have been where you want to go. Gain insights, advice, and guidance
+        without spending a dime.
+      </>
+    ),
   },
   {
     title: "Leadership Opportunities",
-    content:
-      "Step up and take on leadership roles to sharpen your management and organizational skills. Show the world what you’re capable of.",
+    content: (
+      <>
+        Step up and take on{" "}
+        <span className="font-semibold text-orange-500">
+          leadership roles
+        </span>{" "}
+        to sharpen your management and organizational skills. Show the world
+        what you’re capable of.
+      </>
+    ),
   },
 ];
 
-const containerVariants  = {
+const containerVariants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
 
-const pointVariants  = {
+const pointVariants = {
   hidden: { opacity: 0, y: 20 },
   show: (i) => ({
     opacity: 1,
@@ -46,17 +79,8 @@ const pointVariants  = {
   }),
 };
 
-// const stats = [
-//   { img: MembersBG, title: "100+", subtitle: "Members", style: "" },
-//   { img: EventsBG, title: "40+", subtitle: "Events", style: "" },
-//   {
-//     img: PlacementBG,
-//     title: "20+",
-//     subtitle: "Placements",
-//     style: "absolute -bottom-32 left-24",
-//   },
-// ];
 const isMobile = window.innerWidth < 768;
+
 const Chapter = () => {
   return (
     <section className="flex flex-col gap-4 p-4 my-10">
@@ -98,6 +122,7 @@ const Chapter = () => {
           </ul>
         </motion.div>
 
+        {/* Right side stats section */}
         <motion.div
           className="relative flex h-full items-center justify-center select-none"
           initial={{ opacity: 0, y: 30 }}
@@ -107,15 +132,15 @@ const Chapter = () => {
         >
           <div className="flex relative items-end gap-6 md:-mt-20 mb-24 md:mb-0">
             <motion.div
-              className={`min-h-64 w-40 bg-gray-400 border border-black rounded-full flex items-center justify-center overflow-hidden relative `}
+              className="min-h-64 w-40 bg-gray-400 border border-black rounded-full flex items-center justify-center overflow-hidden relative"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <img
-               draggable={false} // prevent dragging
-               onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
                 src={MembersBG}
-                alt=""
+                alt="Members"
                 className="absolute inset-0 object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -124,16 +149,17 @@ const Chapter = () => {
                 <p className="font-semibold text-xl">Members</p>
               </span>
             </motion.div>
+
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               className="min-h-52 w-36 bg-gray-400 border border-black rounded-full flex items-center justify-center overflow-hidden relative"
             >
               <img
-                 draggable={false} // prevent dragging
-                 onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
                 src={EventsBG}
-                alt=""
+                alt="Events"
                 className="absolute inset-0 object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -142,16 +168,17 @@ const Chapter = () => {
                 <p className="font-semibold text-xl">Events</p>
               </span>
             </motion.div>
+
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               className="min-h-52 w-36 bg-gray-400 border border-black rounded-full flex items-center justify-center absolute -bottom-32 left-24 overflow-hidden"
             >
               <img
-               draggable={false} // prevent dragging
-               onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
                 src={PlacementBG}
-                alt=""
+                alt="Placements"
                 className="absolute inset-0 object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>

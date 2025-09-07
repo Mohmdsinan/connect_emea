@@ -254,9 +254,11 @@ const EmblaCarousel = (props) => {
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
-        <a href='/events' className='text-md mx-auto font-semibold z-30  cursor-pointer text-white px-3 py-1 rounded-md hover:bg-orange-400  transition-all ease-in-out bg-orange-500 mt-3'>
-          Show more
-        </a>
+        <div className='flex items-center justify-center mt-2 mx-auto'>
+          <a href='/events' className='text-md mr-12 font-semibold z-30  cursor-pointer text-white px-3 py-1 rounded-md hover:bg-orange-400  transition-all ease-in-out bg-orange-500 mt-3'>
+            Show more
+          </a>
+        </div>
 
         {/* <div className="embla__dots">
             {scrollSnaps.map((_, index) => (

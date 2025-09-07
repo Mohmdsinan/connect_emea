@@ -20,13 +20,13 @@ function About() {
       title: "Interact",
       content:
         "An interactive setting where each one of you could connect with folks and mentors having a remarkable mindset. Your involvement and dedication to the community can even get you an internship opportunity.",
-      icon: <Lightbulb className="text-blue-500 w-10 h-10 mb-4 mx-auto" />,
+      icon: <Lightbulb className="text-orange-500 w-10 h-10 mb-4 mx-auto" />,
     },
     {
       title: "Innovate",
       content:
         "A place brimming with possibilities for innovation and astonishing creations. A perfect spot to display your work. Here you always advance and invent yourself!",
-      icon: <Code className="text-green-500 w-10 h-10 mb-4 mx-auto" />,
+      icon: <Code className="text-orange-500 w-10 h-10 mb-4 mx-auto" />,
     },
   ];
   const isMobile = window.innerWidth < 768;
@@ -41,7 +41,7 @@ function About() {
         className="my-6"
       >
         <h1 className="font-semibold text-center max-w-[600px] text-[25px] sm:text-[38px] mx-auto px-2 my-4">
-          You’re Just One Step Away From Joining Our Community
+          You’re Just One Step Away From Joining <span className="text-orange-500">Our Community</span>
         </h1>
         <p className="text-center max-w-[1100px] px-4 mx-auto text-md sm:text-lg">
           At Connect, your journey isn’t just about your career, it’s about
