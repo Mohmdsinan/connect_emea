@@ -30,6 +30,49 @@ export const fetchRecords = async (tableName, filterParams, sortField, sortDirec
     }
 };
 
+export const fetchRecordsQueries = async (
+    tableName,
+    filterParams = "",
+    sortField = "",
+    sortDirection = "asc",
+    maxRecords
+) => {
+    try {
+        const url = new URL(`${airtableApiUrl_queries}/${tableName}`);
+
+        // Only add params if they have a value
+        if (filterParams) {
+            url.searchParams.append("filterByFormula", filterParams);
+        }
+
+        if (sortField) {
+            url.searchParams.append("sort[0][field]", sortField);
+            url.searchParams.append("sort[0][direction]", sortDirection || "asc");
+        }
+
+        if (maxRecords) {
+            url.searchParams.append("maxRecords", maxRecords.toString());
+        }
+
+        const response = await fetch(url, {
+            headers: {
+                Authorization: `Bearer ${apiKey}`,
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error fetching records: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.records;
+    } catch (error) {
+        console.error("Error fetching records:", error);
+        throw error;
+    }
+};
+
+
 export const createRecord = async (tableName, fields, url_ID) => {
     try {
         const url = `${url_ID === 1 ? airtableApiUrl_hiring : airtableApiUrl_queries}/${tableName}`;
