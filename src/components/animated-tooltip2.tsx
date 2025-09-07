@@ -5,10 +5,10 @@ import {
   Dialog,
   DialogContent,
   // DialogClose,
-  // DialogDescription,
+  DialogDescription,
   // DialogFooter,
   // DialogHeader,
-  // DialogTitle,
+  DialogTitle,
   // DialogTrigger,
 } from "@/components/ui/dialogTooltip";
 import {
@@ -37,7 +37,7 @@ export const AnimatedTooltip = ({
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<any | null>(null);
-  console.log(items);
+  // console.log(items);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
@@ -159,6 +159,10 @@ export const AnimatedTooltip = ({
                   </div>
                   <div className="bg-white basis-7/12 flex gap-2 items-center p-4 pt-0">
                     <div className="border-[5px] border-white relative -mt-16 overflow-hidden rounded-full bg-gray-100">
+                      <DialogTitle className="sr-only">{item.name}</DialogTitle>
+                      <DialogDescription className="sr-only">
+                        {item.role}
+                      </DialogDescription>
                       <img
                         src={`${item.image}`}
                         alt={item.name}
@@ -173,18 +177,24 @@ export const AnimatedTooltip = ({
                         {item.role}
                       </p>
                       <div className="flex gap-4 mt-2">
-                        <Instagram
-                          className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
-                          onClick={handleSocial(item.social.instagram)}
-                        />
-                        <Github
-                          className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
-                          onClick={handleSocial(item.social.github)}
-                        />
-                        <Linkedin
-                          className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
-                          onClick={handleSocial(item.social.linkedin)}
-                        />
+                        {item.social.instagram && (
+                          <Instagram
+                            className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
+                            onClick={handleSocial(item.social.instagram)}
+                          />
+                        )}
+                        {item.social.github && (
+                          <Github
+                            className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
+                            onClick={handleSocial(item.social.github)}
+                          />
+                        )}
+                        {item.social.linkedin && (
+                          <Linkedin
+                            className="text-secondary text-lg cursor-pointer transition-all ease-in-out duration-500 hover:-translate-y-1 "
+                            onClick={handleSocial(item.social.linkedin)}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
