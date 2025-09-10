@@ -26,7 +26,10 @@ import {
   Reconnect,
   InternHiring,
   Intern_hiring05,
-  OpenMic01
+  OpenMic01,
+  OnamMail,
+  Veo3,
+  AppleEvent,
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1071,6 +1074,93 @@ const Events: Event[] = [
             An open floor for participants to present their projects, ideas, or
             simply share their stories.
           </li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 31,
+    title: "Apple Special Event Watch Party",
+    date: "09/09/2025",
+    time: "10:30 PM",
+    location: "Discord App",
+    description:
+      "Join us live as we watch Apple’s Special Event together and explore the latest announcements and innovations.",
+    image: AppleEvent,
+    link: "https://discord.gg/sJ7JMdYV?event=1415005800694415480",
+    big_description:
+      "Apple’s Special Event is here! Catch the latest announcements, product reveals, and cutting-edge innovations in real time with fellow tech enthusiasts. Join us on Discord and experience the event together!",
+    about: {
+      objectives:
+        "To bring the community together and experience Apple’s latest announcements and product launches in real time.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Watch Apple’s 2025 Special Event live</li>
+          <li>Catch the latest product launches and innovations</li>
+          <li>Discuss and share insights with fellow enthusiasts</li>
+          <li>Engage in a fun community watch party</li>
+          <li>Experience the excitement together on Discord</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 32,
+    title: "ഒരു Veo കഥ",
+    date: "12/08/2025",
+    time: "1:30 PM - 3:30 PM",
+    location: "Seminar Hall, EMEA College",
+    description:
+      "A fun-filled workshop exploring Veo 3 + Gemini Pro (₹19,500 worth) student pack for free!",
+    image: Veo3,
+    link: "https://bit.ly/connect-veo3",
+    big_description:
+      "Dive into the AI world with Veo 3 and Gemini Pro! This exclusive student workshop offers hands-on learning, creativity, and innovation opportunities — all with tools worth ₹19,500, free of cost.",
+    about: {
+      objectives:
+        "To introduce students to AI-powered creative tools (Veo 3 + Gemini Pro) through a practical, engaging, and collaborative workshop.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>
+            Free access to Veo 3 + Gemini Pro student pack (worth ₹19,500 value)
+          </li>
+          <li>Hands-on experience with AI-powered creativity</li>
+          <li>Fun, interactive and collaborative learning environment</li>
+          <li>Engage, share, and grow with like-minded peers</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 33,
+    title: "Onam.mail",
+    date: "3/9/2025",
+    time: "8:00 PM",
+    location: "Google Meet",
+    description:
+      "A creative online session where we build Onam.mail – a fun website to send heartfelt Onam wishes to loved ones.",
+    image: OnamMail,
+    link: "",
+    big_description:
+      "A hackathon-like online session to learn, collaborate, and create a unique website. Blending the festive spirit of Onam with technology, we built Onam.mail – a platform that lets you send warm Onam wishes to anyone you wish through email with just a click.",
+    about: {
+      objectives:
+        "To help participants explore and familiarize themselves with real-world projects through a collaborative and enjoyable experience. ",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>
+            Experience how real-world projects are developed collaboratively.
+          </li>
+          <li>Learn the basics of building a simple yet meaningful website.</li>
+          <li>Live Q&A sessions clarified each step of the process.</li>
+          <li>
+            One-on-one mentoring supported participants, including complete
+            beginners
+          </li>
+          <li>Hands-on experience to get familiar with essential tools</li>
         </ul>
       ),
       gallery: [],

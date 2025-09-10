@@ -45,3 +45,9 @@ export { default as BuildEMEA_QNA } from "./buildemea_QNA.jpeg";
 export { default as BuildEMEA_github } from "./buildemea_github.jpeg";
 export { default as buildemea_web } from "./buildemea_web.jpeg";
 export { default as buildemea_exclusive } from "./buildemea_exclusive.jpeg";
+
+
+// 2025
+export { default as OnamMail } from "./onam_mail.jpeg";
+export { default as Veo3 } from "./veo3.jpeg";
+export { default as AppleEvent } from "./apple_event.jpeg";
