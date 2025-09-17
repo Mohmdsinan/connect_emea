@@ -284,15 +284,15 @@ const EmblaCarousel = (props) => {
             >
               <motion.div
                 layoutId={`card-${selected._id}`}
-                className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+                className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
                 transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
               >
                 <motion.img
-                  layoutId={`image-${selected._id}`}
+                 layoutId={`image-${selected._id}`}
                   src={selected.image}
                   alt={selected.title}
-                  className="w-full h-60 object-cover"
+                  className="w-full max-h-[300px] object-contain bg-black"
                 />
                 <div className="p-5">
                   <p className="text-xs uppercase text-gray-500">

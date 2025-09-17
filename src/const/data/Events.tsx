@@ -30,6 +30,12 @@ import {
   OnamMail,
   Veo3,
   AppleEvent,
+  AiExplorer,
+  TinkHerHack3,
+  ElevateHacknight,
+  ProfilePowerup,
+  ContentWriting,
+  LinkedInResume,
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1161,6 +1167,166 @@ const Events: Event[] = [
             beginners
           </li>
           <li>Hands-on experience to get familiar with essential tools</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 34,
+    title: "AI Explorer",
+    date: "22/05/2023",
+    time: "8:00 PM",
+    location: "Google Meet",
+    description: "Master AI tools to supercharge your lives.",
+    image: AiExplorer,
+    link: "https://meet.google.com/bqf-wvif-wsy",
+    big_description:
+      "AI Explorer is an interactive online session designed to help participants understand and master AI tools that can enhance productivity, creativity, and everyday life. The session provides insights into practical AI applications and guides participants on how to integrate them effectively.",
+    about: {
+      objectives:
+        "To introduce participants to powerful AI tools and demonstrate how they can be leveraged to improve learning, work, and personal growth.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to essential AI tools</li>
+          <li>Live demonstrations of AI in action</li>
+          <li>Tips to boost productivity using AI</li>
+          <li>Q&A session with mentors</li>
+          <li>Networking with like-minded peers</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 35,
+    title: "Introduction to Hackathon",
+    date: "18/01/2025",
+    time: "8:00 PM",
+    location: "Google Meet",
+    description:
+      "An introductory session to get familiar with hackathons and prepare for Tink-Her-Hack 3.",
+    image: TinkHerHack3,
+    link: "",
+    big_description:
+      "Have questions about Tink-Her-Hack? Join us for 'Introduction to Hackathon' and get a clear idea about what hackathons are, how they work, and how you can make the most of Tink-Her-Hack 3. Whether you’re a beginner or curious explorer, this session will walk you through the essentials while keeping it fun and interactive.",
+    about: {
+      objectives:
+        "To provide participants with an understanding of hackathons, clarify doubts about Tink-Her-Hack, and help beginners feel confident before joining.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to hackathons and their purpose</li>
+          <li>Overview of Tink-Her-Hack 3</li>
+          <li>Clarification of common doubts</li>
+          <li>Beginner-friendly guidance and tips</li>
+          <li>Interactive Q&A session</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 36,
+    title: "Elevate Hacknight",
+    date: "25/05/2024",
+    time: "08:00 PM",
+    location: "Google Meet",
+    description:
+      "A collaborative hack night to learn, build, and have fun together.",
+    image: ElevateHacknight,
+    link: "",
+    big_description:
+      "Elevate Hacknight is an exciting online collaboration event designed to turn boring tasks into engaging projects. Participants will team up, code, and create innovative solutions while experiencing the joy of collaboration.",
+    about: {
+      objectives:
+        "To bring participants together for an engaging hacknight that fosters creativity, collaboration, and hands-on project building.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Engage in fun and collaborative coding sessions</li>
+          <li>Work on real-time challenges with peers</li>
+          <li>Enhance teamwork and problem-solving skills</li>
+          <li>Experience the excitement of late-night hacking</li>
+          <li>Build projects that reflect creativity and innovation</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 37,
+    title: "Profile Powerup Unleashed",
+    date: "15/09/2023",
+    time: "9:30 AM - 12:30 PM",
+    location: "Seminar Hall",
+    description:
+      "Showcase your professional potential the right way with resume creation, LinkedIn, and job portals.",
+    image: ProfilePowerup,
+    link: "bit.ly/profilev2",
+    big_description:
+      "Profile Powerup Unleashed is designed to help you showcase your professional potential the right way. The session will guide you through creating impactful resumes, building a strong LinkedIn presence, and exploring other job portals to stand out in the professional world.",
+    about: {
+      objectives:
+        "To equip participants with essential tools and strategies to enhance their professional profiles and job market readiness.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Hands-on resume creation guidance</li>
+          <li>Optimizing LinkedIn for career growth</li>
+          <li>Exploring job portals effectively</li>
+          <li>Practical tips to stand out professionally</li>
+          <li>Interactive learning experience</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 38,
+    title: "Exploring the World of Content Writing!",
+    date: "27/01/2024",
+    time: "7:30 PM",
+    location: "Online",
+    description: "An event to level up our writing skills.",
+    image: ContentWriting,
+    link: "",
+    big_description:
+      "Level Up is bringing an exciting session on content writing, where participants will dive into the art of crafting impactful words. This event is perfect for aspiring writers and creators looking to enhance their skills and master every line they write.",
+    about: {
+      objectives:
+        "To provide participants with insights and practical knowledge about content writing, improving their ability to write with clarity, creativity, and influence.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to the world of content writing</li>
+          <li>Tips and strategies for writing effectively</li>
+          <li>Interactive session with real-world examples</li>
+          <li>Insights on creativity and clarity in writing</li>
+          <li>Opportunity to engage and learn with peers</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
+  {
+    id: 39,
+    title: "LinkedIn & Resume Session",
+    date: "18/09/2025",
+    time: "1:30 PM – 3:30 PM",
+    location: "Seminar Hall",
+    description:
+      "Boost your career game! Learn how to build a standout LinkedIn profile and craft a resume that gets noticed.",
+    image: LinkedInResume,
+    link: "https://airtable.com/app45xOOCKePpGND0/pagdyV3VRgZljk1wq/form",
+    big_description:
+      "Your career deserves a strong start! Join our LinkedIn & Resume Session led by Muhammed Shamil and Muhammed Rizwan. Learn how to stand out, get noticed, and unlock new opportunities. Seats are limited—don’t miss out!",
+    about: {
+      objectives:
+        "To equip students with the skills to create professional LinkedIn profiles and effective resumes that enhance their career opportunities.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Learn LinkedIn profile optimization techniques</li>
+          <li>Understand resume-building essentials</li>
+          <li>Tips to stand out in recruitment processes</li>
+          <li>Insights from experienced speakers</li>
+          <li>Interactive Q&A session</li>
         </ul>
       ),
       gallery: [],

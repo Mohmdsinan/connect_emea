@@ -6,6 +6,7 @@ import { Special } from "../EventCard";
 import classNames from 'classnames';
 import { ChevronRight, ChevronsRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 
 function SampleNextArrow(props) {
@@ -32,6 +33,8 @@ function SampleNextArrow(props) {
         </div>
     );
 }
+
+
 function SamplePrevArrow(props) {
     const { className, style, onClick, color } = props;
     // console.log('color:', color);
@@ -64,6 +67,7 @@ function SamplePrevArrow(props) {
 function SlickCarousel(props) {
     const { slides, color } = props;
     const [selected, setSelected] = useState(null);
+    const navigate = useNavigate();
     var settings = {
         dots: false,
         infinite: false,
@@ -97,13 +101,17 @@ function SlickCarousel(props) {
         ]
     };
 
+    const handleClickAction = (id) => {
+        navigate('/event/' + id);
+    }
+
     return (
         <div className="slider-container w-full max-w-[1100px] mx-auto relative overflow-hidden">
             <Slider {...settings} >
                 {slides.map((event, index) => (
-                    <div className="rounded-xl  sm:mx-0" key={index}>
-                        <Special data={event} color={color} layoutId={`card1-${event.id}`}
-                            onClick={() => setSelected(event)} key={index} />
+                    <div className="rounded-xl  sm:mx-0" key={event.id}>
+                        <Special data={event} color={color}
+                            onClick={() => setSelected(event)} key={event.id} />
                     </div>
                 ))}
             </Slider>
@@ -120,7 +128,7 @@ function SlickCarousel(props) {
                     >
                         <motion.div
                             layoutId={`card1-${selected.id}`}
-                            className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+                            className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden"
                             onClick={(e) => e.stopPropagation()}
                             transition={{ layout: { duration: 0.5, ease: "easeInOut" } }}
                         >
@@ -129,7 +137,7 @@ function SlickCarousel(props) {
                                 layoutId={`image1-${selected.id}`}
                                 src={selected.image}
                                 alt={selected.title}
-                                className="w-full h-60 object-cover"
+                                className="w-full max-h-[300px] object-contain bg-black"
                             />
                             <div className="p-5">
                                 <p className="text-xs uppercase text-gray-500">

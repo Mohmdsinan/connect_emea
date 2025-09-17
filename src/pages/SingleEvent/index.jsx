@@ -65,23 +65,23 @@ function SingleEvent() {
                     )}
                 </div>
 
-                {/* Right: Image */}
                 <motion.div
                     className="sm:w-1/2 w-full max-w-md mx-auto"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    <div className="rounded-xl overflow-hidden shadow-lg">
+                    <div className="rounded-xl overflow-hidden  flex items-center justify-center ">
                         <img
-                         draggable={false} // prevent dragging
-                         onDragStart={(e) => e.preventDefault()}
+                            draggable={false}
+                            onDragStart={(e) => e.preventDefault()}
                             src={event.image}
                             alt={event.title}
-                            className="w-full h-80 object-cover"
+                            className="max-h-80 w-auto object-contain rounded-lg"
                         />
                     </div>
                 </motion.div>
+
             </motion.div>
 
             {/* About Section */}

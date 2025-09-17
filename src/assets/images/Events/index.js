@@ -51,3 +51,11 @@ export { default as buildemea_exclusive } from "./buildemea_exclusive.jpeg";
 export { default as OnamMail } from "./onam_mail.jpeg";
 export { default as Veo3 } from "./veo3.jpeg";
 export { default as AppleEvent } from "./apple_event.jpeg";
+
+
+export { default as AiExplorer } from "./AiExplorer.jpeg";
+export { default as TinkHerHack3 } from "./TinkerHack3.jpeg";
+export { default as ElevateHacknight } from "./ElevateHacknight.jpeg";
+export { default as ProfilePowerup } from "./ProfilePowerUp.jpeg";
+export { default as ContentWriting } from "./ContentWriting.jpeg";
+export { default as LinkedInResume } from "./LinkedInResume.jpeg";

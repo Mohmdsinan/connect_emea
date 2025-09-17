@@ -6,5 +6,8 @@ export { default as study_group } from "./study_group.jpeg";
 export { default as teamwork } from "./teamwork.jpeg";
 export { default as welcome_event } from "./welcome_event.jpeg";
 export { default as workshop } from "./workshop.jpeg";
+export { default as student_showcase } from "./student_showcase.jpeg";
+export { default as student_leaders } from "./student_leaders.jpeg";
+export { default as graduation_ceremony } from "./graduation_ceremony.jpeg";
 
 
