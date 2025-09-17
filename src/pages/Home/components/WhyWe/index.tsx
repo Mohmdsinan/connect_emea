@@ -12,8 +12,8 @@ import {
   motion,
   AnimatePresence,
   Variants,
-  easeIn,
-  easeOut,
+  // easeIn,
+  // easeOut,
 } from "framer-motion";
 
 interface Point {
@@ -66,25 +66,25 @@ const points: Point[] = [
 ];
 
 // Motion variants
-const imageVariants: Variants = {
-  enter: (direction: number) => ({
-    x: direction === 0 ? 300 : -300,
-    opacity: 0,
-    scale: 0.8,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: easeOut },
-  },
-  exit: (direction: number) => ({
-    x: direction === 0 ? -300 : 300,
-    opacity: 0,
-    scale: 1.2,
-    transition: { duration: 0.5, ease: easeIn },
-  }),
-};
+// const imageVariants: Variants = {
+//   enter: (direction: number) => ({
+//     x: direction === 0 ? 300 : -300,
+//     opacity: 0,
+//     scale: 0.8,
+//   }),
+//   center: {
+//     x: 0,
+//     opacity: 1,
+//     scale: 1,
+//     transition: { duration: 0.5, ease: easeOut },
+//   },
+//   exit: (direction: number) => ({
+//     x: direction === 0 ? -300 : 300,
+//     opacity: 0,
+//     scale: 1.2,
+//     transition: { duration: 0.5, ease: easeIn },
+//   }),
+// };
 
 const pointVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -97,12 +97,12 @@ const pointVariants: Variants = {
 
 const WhyWe: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 0 forward, 1 backward
+  // const [direction, setDirection] = useState(0); // 0 forward, 1 backward
 
   const images = [BootCamp, Image5, Image6, Image7, inFront, Image4, Image3];
 
   const handleImageChange = () => {
-    setDirection(0);
+    // setDirection(0);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
   const isMobile = window.innerWidth < 768;
