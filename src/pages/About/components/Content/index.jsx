@@ -49,42 +49,45 @@ function Content() {
     return (
         <div className='flex flex-col lg:flex-row justify-between w-limit gap-6 lg:gap-0'>
             <div className='my-6 lg:my-0 lg:w-1/2 flex items-center justify-center mx-auto'>
-                <div className="relative h-[300px] w-[300px] flex items-center justify-center">
-                    <div
-                        className="bg-black/60 rotate-6 rounded-xl absolute z-10 w-[300px] h-[300px] border-2 border-black overflow-hidden cursor-pointer select-none"
-                        onClick={handleImageChange}
-                    >
-                        <AnimatePresence mode="wait" custom={direction}>
-                            <motion.img
-                                loading="lazy"
-                                key={currentIndex}
-                                src={images[currentIndex]}
-                                alt="Connect activity"
-                                className="absolute inset-0 object-cover w-full h-full"
-                                custom={direction}
-                                variants={imageVariants}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                            />
-                        </AnimatePresence>
-                    </div>
-                    <div className="bg-orange-400/50 rounded-xl absolute w-[300px] h-[300px] border-2 border-black overflow-hidden">
-                        <AnimatePresence>
-                            <motion.img
-                                loading="lazy"
-                                key={(currentIndex + 1) % images.length}
-                                src={images[(currentIndex + 1) % images.length]}
-                                alt="Next Connect activity"
-                                className="absolute inset-0 object-cover w-full h-full"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.5 }}
-                            />
-                        </AnimatePresence>
-                    </div>
-                </div>
+            <div className="flex items-center justify-center">
+      <div className="relative h-[300px] w-[300px] flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            className="absolute z-10 w-[300px] h-[300px] border-2 border-black rounded-xl overflow-hidden cursor-pointer select-none bg-orange-400"
+            onClick={handleImageChange}
+            initial={{ rotate: 6, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: -6, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <img
+              loading="lazy"
+              src={images[currentIndex]}
+              alt="Rotating card"
+              className="absolute inset-0 object-cover w-full h-full"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Background "next" preview card */}
+        <motion.div
+          key={(currentIndex + 1) % images.length}
+          className="absolute w-[300px] h-[300px] border-2 border-black rounded-xl overflow-hidden bg-orange-400"
+          initial={{ rotate: 0, opacity: 0 }}
+          animate={{ rotate: 6, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        >
+          <img
+            loading="lazy"
+            src={images[(currentIndex + 1) % images.length]}
+            alt="Next card preview"
+            className="absolute inset-0 object-cover w-full h-full"
+          />
+        </motion.div>
+      </div>
+    </div>
             </div>
 
             <div className='lg:w-1/2 text-white mx-auto space-y-4 lg:space-y-2  text-lg md:text-xl lg:text-left text-center'>
