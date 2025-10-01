@@ -59,3 +59,21 @@ export { default as ElevateHacknight } from "./ElevateHacknight.jpeg";
 export { default as ProfilePowerup } from "./ProfilePowerUp.jpeg";
 export { default as ContentWriting } from "./ContentWriting.jpeg";
 export { default as LinkedInResume } from "./LinkedInResume.jpeg";
+
+export {default as Ctrlz } from "./ctrlz.jpeg"
+export { default as Elevate } from "./elevate.jpeg"
+export { default as Hiring2k26 } from "./hiring2k26.jpeg"
+export { default as Learn_Go } from "./learn_go_openmic.jpeg"
+export { default as Me_myself } from "./me_myself.jpeg"
+export { default as Rehuddle } from "./rehuddle.jpeg"
+export { default as RehuddlePanel } from "./rehuddlepanel.jpeg"
+export { default as Resume_build25 } from "./resume_build25.jpeg"
+export { default as Sketchup } from "./sketchup.jpeg"
+export { default as Sketchup2 } from "./sketchup2.jpeg"
+export { default as Steamit1 } from "./steamit1.jpeg"
+export { default as Steamit2 } from "./steamit2.jpeg"
+export { default as Toolup_notion } from "./toolup_notion.jpeg"
+export {default as Toolup_airtable } from "./toolup_airtable.jpeg"
+export { default as Untilthen } from "./untilthen.jpeg"
+export { default as Api_keys_openmic } from "./api_keys_openmic.jpeg"
+export { default as Onathall} from "./Onathall.jpeg"

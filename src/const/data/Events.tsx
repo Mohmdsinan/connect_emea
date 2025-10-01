@@ -36,6 +36,24 @@ import {
   ProfilePowerup,
   ContentWriting,
   LinkedInResume,
+  Ctrlz,
+  Elevate,
+  Hiring2k26,
+  Learn_Go,
+  Me_myself,
+  Rehuddle,
+  RehuddlePanel,
+  Resume_build25,
+  Sketchup,
+  Sketchup2,
+  Steamit1,
+  Steamit2,
+  Toolup_notion,
+  Toolup_airtable,
+  Untilthen,
+  Api_keys_openmic,
+  Onathall
+
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1029,7 +1047,7 @@ const Events: Event[] = [
     description:
       "Join us for a month-long internship hiring process designed to select the most qualified students to become part of our dynamic team!",
     image: Intern_hiring05,
-    link: "https://connectemea.in/join",
+    link: "",
     big_description:
       "Join us for a month-long internship hiring process designed to select the most qualified students to become part of our dynamic team! This is your chance to gain valuable experience and connect with industry professionals.",
     about: {
@@ -1332,6 +1350,439 @@ const Events: Event[] = [
       gallery: [],
     },
   },
+  // updating on oct 1
+  {
+    id: 40,
+    title: "O-പെൺ-മൈക്ക്: Me, MySelf & My AI",
+    date: "26/08/2025",
+    time: "1.30 - 3.30 pm",
+    location: "Incubation Centre",
+    description: "This week’s SPOTlight session explores the world of Artificial Intelligence through the theme 'Me, MySelf & My AI'.",
+    image: Me_myself,
+    link: "",
+    big_description: "Join us for this week’s SPOTlight: Me, MySelf & My AI. A session designed to help participants understand the evolving role of AI in our daily lives and how it can be integrated into personal and professional growth. From interactive discussions to practical insights, this event will shed light on the dynamic relationship between humans and artificial intelligence. This event is exclusively for girls.",
+    about: {
+      objectives: "To provide insights into AI’s influence on individuals, encourage meaningful conversations, and explore real-world applications of AI.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Spotlight on Artificial Intelligence</li>
+          <li>Interactive discussion with peers</li>
+          <li>Exploring AI’s role in personal growth</li>
+          <li>Insights into real-world AI applications</li>
+          <li>No coding, just prompt to create our own AI study buddy.</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 41,
+    title: "O-പെൺ-മൈക്ക്: Lets Build First and Learn on the Go?",
+    date: "13/10/2024",
+    time: "7:30 PM - 8:30 PM",
+    location: "Google Meet",
+    description: "This week's session exploring the mindset of building first and learning along the way.",
+    image: Learn_Go,
+    link: "",
+    big_description: "This discussion brings together curious minds to reflect on the idea of taking action first and learning as you progress. It's a chance to explore what it means to be a maker, dive into practical experiences, and share insights on building while learning.",
+    about: {
+      objectives: "Encourage participants to embrace a maker mindset by building projects first, reflecting on experiences, and learning continuously through the process.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Theme: Build first, learn on the go</li>
+          <li>Experienced ones will share their first project experience</li>
+          <li>Interactive session on being a maker</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 42,
+    title: "O-പെൺ-മൈക്ക്: API Keys and LLMs",
+    date: "22/10/2024",
+    time: "8:00 PM - 9:00 PM",
+    location: "Google Meet",
+    description: "Join this week's session to dive into API Keys and Large Language Models (LLMs). A space to learn, share, and explore beyond the basics of being a maker.",
+    image: Api_keys_openmic,
+    link: "",
+    big_description: "O-പെൺ-മൈക്ക് is a weekly discussion series aimed at encouraging makers to explore topics around, above, and beyond technology. In this session, we’ll explore API Keys and LLMs, their use cases, security aspects, and practical applications in real-world projects. Whether you’re a beginner or already experimenting with LLMs, this event is for you!",
+    about: {
+      objectives: "To provide hands-on knowledge and discussions about API Keys and Large Language Models, empowering participants to understand their importance and applications in modern projects.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to API Keys</li>
+          <li>Understanding Large Language Models (LLMs)</li>
+          <li>Real-world applications and use cases</li>
+          <li>Interactive Q&A and discussion</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 57,
+    title: "Steamit - 2: GitHub Profile Setup ",
+    date: "06/08/2025",
+    time: "8:00 PM",
+    location: "Google Meet",
+    description: "A hands-on session to guide participants in setting up and enhancing their GitHub profiles.",
+    image: Steamit1,
+    link: "",
+    big_description: "Steamit - 2 is an interactive GitHub Profile Setup Session. This event will help participants create and customize their GitHub profiles effectively, showcasing their projects and contributions professionally. It's a chance to strengthen your developer identity and learn best practices for using GitHub as a portfolio.",
+    about: {
+      objectives: "To equip participants with the knowledge and practical skills to set up a professional GitHub profile.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Step-by-step GitHub profile setup guidance</li>
+          <li>Tips for showcasing projects effectively</li>
+          <li>Insights into GitHub as a professional portfolio</li>
+          <li>Interactive Q&A and support</li>
+        </ul>
+      ),
+      gallery: [],
+    }
+  },
+  {
+    id: 43,
+    title: "Steamit: എന്താണീ 'useless projects?'",
+    date: "05/08/2025",
+    time: "1:30 PM",
+    location: "Seminar Hall",
+    description: "A session exploring the idea of the hackathon, 'useless projects' and how it works.",
+    image: Steamit2,
+    link: "",
+    big_description: "Steamit brings yet another exciting session! This time, we dive into the world of 'useless projects'. What exactly makes a project useless? Or are they really useless? Join us to discover how unconventional and fun ideas can lead to unexpected learning, creativity, and innovation. Let's rethink what 'useless' really means!",
+    about: {
+      objectives: "To spark creativity and innovation by exploring unconventional projects and redefining what 'useless' means.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Interactive session to clear all your doubts about the hackathon, 'useless project'</li>
+          <li>Exploring fun and unconventional projects</li>
+          <li>Challenging the definition of 'useful' vs 'useless'</li>
+          <li>Inspiring creativity through unique ideas</li>
+          <li>Organized by TinkerHub & Connect</li>
+        </ul>
+      ),
+      gallery: [],
+    }
+  },
+  {
+    id: 44,
+    title: "Bridge Course 2025",
+    date: "13/08/2025 - 14/08/2025",
+    time: "Full day",
+    location: "CS lab",
+    description: "An orientation program designed for first year computer science students to bridge the gap and build a strong foundation in programming and technology.",
+    image: "",
+    link: "",
+    big_description: "The Bridge Course, organized by the Department of Computer Science, is an orientation program crafted for first year computer science students. This two-day program focuses on helping students strengthen their basics, gain exposure to essential programming tools, and prepare themselves for the exciting journey ahead in the field of technology.",
+    about: {
+      objectives: "To provide incoming computer science students with foundational knowledge, practical exposure, and guidance to smoothly transition into their academic journey.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Interactive orientation sessions</li>
+          <li>Introduction to programming languages and tools</li>
+          <li>Hands-on activities and coding exercises</li>
+          <li>Guidance from experienced faculty and mentors</li>
+          <li>Conducted in collaboration with Connect Community</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  // {
+  //   id: 45,
+  //   title: "LevelUp: Introducing your AI guide",
+  //   date: "10/05/2025",
+  //   time: "8:00 PM",
+  //   location: "Zoom",
+  //   description: "A free webinar to explore AI tools and how to effectively use them in your daily life and career.",
+  //   image: "",
+  //   link: "",
+  //   big_description: "Join us for an engaging free webinar on AI Tools, where you will be guided through the possibilities of artificial intelligence by Mohammed Afeef EV, Software Engineer at Dbiz AI. This session is designed to introduce practical AI tools that can enhance your productivity, creativity, and learning. Whether you are a student, professional, or enthusiast, this webinar will help you understand how to get started with AI in a simple and effective way.",
+  //   about: {
+  //     objectives: "To introduce AI tools, their applications, and how they can be utilized in everyday life and professional growth.",
+  //     highlights: (
+  //       <ul className="list-disc list-inside space-y-1 p-2">
+  //         <li>Introduction to AI tools and their uses</li>
+  //         <li>Guidance from an experienced software engineer</li>
+  //         <li>Learn practical applications of AI</li>
+  //         <li>Interactive Q&A session</li>
+  //       </ul>
+  //     ),
+  //     gallery: []
+  //   }
+  // },
+  {
+    id: 46,
+    title: "ഓണത്തള്ള്",
+    date: "05/09/2023",
+    time: "8 PM",
+    location: "Discord",
+    description: "Onam is almost over. Let’s all come together and recount the memorable moments of Onam and have some fun.",
+    image: Onathall,
+    link: "bit.ly/onathall",
+    big_description: "A fun-filled Onam closing event with chit-chats, songs, and games! Join us on Discord to share Onam memories, play games, and win exciting prizes for the best participants.",
+    about: {
+      objectives: "To celebrate the conclusion of Onam by bringing everyone together for sharing, fun, and engaging activities.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Onam chit-chats</li>
+          <li>Songs</li>
+          <li>Games</li>
+          <li>Exciting prizes for best participants</li>
+          <li>Fun community gathering on Discord</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  // Rehuddle Program
+  {
+    id: 47,
+    title: "Rehuddle",
+    date: "28/12/2024",
+    time: "",
+    location: "Online",
+    description: "Our community passout family all are welcome. A warm gathering to reconnect and celebrate.",
+    image: Rehuddle,
+    link: "",
+    big_description: "Join us for a heartwarming Rehuddle program where we reunite minds and rekindle connections. This event is designed as a friendly icebreaker to catch up with old friends, share memories, and strengthen bonds within our community.",
+    about: {
+      objectives: "To bring together our community passout family for reconnecting and sharing experiences.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Ice-breaking activities</li>
+          <li>Sharing memories and stories</li>
+          <li>Networking with old friends and mentors</li>
+          <li>Casual and fun atmosphere</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+
+
+  {
+    id: 48,
+    title: "ToolUp Series – Session 3: Unlocking Airtable",
+    date: "23/09/2025",
+    time: "8:00 PM",
+    location: "Online",
+    description: "Manage better. Collaborate easier.",
+    image: Toolup_airtable,
+    link: "",
+    big_description: "Join the third session of the ToolUp Series designed exclusively for Connect interns. This session focuses on unlocking the potential of Airtable to manage your tasks efficiently and collaborate seamlessly.",
+    about: {
+      objectives: "To help Connect interns learn how to use Airtable effectively for task management and collaboration.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Unlocking Airtable features</li>
+          <li>Tips for better management</li>
+          <li>Collaborate easier with Airtable</li>
+          <li>Exclusive session for Connect interns</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 49,
+    title: "CTRL Z – Explore Design",
+    date: "02/11/2025",
+    time: "7:00 PM",
+    location: "Online",
+    description: "A series of graphic design events for students who love to learn & create.",
+    image: Ctrlz,
+    link: "",
+    big_description: "Join us to explore creativity, tools, and skills in graphic design! Don’t miss it – be part of the design journey with CTRL Z, a series dedicated to students passionate about learning and creating through graphic design.",
+    about: {
+      objectives: "To inspire and equip students with the creative skills and tools needed for graphic design.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Explore creativity in design</li>
+          <li>Learn essential graphic design tools</li>
+          <li>Build practical skills</li>
+          <li>Join a community of design enthusiasts</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 50,
+    title: "ToolUp Series – Session 1: Notion & Google Form",
+    date: "02/09/2025",
+    time: "8:00 PM",
+    location: "Google Meet",
+    description: "Boost your productivity with smart tools!",
+    image: Toolup_notion,
+    link: "",
+    big_description: "Kickstart the ToolUp Series with a power-packed session on Notion and Google Form, tailored exclusively for Connect interns. Learn how to organize, automate, and streamline your work using these smart productivity tools.",
+    about: {
+      objectives: "To introduce interns to the effective use of Notion and Google Form for productivity, project management, and communication.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Get started with Notion for organization & note-taking</li>
+          <li>Automate tasks with Google Forms</li>
+          <li>Boost daily productivity using smart tools</li>
+          <li>Exclusive session for Connect interns</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 51,
+    title: "Interns Hiring Registration",
+    date: "06/10/2025",
+    time: "",
+    location: "Online",
+    description: "Degrees get you off the ground. Connect gives you the skills, experience, and network to reach new heights.",
+    image: Hiring2k26,
+    link: "https://connectemea.in/join",
+    big_description: "Don’t just graduate — Build. Learn. Lead. Join the crew. Limited spots available. Register now to kickstart your journey with Connect!",
+    about: {
+      objectives: "To attract and onboard talented interns who want to gain practical skills, experience, and a strong network.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Gain real-world experience</li>
+          <li>Learn practical skills beyond degrees</li>
+          <li>Join a vibrant community and network</li>
+          <li>Limited spots available — apply now</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+
+  {
+    id: 56,
+    title: "Rehuddle Panel Discussion",
+    date: "28/12/2024",
+    time: "",
+    location: "Online",
+    description: "A panel discussion featuring notable alumni and community members sharing insights and stories.",
+    image: RehuddlePanel,
+    link: "",
+    big_description: "As part of the Rehuddle event, join us for an insightful panel discussion where community members and alumni discuss their journeys, experiences, and vision for the future. A great chance to learn, network, and be inspired.",
+    about: {
+      objectives: "To facilitate meaningful conversations and networking among the community passout family.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Panel discussion with alumni and experts</li>
+          <li>Q&A session</li>
+          <li>Networking opportunities</li>
+          <li>Fun and food for participants</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 52,
+    title: "Resume Building",
+    date: "15/12/2024",
+    time: "7:30 PM",
+    location: "Online",
+    description: "Perfect your resume and get personalized mentoring to boost your career prospects.",
+    image: Resume_build25,  // Use your appropriate image import here
+    link: "", // Add registration link if any
+    big_description: "Join us for an impactful online session focused on resume building, mentoring, and analysis. Learn how to craft a resume that stands out and get expert feedback to improve your career opportunities. This program is designed to help you present your best professional self.",
+    about: {
+      objectives: "To guide participants in building strong resumes and provide mentoring to enhance their career readiness.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Step-by-step resume building tips</li>
+          <li>One-on-one mentoring and feedback</li>
+          <li>Analysis of resumes for improvement</li>
+          <li>Career guidance and Q&A</li>
+          <li>Interactive online format</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 53,
+    title: "Untilthen: Farewell Program for Passouting Connect Interns",
+    date: "19/07/2025",
+    time: "10:00 AM - 4:00 PM",
+    location: "Seminar Hall",
+    description: "A love-filled farewell program full of memories, networking, and heartfelt moments.",
+    image: Untilthen,
+    link: "",
+    big_description: "Join us for 'Untilthen', a special farewell event for our passouting Connect interns. Celebrate the journey, share memories, network with peers, and create lasting bonds in a day full of fun and nostalgia.",
+    about: {
+      objectives: "To provide a warm farewell and networking opportunity for interns completing their Connect journey.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Memories sharing sessions</li>
+          <li>Networking opportunities</li>
+          <li>Fun activities and games</li>
+          <li>Heartfelt goodbyes and celebrations</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+
+  {
+    id: 54,
+    title: "Sketchup",
+    date: "09/01/2025",
+    time: "9:30 AM - 12:30 PM",
+    location: "Seminar Hall",
+    description: "Get started with graphic design using Canva in this beginner-friendly session.",
+    image: Sketchup,
+    link: "",
+    big_description: "Learn the basics of graphic design with Canva in this hands-on offline session. Perfect for beginners looking to explore creativity and design skills with easy-to-use tools.",
+    about: {
+      objectives: "To introduce participants to graphic design principles and Canva tools for creating stunning visuals.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to graphic design concepts</li>
+          <li>Hands-on Canva workshop</li>
+          <li>Creating social media graphics and posters</li>
+          <li>Practical tips and design tricks</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
+  {
+    id: 55,
+    title: "Sketchup",
+    date: "10/01/2025",
+    time: "9:30 AM - 3:30 PM",
+    location: "CS Lab",
+    description: "Dive into advanced graphic design with an introductory Photoshop session.",
+    image: Sketchup2,
+    link: "",
+    big_description: "This full-day offline workshop introduces participants to Adobe Photoshop, covering essential tools and techniques for photo editing and design. Ideal for those ready to deepen their graphic design skills.",
+    about: {
+      objectives: "To provide participants with foundational skills in Photoshop for professional-grade design and editing.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Basics of Photoshop interface and tools</li>
+          <li>Photo editing and manipulation techniques</li>
+          <li>Creating design compositions</li>
+          <li>Hands-on practice and project work</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  }
+
+
+
+
+
+
+
+
+
 ];
 
 export default Events;

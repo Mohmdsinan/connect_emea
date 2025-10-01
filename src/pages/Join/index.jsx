@@ -8,10 +8,10 @@ function Join() {
     <div className='w-limit p-3'>
        <div className='max-w-4xl mx-auto p-6  rounded-lg mb-10'>
       <h1 className='font-bold text-center text-3xl sm:text-4xl mb-6'>
-        Intern Hiring Registration 2025
+        Intern Hiring Registration 2026
       </h1>
 
-      <div className='relative'>
+      {/* <div className='relative'>
         <img
          draggable={false} // prevent dragging
          onDragStart={(e) => e.preventDefault()}
@@ -43,8 +43,12 @@ function Join() {
         </a>
 
       </div>
+
+       */}
       </div>
-       {/* <div className='flex flex-col lg:flex-row bg-gray-500  mx-auto rounded-xl my-8  p-3 w-full'>
+
+
+       <div className='flex flex-col lg:flex-row bg-gray-500  mx-auto rounded-xl my-8  p-3 w-full'>
          <div className='flex items-center flex-col justify-center max-w-[500px] lg:min-w-[350px] xl:min-w-[450px] mx-auto'>
            <h1 className='text-[48px]  text-white mx-auto  flex leading-[55px] flex-col items-center justify-center mb-10'>
              <span>Welcome</span>
@@ -55,7 +59,7 @@ function Join() {
          <div className='bg-white w-full rounded-lg p-4 md:p-10 flex-grow mx-auto'>
            <JoinForm />
          </div>
-       </div> */}
+       </div>
     </div>
   )
 }

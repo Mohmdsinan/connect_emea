@@ -52,7 +52,7 @@ function Welcome() {
             </div>
 
             <div>
-                <a
+                {/* <a
                     href='https://chat.whatsapp.com/HWUMSzHQWkyLv3VwWgnRFu'
                     target='_blank'
                     rel='noopener noreferrer'
@@ -62,7 +62,14 @@ function Welcome() {
                     >
                         Join Our Community
                     </button>
-                </a>
+                </a> */}
+
+                    <button
+                        onClick={handleClick}
+                        className='px-6 sm:px-8 py-1 sm:py-1.5 bg-orange-600 text-white rounded-full w-fit mx-auto font-bold tracking-normal transition-all hover:bg-orange-500'
+                    >
+                        Register Now
+                    </button>
             </div>
 
             {!loaded && (
