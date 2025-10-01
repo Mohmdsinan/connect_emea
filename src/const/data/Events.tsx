@@ -52,8 +52,8 @@ import {
   Toolup_airtable,
   Untilthen,
   Api_keys_openmic,
-  Onathall
-
+  Onathall,
+  BootCamp2024,
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1357,12 +1357,15 @@ const Events: Event[] = [
     date: "26/08/2025",
     time: "1.30 - 3.30 pm",
     location: "Incubation Centre",
-    description: "This week’s SPOTlight session explores the world of Artificial Intelligence through the theme 'Me, MySelf & My AI'.",
+    description:
+      "This week’s SPOTlight session explores the world of Artificial Intelligence through the theme 'Me, MySelf & My AI'.",
     image: Me_myself,
     link: "",
-    big_description: "Join us for this week’s SPOTlight: Me, MySelf & My AI. A session designed to help participants understand the evolving role of AI in our daily lives and how it can be integrated into personal and professional growth. From interactive discussions to practical insights, this event will shed light on the dynamic relationship between humans and artificial intelligence. This event is exclusively for girls.",
+    big_description:
+      "Join us for this week’s SPOTlight: Me, MySelf & My AI. A session designed to help participants understand the evolving role of AI in our daily lives and how it can be integrated into personal and professional growth. From interactive discussions to practical insights, this event will shed light on the dynamic relationship between humans and artificial intelligence. This event is exclusively for girls.",
     about: {
-      objectives: "To provide insights into AI’s influence on individuals, encourage meaningful conversations, and explore real-world applications of AI.",
+      objectives:
+        "To provide insights into AI’s influence on individuals, encourage meaningful conversations, and explore real-world applications of AI.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Spotlight on Artificial Intelligence</li>
@@ -1372,8 +1375,8 @@ const Events: Event[] = [
           <li>No coding, just prompt to create our own AI study buddy.</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 41,
@@ -1381,12 +1384,15 @@ const Events: Event[] = [
     date: "13/10/2024",
     time: "7:30 PM - 8:30 PM",
     location: "Google Meet",
-    description: "This week's session exploring the mindset of building first and learning along the way.",
+    description:
+      "This week's session exploring the mindset of building first and learning along the way.",
     image: Learn_Go,
     link: "",
-    big_description: "This discussion brings together curious minds to reflect on the idea of taking action first and learning as you progress. It's a chance to explore what it means to be a maker, dive into practical experiences, and share insights on building while learning.",
+    big_description:
+      "This discussion brings together curious minds to reflect on the idea of taking action first and learning as you progress. It's a chance to explore what it means to be a maker, dive into practical experiences, and share insights on building while learning.",
     about: {
-      objectives: "Encourage participants to embrace a maker mindset by building projects first, reflecting on experiences, and learning continuously through the process.",
+      objectives:
+        "Encourage participants to embrace a maker mindset by building projects first, reflecting on experiences, and learning continuously through the process.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Theme: Build first, learn on the go</li>
@@ -1394,8 +1400,8 @@ const Events: Event[] = [
           <li>Interactive session on being a maker</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 42,
@@ -1403,12 +1409,15 @@ const Events: Event[] = [
     date: "22/10/2024",
     time: "8:00 PM - 9:00 PM",
     location: "Google Meet",
-    description: "Join this week's session to dive into API Keys and Large Language Models (LLMs). A space to learn, share, and explore beyond the basics of being a maker.",
+    description:
+      "Join this week's session to dive into API Keys and Large Language Models (LLMs). A space to learn, share, and explore beyond the basics of being a maker.",
     image: Api_keys_openmic,
     link: "",
-    big_description: "O-പെൺ-മൈക്ക് is a weekly discussion series aimed at encouraging makers to explore topics around, above, and beyond technology. In this session, we’ll explore API Keys and LLMs, their use cases, security aspects, and practical applications in real-world projects. Whether you’re a beginner or already experimenting with LLMs, this event is for you!",
+    big_description:
+      "O-പെൺ-മൈക്ക് is a weekly discussion series aimed at encouraging makers to explore topics around, above, and beyond technology. In this session, we’ll explore API Keys and LLMs, their use cases, security aspects, and practical applications in real-world projects. Whether you’re a beginner or already experimenting with LLMs, this event is for you!",
     about: {
-      objectives: "To provide hands-on knowledge and discussions about API Keys and Large Language Models, empowering participants to understand their importance and applications in modern projects.",
+      objectives:
+        "To provide hands-on knowledge and discussions about API Keys and Large Language Models, empowering participants to understand their importance and applications in modern projects.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Introduction to API Keys</li>
@@ -1417,8 +1426,8 @@ const Events: Event[] = [
           <li>Interactive Q&A and discussion</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 57,
@@ -1426,12 +1435,15 @@ const Events: Event[] = [
     date: "06/08/2025",
     time: "8:00 PM",
     location: "Google Meet",
-    description: "A hands-on session to guide participants in setting up and enhancing their GitHub profiles.",
+    description:
+      "A hands-on session to guide participants in setting up and enhancing their GitHub profiles.",
     image: Steamit1,
     link: "",
-    big_description: "Steamit - 2 is an interactive GitHub Profile Setup Session. This event will help participants create and customize their GitHub profiles effectively, showcasing their projects and contributions professionally. It's a chance to strengthen your developer identity and learn best practices for using GitHub as a portfolio.",
+    big_description:
+      "Steamit - 2 is an interactive GitHub Profile Setup Session. This event will help participants create and customize their GitHub profiles effectively, showcasing their projects and contributions professionally. It's a chance to strengthen your developer identity and learn best practices for using GitHub as a portfolio.",
     about: {
-      objectives: "To equip participants with the knowledge and practical skills to set up a professional GitHub profile.",
+      objectives:
+        "To equip participants with the knowledge and practical skills to set up a professional GitHub profile.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Step-by-step GitHub profile setup guidance</li>
@@ -1441,7 +1453,7 @@ const Events: Event[] = [
         </ul>
       ),
       gallery: [],
-    }
+    },
   },
   {
     id: 43,
@@ -1449,15 +1461,21 @@ const Events: Event[] = [
     date: "05/08/2025",
     time: "1:30 PM",
     location: "Seminar Hall",
-    description: "A session exploring the idea of the hackathon, 'useless projects' and how it works.",
+    description:
+      "A session exploring the idea of the hackathon, 'useless projects' and how it works.",
     image: Steamit2,
     link: "",
-    big_description: "Steamit brings yet another exciting session! This time, we dive into the world of 'useless projects'. What exactly makes a project useless? Or are they really useless? Join us to discover how unconventional and fun ideas can lead to unexpected learning, creativity, and innovation. Let's rethink what 'useless' really means!",
+    big_description:
+      "Steamit brings yet another exciting session! This time, we dive into the world of 'useless projects'. What exactly makes a project useless? Or are they really useless? Join us to discover how unconventional and fun ideas can lead to unexpected learning, creativity, and innovation. Let's rethink what 'useless' really means!",
     about: {
-      objectives: "To spark creativity and innovation by exploring unconventional projects and redefining what 'useless' means.",
+      objectives:
+        "To spark creativity and innovation by exploring unconventional projects and redefining what 'useless' means.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
-          <li>Interactive session to clear all your doubts about the hackathon, 'useless project'</li>
+          <li>
+            Interactive session to clear all your doubts about the hackathon,
+            'useless project'
+          </li>
           <li>Exploring fun and unconventional projects</li>
           <li>Challenging the definition of 'useful' vs 'useless'</li>
           <li>Inspiring creativity through unique ideas</li>
@@ -1465,7 +1483,7 @@ const Events: Event[] = [
         </ul>
       ),
       gallery: [],
-    }
+    },
   },
   {
     id: 44,
@@ -1473,12 +1491,15 @@ const Events: Event[] = [
     date: "13/08/2025 - 14/08/2025",
     time: "Full day",
     location: "CS lab",
-    description: "An orientation program designed for first year computer science students to bridge the gap and build a strong foundation in programming and technology.",
+    description:
+      "An orientation program designed for first year computer science students to bridge the gap and build a strong foundation in programming and technology.",
     image: "",
     link: "",
-    big_description: "The Bridge Course, organized by the Department of Computer Science, is an orientation program crafted for first year computer science students. This two-day program focuses on helping students strengthen their basics, gain exposure to essential programming tools, and prepare themselves for the exciting journey ahead in the field of technology.",
+    big_description:
+      "The Bridge Course, organized by the Department of Computer Science, is an orientation program crafted for first year computer science students. This two-day program focuses on helping students strengthen their basics, gain exposure to essential programming tools, and prepare themselves for the exciting journey ahead in the field of technology.",
     about: {
-      objectives: "To provide incoming computer science students with foundational knowledge, practical exposure, and guidance to smoothly transition into their academic journey.",
+      objectives:
+        "To provide incoming computer science students with foundational knowledge, practical exposure, and guidance to smoothly transition into their academic journey.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Interactive orientation sessions</li>
@@ -1488,8 +1509,8 @@ const Events: Event[] = [
           <li>Conducted in collaboration with Connect Community</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   // {
   //   id: 45,
@@ -1520,12 +1541,15 @@ const Events: Event[] = [
     date: "05/09/2023",
     time: "8 PM",
     location: "Discord",
-    description: "Onam is almost over. Let’s all come together and recount the memorable moments of Onam and have some fun.",
+    description:
+      "Onam is almost over. Let’s all come together and recount the memorable moments of Onam and have some fun.",
     image: Onathall,
     link: "bit.ly/onathall",
-    big_description: "A fun-filled Onam closing event with chit-chats, songs, and games! Join us on Discord to share Onam memories, play games, and win exciting prizes for the best participants.",
+    big_description:
+      "A fun-filled Onam closing event with chit-chats, songs, and games! Join us on Discord to share Onam memories, play games, and win exciting prizes for the best participants.",
     about: {
-      objectives: "To celebrate the conclusion of Onam by bringing everyone together for sharing, fun, and engaging activities.",
+      objectives:
+        "To celebrate the conclusion of Onam by bringing everyone together for sharing, fun, and engaging activities.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Onam chit-chats</li>
@@ -1535,8 +1559,8 @@ const Events: Event[] = [
           <li>Fun community gathering on Discord</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   // Rehuddle Program
   {
@@ -1545,12 +1569,15 @@ const Events: Event[] = [
     date: "28/12/2024",
     time: "",
     location: "Online",
-    description: "Our community passout family all are welcome. A warm gathering to reconnect and celebrate.",
+    description:
+      "Our community passout family all are welcome. A warm gathering to reconnect and celebrate.",
     image: Rehuddle,
     link: "",
-    big_description: "Join us for a heartwarming Rehuddle program where we reunite minds and rekindle connections. This event is designed as a friendly icebreaker to catch up with old friends, share memories, and strengthen bonds within our community.",
+    big_description:
+      "Join us for a heartwarming Rehuddle program where we reunite minds and rekindle connections. This event is designed as a friendly icebreaker to catch up with old friends, share memories, and strengthen bonds within our community.",
     about: {
-      objectives: "To bring together our community passout family for reconnecting and sharing experiences.",
+      objectives:
+        "To bring together our community passout family for reconnecting and sharing experiences.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Ice-breaking activities</li>
@@ -1559,10 +1586,9 @@ const Events: Event[] = [
           <li>Casual and fun atmosphere</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
-
 
   {
     id: 48,
@@ -1573,9 +1599,11 @@ const Events: Event[] = [
     description: "Manage better. Collaborate easier.",
     image: Toolup_airtable,
     link: "",
-    big_description: "Join the third session of the ToolUp Series designed exclusively for Connect interns. This session focuses on unlocking the potential of Airtable to manage your tasks efficiently and collaborate seamlessly.",
+    big_description:
+      "Join the third session of the ToolUp Series designed exclusively for Connect interns. This session focuses on unlocking the potential of Airtable to manage your tasks efficiently and collaborate seamlessly.",
     about: {
-      objectives: "To help Connect interns learn how to use Airtable effectively for task management and collaboration.",
+      objectives:
+        "To help Connect interns learn how to use Airtable effectively for task management and collaboration.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Unlocking Airtable features</li>
@@ -1584,8 +1612,8 @@ const Events: Event[] = [
           <li>Exclusive session for Connect interns</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 49,
@@ -1593,12 +1621,15 @@ const Events: Event[] = [
     date: "02/11/2025",
     time: "7:00 PM",
     location: "Online",
-    description: "A series of graphic design events for students who love to learn & create.",
+    description:
+      "A series of graphic design events for students who love to learn & create.",
     image: Ctrlz,
     link: "",
-    big_description: "Join us to explore creativity, tools, and skills in graphic design! Don’t miss it – be part of the design journey with CTRL Z, a series dedicated to students passionate about learning and creating through graphic design.",
+    big_description:
+      "Join us to explore creativity, tools, and skills in graphic design! Don’t miss it – be part of the design journey with CTRL Z, a series dedicated to students passionate about learning and creating through graphic design.",
     about: {
-      objectives: "To inspire and equip students with the creative skills and tools needed for graphic design.",
+      objectives:
+        "To inspire and equip students with the creative skills and tools needed for graphic design.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Explore creativity in design</li>
@@ -1607,8 +1638,8 @@ const Events: Event[] = [
           <li>Join a community of design enthusiasts</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 50,
@@ -1619,9 +1650,11 @@ const Events: Event[] = [
     description: "Boost your productivity with smart tools!",
     image: Toolup_notion,
     link: "",
-    big_description: "Kickstart the ToolUp Series with a power-packed session on Notion and Google Form, tailored exclusively for Connect interns. Learn how to organize, automate, and streamline your work using these smart productivity tools.",
+    big_description:
+      "Kickstart the ToolUp Series with a power-packed session on Notion and Google Form, tailored exclusively for Connect interns. Learn how to organize, automate, and streamline your work using these smart productivity tools.",
     about: {
-      objectives: "To introduce interns to the effective use of Notion and Google Form for productivity, project management, and communication.",
+      objectives:
+        "To introduce interns to the effective use of Notion and Google Form for productivity, project management, and communication.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Get started with Notion for organization & note-taking</li>
@@ -1630,8 +1663,8 @@ const Events: Event[] = [
           <li>Exclusive session for Connect interns</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 51,
@@ -1639,12 +1672,15 @@ const Events: Event[] = [
     date: "06/10/2025",
     time: "",
     location: "Online",
-    description: "Degrees get you off the ground. Connect gives you the skills, experience, and network to reach new heights.",
+    description:
+      "Degrees get you off the ground. Connect gives you the skills, experience, and network to reach new heights.",
     image: Hiring2k26,
     link: "https://connectemea.in/join",
-    big_description: "Don’t just graduate — Build. Learn. Lead. Join the crew. Limited spots available. Register now to kickstart your journey with Connect!",
+    big_description:
+      "Don’t just graduate — Build. Learn. Lead. Join the crew. Limited spots available. Register now to kickstart your journey with Connect!",
     about: {
-      objectives: "To attract and onboard talented interns who want to gain practical skills, experience, and a strong network.",
+      objectives:
+        "To attract and onboard talented interns who want to gain practical skills, experience, and a strong network.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Gain real-world experience</li>
@@ -1653,8 +1689,8 @@ const Events: Event[] = [
           <li>Limited spots available — apply now</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
 
   {
@@ -1663,12 +1699,15 @@ const Events: Event[] = [
     date: "28/12/2024",
     time: "",
     location: "Online",
-    description: "A panel discussion featuring notable alumni and community members sharing insights and stories.",
+    description:
+      "A panel discussion featuring notable alumni and community members sharing insights and stories.",
     image: RehuddlePanel,
     link: "",
-    big_description: "As part of the Rehuddle event, join us for an insightful panel discussion where community members and alumni discuss their journeys, experiences, and vision for the future. A great chance to learn, network, and be inspired.",
+    big_description:
+      "As part of the Rehuddle event, join us for an insightful panel discussion where community members and alumni discuss their journeys, experiences, and vision for the future. A great chance to learn, network, and be inspired.",
     about: {
-      objectives: "To facilitate meaningful conversations and networking among the community passout family.",
+      objectives:
+        "To facilitate meaningful conversations and networking among the community passout family.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Panel discussion with alumni and experts</li>
@@ -1677,32 +1716,34 @@ const Events: Event[] = [
           <li>Fun and food for participants</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 52,
-    title: "Resume Building",
+    title: "The Learning Curve: Resume Building Session",
     date: "15/12/2024",
-    time: "7:30 PM",
-    location: "Online",
-    description: "Perfect your resume and get personalized mentoring to boost your career prospects.",
-    image: Resume_build25,  // Use your appropriate image import here
-    link: "", // Add registration link if any
-    big_description: "Join us for an impactful online session focused on resume building, mentoring, and analysis. Learn how to craft a resume that stands out and get expert feedback to improve your career opportunities. This program is designed to help you present your best professional self.",
+    time: "7:30PM",
+    location: "Google Meet",
+    description:
+      "Boost your career game! Learn how to craft a resume that gets noticed.",
+    image: Resume_build25,
+    link: "",
+    big_description:
+      "Your career deserves a strong start! Join our Resume building Session led by Sibna Sherin and Muhammed Rashid. Learn how to stand out, get noticed, and unlock new opportunities.",
     about: {
-      objectives: "To guide participants in building strong resumes and provide mentoring to enhance their career readiness.",
+      objectives:
+        "To equip students with the skills to create professional and effective resumes that enhance their career opportunities.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
-          <li>Step-by-step resume building tips</li>
-          <li>One-on-one mentoring and feedback</li>
-          <li>Analysis of resumes for improvement</li>
-          <li>Career guidance and Q&A</li>
-          <li>Interactive online format</li>
+          <li>Understand resume-building essentials</li>
+          <li>Tips to stand out in recruitment processes</li>
+          <li>Insights from experienced speakers</li>
+          <li>Interactive Q&A session</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 53,
@@ -1710,12 +1751,15 @@ const Events: Event[] = [
     date: "19/07/2025",
     time: "10:00 AM - 4:00 PM",
     location: "Seminar Hall",
-    description: "A love-filled farewell program full of memories, networking, and heartfelt moments.",
+    description:
+      "A love-filled farewell program full of memories, networking, and heartfelt moments.",
     image: Untilthen,
     link: "",
-    big_description: "Join us for 'Untilthen', a special farewell event for our passouting Connect interns. Celebrate the journey, share memories, network with peers, and create lasting bonds in a day full of fun and nostalgia.",
+    big_description:
+      "Join us for 'Untilthen', a special farewell event for our passouting Connect interns. Celebrate the journey, share memories, network with peers, and create lasting bonds in a day full of fun and nostalgia.",
     about: {
-      objectives: "To provide a warm farewell and networking opportunity for interns completing their Connect journey.",
+      objectives:
+        "To provide a warm farewell and networking opportunity for interns completing their Connect journey.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Memories sharing sessions</li>
@@ -1724,8 +1768,8 @@ const Events: Event[] = [
           <li>Heartfelt goodbyes and celebrations</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
 
   {
@@ -1734,12 +1778,15 @@ const Events: Event[] = [
     date: "09/01/2025",
     time: "9:30 AM - 12:30 PM",
     location: "Seminar Hall",
-    description: "Get started with graphic design using Canva in this beginner-friendly session.",
+    description:
+      "Get started with graphic design using Canva in this beginner-friendly session.",
     image: Sketchup,
     link: "",
-    big_description: "Learn the basics of graphic design with Canva in this hands-on offline session. Perfect for beginners looking to explore creativity and design skills with easy-to-use tools.",
+    big_description:
+      "Learn the basics of graphic design with Canva in this hands-on offline session. Perfect for beginners looking to explore creativity and design skills with easy-to-use tools.",
     about: {
-      objectives: "To introduce participants to graphic design principles and Canva tools for creating stunning visuals.",
+      objectives:
+        "To introduce participants to graphic design principles and Canva tools for creating stunning visuals.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Introduction to graphic design concepts</li>
@@ -1748,8 +1795,8 @@ const Events: Event[] = [
           <li>Practical tips and design tricks</li>
         </ul>
       ),
-      gallery: []
-    }
+      gallery: [],
+    },
   },
   {
     id: 55,
@@ -1757,12 +1804,15 @@ const Events: Event[] = [
     date: "10/01/2025",
     time: "9:30 AM - 3:30 PM",
     location: "CS Lab",
-    description: "Dive into advanced graphic design with an introductory Photoshop session.",
+    description:
+      "Dive into advanced graphic design with an introductory Photoshop session.",
     image: Sketchup2,
     link: "",
-    big_description: "This full-day offline workshop introduces participants to Adobe Photoshop, covering essential tools and techniques for photo editing and design. Ideal for those ready to deepen their graphic design skills.",
+    big_description:
+      "This full-day offline workshop introduces participants to Adobe Photoshop, covering essential tools and techniques for photo editing and design. Ideal for those ready to deepen their graphic design skills.",
     about: {
-      objectives: "To provide participants with foundational skills in Photoshop for professional-grade design and editing.",
+      objectives:
+        "To provide participants with foundational skills in Photoshop for professional-grade design and editing.",
       highlights: (
         <ul className="list-disc list-inside space-y-1 p-2">
           <li>Basics of Photoshop interface and tools</li>
@@ -1771,18 +1821,36 @@ const Events: Event[] = [
           <li>Hands-on practice and project work</li>
         </ul>
       ),
-      gallery: []
-    }
-  }
-
-
-
-
-
-
-
-
-
+      gallery: [],
+    },
+  },
+  {
+    id: 58,
+    title: "Bootcamp",
+    date: "14/11/2024",
+    time: "9:30 AM - 4:00 PM",
+    location: "Seminar Hall",
+    description:
+      "An exclusive bootcamp designed for interns to learn, connect, and grow together.",
+    image: BootCamp2024,
+    link: "",
+    big_description:
+      "Two-day Bootcamp exclusively for interns, focused on enhancing skills, building teamwork, and providing hands-on learning experiences. This immersive program will empower interns to engage in activities, gain knowledge, and develop professionally while being part of an enthusiastic community.",
+    about: {
+      objectives:
+        "To equip interns with practical knowledge, improve collaboration, and foster personal as well as professional growth and to build connection between the interns",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Interactive learning sessions</li>
+          <li>Team-building activities</li>
+          <li>Skill enhancement workshops</li>
+          <li>Networking with peers</li>
+          <li>Fun and engaging challenges</li>
+        </ul>
+      ),
+      gallery: [],
+    },
+  },
 ];
 
 export default Events;

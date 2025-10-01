@@ -13,6 +13,7 @@ export { default as OpenMic01 } from "./open_mic_01.jpeg";
 // bootcamp
 export { default as BootCamp2022 } from "./BootCamp2022.jpeg";
 export { default as BootCamp2023 } from "./BootCamp2023.jpeg";
+export { default as BootCamp2024 } from "./BootCamp2024.jpeg";
 export { default as Reconnect } from "./Re-Connect.jpg";
 
 

@@ -22,6 +22,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import MultipleSelector from '@/components/ui/multiple-selector';
 import department from "@/const/departmentList";
 import { createRecord } from "@/utils/airtableService";
 import StatusModal from "@/components/common/Modal";
@@ -43,7 +44,7 @@ const formSchema = z.object({
     expectations: z.string().min(1, 'Expectations are required'),
     reason: z.string().min(1, 'Reason for joining is required'),
     interesting_fact: z.string().min(1, 'Tell us something interesting about yourself'),
-    other_communities: z.string().nonempty('Please select a community'),
+    other_communities: z.array(z.string()).min(1, 'Please select at least one community'),
 }).refine((data) => {
     // If preferred_role is "Other", then custom_role should not be empty
     if (data.preferred_role === 'Other') {
@@ -88,14 +89,14 @@ export function JoinForm() {
             expectations: "",
             reason: "",
             interesting_fact: "",
-            other_communities: "",
+            other_communities: [],
         },
     });
 
     async function onSubmit(values) {
         try {
             setLoading(true);
-            // console.log(values);
+            console.log('Submitting data:', values); // This will show array format
             await createRecord("interns_selection_2025", values, 1);
             setModalStatus('success');
         } catch (error) {
@@ -108,8 +109,6 @@ export function JoinForm() {
             setModalOpen(true);
         }
     }
-
-
 
 
     // Filter departments based on search query
@@ -388,32 +387,35 @@ export function JoinForm() {
                             control={form.control}
                             name="other_communities"
                             render={({ field }) => (
-                                <FormItem ref={parent}>
-                                    <FormLabel>Are you part of any other community, club, or organization?</FormLabel>
+                                <FormItem>
+                                    <FormLabel>
+                                        Are you part of any other community, club, or organization?
+                                    </FormLabel>
                                     <FormControl>
-                                        <Select
-                                            onValueChange={field.onChange}
-                                            value={field.value}
-                                        >
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select a community or club" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectGroup>
-                                                    <SelectLabel>Clubs</SelectLabel>
-                                                    {communities.map((club) => (
-                                                        <SelectItem key={club} value={club}>
-                                                            {club}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
+                                        <MultipleSelector
+                                            value={field.value.map(item => ({ label: item, value: item }))}
+                                            onChange={(selectedOptions) => {
+                                                // Convert back to string array
+                                                field.onChange(selectedOptions.map(option => option.value));
+                                            }}
+                                            defaultOptions={communities.map((club) => ({
+                                                label: club,
+                                                value: club,
+                                            }))}
+                                            placeholder="Select communities or clubs..."
+                                            emptyIndicator={
+                                                <div className="text-center text-sm text-muted-foreground">
+                                                    No results found.
+                                                </div>
+                                            }
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
+
+
                     </div>
 
                     <div className="w-full flex justify-end">
@@ -430,7 +432,7 @@ export function JoinForm() {
                 title={modalStatus === 'success' ? 'Registration Successful' : 'Registration Error'}
                 description={modalStatus === 'success'
                     ? 'Thank you for your interest in registering our community as an intern! We’ll review your application and contact you soon. Join our Hiring WhatsApp group for updates!'
-                    : 'Error submitting your registration. Please try again. If the problem persists, contact us at 8113860921.'}
+                    : 'Error submitting your registration. Please try again. If the problem persists, contact us at 8089465673.'}
                 formType="interns_hiring"
             />
 

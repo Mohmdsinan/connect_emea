@@ -51,26 +51,29 @@ function Welcome() {
                 </motion.p>
             </div>
 
-            <div>
-                {/* <a
-                    href='https://chat.whatsapp.com/HWUMSzHQWkyLv3VwWgnRFu'
-                    target='_blank'
-                    rel='noopener noreferrer'
+            <div className="flex flex-col gap-3 w-full max-w-[240px] sm:max-w-[280px] mx-auto">
+
+
+                <button
+                    onClick={handleClick}
+                    className="w-full px-4 sm:px-6 py-2 bg-orange-600 text-white rounded-full font-bold tracking-normal transition-all hover:bg-orange-500 text-sm sm:text-[16px]"
+                >
+                    Register Now
+                </button>
+
+                <a
+                    href="https://chat.whatsapp.com/HWUMSzHQWkyLv3VwWgnRFu"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     <button
-                        className='px-6 sm:px-8 py-1 sm:py-1.5 bg-orange-600 text-white rounded-full w-fit mx-auto font-bold tracking-normal transition-all hover:bg-orange-500'
+                        className="w-full px-4 sm:px-6 py-1.5 border-2 border-orange-600 text-orange-600 rounded-full font-bold tracking-normal transition-all hover:bg-orange-50 hover:border-orange-500 text-sm sm:text-[16px]"
                     >
                         Join Our Community
                     </button>
-                </a> */}
-
-                    <button
-                        onClick={handleClick}
-                        className='px-6 sm:px-8 py-1 sm:py-1.5 bg-orange-600 text-white rounded-full w-fit mx-auto font-bold tracking-normal transition-all hover:bg-orange-500'
-                    >
-                        Register Now
-                    </button>
+                </a>
             </div>
+
 
             {!loaded && (
                 <div className='absolute inset-0 bg-white flex items-center justify-center'>
@@ -80,8 +83,8 @@ function Welcome() {
 
             <div className='relative'>
                 <img
-                 draggable={false} // prevent dragging
-                 onDragStart={(e) => e.preventDefault()}
+                    draggable={false} // prevent dragging
+                    onDragStart={(e) => e.preventDefault()}
                     src={Icon}
                     alt='avatar'
                     className='w-full max-w-[700px] h-auto mx-auto mt-6'
