@@ -1,7 +1,7 @@
 import React from 'react'
 import { JoinForm } from './components/Form'
 import img from '@/assets/avatars/joinNowGirl.png'
-import Closed from '@/assets/images/Us/closed_2.jpeg'
+// import Closed from '@/assets/images/Us/closed_2.jpeg'
 
 function Join() {
   return (

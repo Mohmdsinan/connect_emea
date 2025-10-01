@@ -5,7 +5,7 @@ import Contact from './components/Contact';
 import WtConnect from './components/WhatWe';
 import WhyWe from './components/WhyWe';
 import Chapter from './components/Chapter';
-import Journey from './components/Journey';
+// import Journey from './components/Journey';
 import Welcome from './components/Welcome';
 import ViewMotion from '@/components/viewmotion';
 import { TimelineDemo } from './components/Journey/test';

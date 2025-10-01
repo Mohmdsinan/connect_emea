@@ -37,7 +37,7 @@ import {
   ContentWriting,
   LinkedInResume,
   Ctrlz,
-  Elevate,
+  // Elevate,
   Hiring2k26,
   Learn_Go,
   Me_myself,
