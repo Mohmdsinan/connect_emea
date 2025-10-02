@@ -68,10 +68,10 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleFilldata = () => {
-    form.setValue("email", "connectemea@gmail.com");
-    form.setValue("password", "password");
-  };
+  // const handleFilldata = () => {
+  //   form.setValue("email", "connectemea@gmail.com");
+  //   form.setValue("password", "password");
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white flex items-center justify-center p-4">
@@ -104,13 +104,13 @@ const Login = () => {
             </div>
 
             {/* Test Credentials */}
-            <p className="text-center text-orange-700 font-medium mb-2">For testing purposes</p>
+            {/* <p className="text-center text-orange-700 font-medium mb-2">For testing purposes</p>
             <Button
               onClick={handleFilldata}
               className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold"
             >
               Fill Test Credentials
-            </Button>
+            </Button>*/}
           </div>
 
           {/* Login Form */}

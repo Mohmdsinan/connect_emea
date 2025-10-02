@@ -25,7 +25,10 @@ function Queries() {
       <h1 className="text-2xl font-bold text-center mb-6">Queries</h1>
 
       {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
+          <div className="flex items-center justify-center mt-10">
+            <div className="border-4 border-orange-500 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
+            <span className="ml-4 text-lg text-gray-600">Loading records...</span>
+          </div>
       ) : records.length === 0 ? (
         <p className="text-center text-gray-500">No queries found.</p>
       ) : (

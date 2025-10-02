@@ -6,6 +6,7 @@ function Index() {
   const [filteredRecords, setFilteredRecords] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('All');
+  const [loading, setLoading] = useState(true); // ✅ Added loading state
 
   // Fetch data from Airtable
   useEffect(() => {
@@ -16,6 +17,8 @@ function Index() {
         setFilteredRecords(data);
       } catch (error) {
         console.error('Error fetching records:', error);
+      } finally {
+        setLoading(false); // ✅ Stop loading after fetch
       }
     };
 
@@ -26,14 +29,12 @@ function Index() {
   useEffect(() => {
     let temp = [...records];
 
-    // Filter by name
     if (searchTerm.trim() !== '') {
       temp = temp.filter((record) =>
         record.fields.Name?.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    // Filter by year
     if (selectedYear !== 'All') {
       temp = temp.filter((record) => record.fields.year === selectedYear);
     }
@@ -41,8 +42,17 @@ function Index() {
     setFilteredRecords(temp);
   }, [searchTerm, selectedYear, records]);
 
-  // Collect unique years for dropdown
   const yearOptions = ['All', ...new Set(records.map((r) => r.fields.year).filter(Boolean))];
+
+  // ✅ Show spinner while loading
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center mt-10">
+        <div className="border-4 border-orange-500 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
+        <span className="ml-4 text-lg text-gray-600">Loading records...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen p-4">
@@ -58,7 +68,6 @@ function Index() {
 
       {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-6">
-        {/* Search Input */}
         <input
           type="text"
           placeholder="Search by Name"
@@ -67,7 +76,6 @@ function Index() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        {/* Year Filter */}
         <select
           className="border p-2 rounded w-full md:w-48"
           value={selectedYear}
@@ -81,12 +89,10 @@ function Index() {
         </select>
       </div>
 
-      {/* Total Count */}
       <div className="text-center mb-4 font-medium text-gray-800">
         Total Registrations: {filteredRecords.length}
       </div>
 
-      {/* Grid of Cards */}
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredRecords.map((record, index) => (
           <div
@@ -95,30 +101,14 @@ function Index() {
           >
             <h1 className="text-2xl font-bold text-center">{index + 1}</h1>
             <h2 className="text-xl font-bold mb-2 text-gray-800">{record.fields.Name}</h2>
-            <p className="text-gray-600">
-              <strong>Preferred Role:</strong> {record.fields.preferred_role}
-            </p>
-            <p className="text-gray-600">
-              <strong>Department:</strong> {record.fields.department}
-            </p>
-            <p className="text-gray-600">
-              <strong>Year:</strong> {record.fields.year}
-            </p>
-            <p className="text-gray-600">
-              <strong>Hobby:</strong> {record.fields.hobby}
-            </p>
-            <p className="text-gray-600">
-              <strong>Expectations:</strong> {record.fields.expectations}
-            </p>
-            <p className="text-gray-600">
-              <strong>How did you hear:</strong> {record.fields.how_did_you_hear}
-            </p>
-            <p className="text-gray-600">
-              <strong>Interesting Fact:</strong> {record.fields.interesting_fact}
-            </p>
-            <p className="text-gray-600">
-              <strong>Other Communities:</strong> {record.fields.other_communities}
-            </p>
+            <p className="text-gray-600"><strong>Preferred Role:</strong> {record.fields.preferred_role}</p>
+            <p className="text-gray-600"><strong>Department:</strong> {record.fields.department}</p>
+            <p className="text-gray-600"><strong>Year:</strong> {record.fields.year}</p>
+            <p className="text-gray-600"><strong>Hobby:</strong> {record.fields.hobby}</p>
+            <p className="text-gray-600"><strong>Expectations:</strong> {record.fields.expectations}</p>
+            <p className="text-gray-600"><strong>How did you hear:</strong> {record.fields.how_did_you_hear}</p>
+            <p className="text-gray-600"><strong>Interesting Fact:</strong> {record.fields.interesting_fact}</p>
+            <p className="text-gray-600"><strong>Other Communities:</strong> {record.fields.other_communities}</p>
           </div>
         ))}
       </div>
