@@ -54,6 +54,9 @@ import {
   Api_keys_openmic,
   Onathall,
   BootCamp2024,
+  Ai_tools,
+  Gigxplore,
+  Art_writing
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1512,29 +1515,29 @@ const Events: Event[] = [
       gallery: [],
     },
   },
-  // {
-  //   id: 45,
-  //   title: "LevelUp: Introducing your AI guide",
-  //   date: "10/05/2025",
-  //   time: "8:00 PM",
-  //   location: "Zoom",
-  //   description: "A free webinar to explore AI tools and how to effectively use them in your daily life and career.",
-  //   image: "",
-  //   link: "",
-  //   big_description: "Join us for an engaging free webinar on AI Tools, where you will be guided through the possibilities of artificial intelligence by Mohammed Afeef EV, Software Engineer at Dbiz AI. This session is designed to introduce practical AI tools that can enhance your productivity, creativity, and learning. Whether you are a student, professional, or enthusiast, this webinar will help you understand how to get started with AI in a simple and effective way.",
-  //   about: {
-  //     objectives: "To introduce AI tools, their applications, and how they can be utilized in everyday life and professional growth.",
-  //     highlights: (
-  //       <ul className="list-disc list-inside space-y-1 p-2">
-  //         <li>Introduction to AI tools and their uses</li>
-  //         <li>Guidance from an experienced software engineer</li>
-  //         <li>Learn practical applications of AI</li>
-  //         <li>Interactive Q&A session</li>
-  //       </ul>
-  //     ),
-  //     gallery: []
-  //   }
-  // },
+  {
+    id: 45,
+    title: "LevelUp: Introducing your AI guide",
+    date: "10/05/2025",
+    time: "8:00 PM",
+    location: "Zoom",
+    description: "A free webinar to explore AI tools and how to effectively use them in your daily life and career.",
+    image: Ai_tools,
+    link: "",
+    big_description: "Join us for an engaging free webinar on AI Tools, where you will be guided through the possibilities of artificial intelligence by Mohammed Afeef EV, Software Engineer at Dbiz AI. This session is designed to introduce practical AI tools that can enhance your productivity, creativity, and learning. Whether you are a student, professional, or enthusiast, this webinar will help you understand how to get started with AI in a simple and effective way.",
+    about: {
+      objectives: "To introduce AI tools, their applications, and how they can be utilized in everyday life and professional growth.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to AI tools and their uses</li>
+          <li>Guidance from an experienced software engineer</li>
+          <li>Learn practical applications of AI</li>
+          <li>Interactive Q&A session</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  },
   {
     id: 46,
     title: "ഓണത്തള്ള്",
@@ -1851,6 +1854,55 @@ const Events: Event[] = [
       gallery: [],
     },
   },
+    {
+      id: 59,
+      title: "GIGXPLORE: Introduction to Freelancing",
+      date: "18/02/2025",
+      time: "1:30 PM – 3:30 PM",
+      location: "Seminar Hall",
+      description: "A beginner-friendly session on freelancing, covering skills, portfolio building, and client strategies.",
+      image: Gigxplore,
+      link: "",
+      big_description: " This event is designed to introduce students to the world of freelancing. Participants will learn how to identify and master skills, create impactful portfolios, discover clients, and market services effectively to high-ticket clients.",
+      about: {
+        objectives: "To equip participants with practical insights into freelancing and guide them towards building a strong foundation for independent career opportunities.",
+        highlights: (
+          <ul className="list-disc list-inside space-y-1 p-2">
+            <li>Learn how to select a skill and master it structurally</li>
+            <li>Steps to build a strong and attractive portfolio</li>
+            <li>Methods to find and connect with potential clients</li>
+            <li>Strategies for selling services to high-ticket clients</li>
+            <li>Insights into freelancing platforms and opportunities</li>
+          </ul>
+        ),
+        gallery: [],
+      }
+  },
+  {
+    id: 60,
+    title: "The Learning Curve: The Art of Effective Writing!",
+    date: "30/12/2024",
+    time: "7:30 PM",
+    location: "Google Meet",
+    description: "An event to realize our writing skills.",
+    image: Art_writing,
+    link: "",
+    big_description: " An exciting session on content writing, led by Safeera Ashraf, where participants will dive into the art of crafting impactful words. This event is perfect for aspiring writers and creators looking to enhance their skills and master every line they write. Event is exclusively for interns",
+    about: {
+      objectives: "To provide interns with insights and practical knowledge about content writing, improving their ability to write with clarity, creativity, and influence.",
+      highlights: (
+        <ul className="list-disc list-inside space-y-1 p-2">
+          <li>Introduction to the world of content writing</li>
+          <li>Tips and strategies for writing effectively</li>
+          <li>Interactive session with real-world examples</li>
+          <li>Insights on creativity and clarity in writing</li>
+          <li>Opportunity to engage and learn with peers</li>
+        </ul>
+      ),
+      gallery: []
+    }
+  }
+
 ];
 
 export default Events;

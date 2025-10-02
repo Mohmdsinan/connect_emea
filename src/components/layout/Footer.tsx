@@ -4,7 +4,7 @@ import navLinks from "@/const/navLinks";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white p-8 pb-2 rounded-t-[50px] bottom-0">
+    <footer className="bg-black text-white p-8 pb-4 rounded-t-[50px] bottom-0">
       <section className="flex flex-col gap-10 w-limit">
         <h1 className="mx-auto text-xl md:text-[35px] font-semibold text-center">
           <span className="text-orange-500 mr-1">Join us</span>
