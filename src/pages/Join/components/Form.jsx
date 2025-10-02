@@ -347,6 +347,8 @@ export function JoinForm() {
               </>
             )}
           </div>
+
+
           <FormField
             control={form.control}
             name="interesting_fact"
@@ -379,23 +381,7 @@ export function JoinForm() {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="reason"
-              render={({ field }) => (
-                <FormItem ref={parent}>
-                  <FormLabel>
-                    Why do you want to be a part of this community?
-                  </FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Your reason" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="space-y-4 md:space-y-0 md:gap-x-8 md:gap-y-4 grid md:grid-cols-2">
+
             <FormField
               control={form.control}
               name="hobby"
@@ -414,6 +400,24 @@ export function JoinForm() {
               )}
             />
 
+          </div>
+        <div className="flex flex-col gap-2 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-4">
+
+          <FormField
+            control={form.control}
+            name="reason"
+            render={({ field }) => (
+              <FormItem ref={parent}>
+                <FormLabel>
+                  Why do you want to be a part of this community?
+                </FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Your reason" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
             <FormField
               control={form.control}
               name="other_communities"
@@ -469,7 +473,7 @@ export function JoinForm() {
                 </FormItem>
               )}
             />
-          </div>
+        </div>
 
           <div className="w-full flex justify-end">
             <Button
