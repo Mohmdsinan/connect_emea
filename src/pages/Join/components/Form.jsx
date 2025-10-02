@@ -395,15 +395,19 @@ export function JoinForm() {
               )}
             />
           </div>
-          <div className="space-y-2 md:space-y-0 md:gap-x-8 md:gap-y-4 grid md:grid-cols-2">
+          <div className="space-y-4 md:space-y-0 md:gap-x-8 md:gap-y-4 grid md:grid-cols-2">
             <FormField
               control={form.control}
               name="hobby"
               render={({ field }) => (
-                <FormItem ref={parent}>
+                <FormItem ref={parent} className="h-full">
                   <FormLabel>What is your hobby?</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Your hobby" {...field} />
+                    <Textarea
+                      placeholder="Your hobby"
+                      {...field}
+                      className="min-h-[100px] resize-vertical"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -419,28 +423,47 @@ export function JoinForm() {
                     Are you part of any other community, club, or organization?
                   </FormLabel>
                   <FormControl>
-                    <MultipleSelector
-                      value={field.value.map((item) => ({
-                        label: item,
-                        value: item,
-                      }))}
-                      onChange={(selectedOptions) => {
-                        // Convert back to string array
-                        field.onChange(
-                          selectedOptions.map((option) => option.value),
-                        );
-                      }}
-                      defaultOptions={communities.map((club) => ({
-                        label: club,
-                        value: club,
-                      }))}
-                      placeholder="Select communities or clubs..."
-                      emptyIndicator={
-                        <div className="text-center text-sm text-muted-foreground">
-                          No results found.
-                        </div>
-                      }
-                    />
+                    <div className="relative">
+                      <MultipleSelector
+                        value={field.value.map((item) => ({
+                          label: item,
+                          value: item,
+                        }))}
+                        onChange={(selectedOptions) => {
+                          field.onChange(
+                            selectedOptions.map((option) => option.value),
+                          );
+                        }}
+                        defaultOptions={communities.map((club) => ({
+                          label: club,
+                          value: club,
+                        }))}
+                        placeholder="Select communities or clubs..."
+                        emptyIndicator={
+                          <div className="text-center text-sm text-muted-foreground">
+                            No results found.
+                          </div>
+                        }
+                        // Enhanced mobile props
+                        className="max-w-full"
+                        triggerSearchOnFocus={true}
+                        hidePlaceholderWhenSelected={false}
+                        // Close on selection
+                        onOptionsChange={() => {
+                          // Force blur to close dropdown on mobile
+                          setTimeout(() => {
+                            const activeElement = document.activeElement;
+                            if (activeElement && activeElement.blur) {
+                              activeElement.blur();
+                            }
+                          }, 100);
+                        }}
+                        // Better mobile UX
+                        inputProps={{
+                          className: "text-base", // Larger text for mobile
+                        }}
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -10,6 +10,15 @@ function Join() {
       <h1 className='font-bold text-center text-3xl sm:text-4xl mb-6'>
         Intern Hiring Registration 2026
       </h1>
+      <div className="mb-6 text-center">
+        <p className="text-lg text-gray-700">
+         Having trouble? Reach out to us at{" "}
+          <a href="tel:8089465673" className="text-orange-600 underline hover:text-orange-800">
+            8089465673
+          </a>
+          .
+        </p>
+      </div>
 
       {/* <div className='relative'>
         <img

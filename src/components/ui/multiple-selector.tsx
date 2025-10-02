@@ -211,7 +211,7 @@ const MultipleSelector = React.forwardRef<
     const [open, setOpen] = React.useState(false);
     const [onScrollbar, setOnScrollbar] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
-    const dropdownRef = React.useRef<HTMLDivElement>(null); // Added this
+    const dropdownRef = React.useRef<HTMLDivElement>(null);
 
     const [selected, setSelected] = React.useState<Option[]>(value || []);
     const [options, setOptions] = React.useState<GroupOption>(
@@ -239,7 +239,10 @@ const MultipleSelector = React.forwardRef<
         !inputRef.current.contains(event.target as Node)
       ) {
         setOpen(false);
-        inputRef.current.blur();
+        // Force blur on mobile to close keyboard
+        if (inputRef.current) {
+          inputRef.current.blur();
+        }
       }
     };
 
@@ -259,34 +262,40 @@ const MultipleSelector = React.forwardRef<
           if (e.key === "Delete" || e.key === "Backspace") {
             if (input.value === "" && selected.length > 0) {
               const lastSelectOption = selected[selected.length - 1];
-              // If there is a last item and it is not fixed, we can remove it.
               if (lastSelectOption && !lastSelectOption.fixed) {
                 handleUnselect(lastSelectOption);
               }
             }
           }
-          // This is not a default behavior of the <input /> field
           if (e.key === "Escape") {
             input.blur();
+            setOpen(false);
           }
         }
       },
       [handleUnselect, selected]
     );
 
+    // Enhanced event listeners for mobile
     useEffect(() => {
       if (open) {
         document.addEventListener("mousedown", handleClickOutside);
         document.addEventListener("touchend", handleClickOutside);
+        // Add scroll listener to close on scroll
+        const handleScroll = () => {
+          setOpen(false);
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+          document.removeEventListener("touchend", handleClickOutside);
+          window.removeEventListener("scroll", handleScroll);
+        };
       } else {
         document.removeEventListener("mousedown", handleClickOutside);
         document.removeEventListener("touchend", handleClickOutside);
       }
-
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-        document.removeEventListener("touchend", handleClickOutside);
-      };
     }, [open]);
 
     useEffect(() => {
@@ -296,7 +305,6 @@ const MultipleSelector = React.forwardRef<
     }, [value]);
 
     useEffect(() => {
-      /** If `onSearch` is provided, do not trigger options updated. */
       if (!arrayOptions || onSearch) {
         return;
       }
@@ -307,8 +315,6 @@ const MultipleSelector = React.forwardRef<
     }, [arrayDefaultOptions, arrayOptions, groupBy, onSearch, options]);
 
     useEffect(() => {
-      /** sync search */
-
       const doSearchSync = () => {
         const res = onSearchSync?.(debouncedSearchTerm);
         setOptions(transToGroupOption(res || [], groupBy));
@@ -327,12 +333,9 @@ const MultipleSelector = React.forwardRef<
       };
 
       void exec();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debouncedSearchTerm, groupBy, open, triggerSearchOnFocus]);
+    }, [debouncedSearchTerm, groupBy, open, triggerSearchOnFocus, onSearchSync]);
 
     useEffect(() => {
-      /** async search */
-
       const doSearch = async () => {
         setIsLoading(true);
         const res = await onSearch?.(debouncedSearchTerm);
@@ -353,8 +356,7 @@ const MultipleSelector = React.forwardRef<
       };
 
       void exec();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debouncedSearchTerm, groupBy, open, triggerSearchOnFocus]);
+    }, [debouncedSearchTerm, groupBy, open, triggerSearchOnFocus, onSearch]);
 
     const CreatableItem = () => {
       if (!creatable) return undefined;
@@ -373,6 +375,10 @@ const MultipleSelector = React.forwardRef<
             e.preventDefault();
             e.stopPropagation();
           }}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
           onSelect={(value: string) => {
             if (selected.length >= maxSelected) {
               onMaxSelected?.(selected.length);
@@ -382,18 +388,21 @@ const MultipleSelector = React.forwardRef<
             const newOptions = [...selected, { value, label: value }];
             setSelected(newOptions);
             onChange?.(newOptions);
+            setOpen(false); // Close dropdown after selection on mobile
+            // Blur input to close keyboard on mobile
+            if (inputRef.current) {
+              inputRef.current.blur();
+            }
           }}
         >
           {`Create "${inputValue}"`}
         </CommandItem>
       );
 
-      // For normal creatable
       if (!onSearch && inputValue.length > 0) {
         return Item;
       }
 
-      // For async search creatable. avoid showing creatable item before loading at first.
       if (onSearch && debouncedSearchTerm.length > 0 && !isLoading) {
         return Item;
       }
@@ -404,7 +413,6 @@ const MultipleSelector = React.forwardRef<
     const EmptyItem = React.useCallback(() => {
       if (!emptyIndicator) return undefined;
 
-      // For async search that showing emptyIndicator
       if (onSearch && !creatable && Object.keys(options).length === 0) {
         return (
           <CommandItem value="-" disabled>
@@ -421,7 +429,6 @@ const MultipleSelector = React.forwardRef<
       [options, selected]
     );
 
-    /** Avoid Creatable Selector freezing or lagging when paste a long string. */
     const commandFilter = React.useCallback(() => {
       if (commandProps?.filter) {
         return commandProps.filter;
@@ -432,9 +439,28 @@ const MultipleSelector = React.forwardRef<
           return value.toLowerCase().includes(search.toLowerCase()) ? 1 : -1;
         };
       }
-      // Using default filter in `cmdk`. We don't have to provide it.
       return undefined;
     }, [creatable, commandProps?.filter]);
+
+    // Enhanced mobile selection handler
+    const handleOptionSelect = (option: Option) => {
+      if (selected.length >= maxSelected) {
+        onMaxSelected?.(selected.length);
+        return;
+      }
+      setInputValue("");
+      const newOptions = [...selected, option];
+      setSelected(newOptions);
+      onChange?.(newOptions);
+      setOpen(false); // Close dropdown after selection
+
+      // Blur input on mobile to close keyboard
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.blur();
+        }
+      }, 100);
+    };
 
     return (
       <Command
@@ -452,12 +478,12 @@ const MultipleSelector = React.forwardRef<
           commandProps?.shouldFilter !== undefined
             ? commandProps.shouldFilter
             : !onSearch
-        } // When onSearch is provided, we don't want to filter the options. You can still override it.
+        }
         filter={commandFilter()}
       >
         <div
           className={cn(
-            "flex items-start justify-between rounded-md border-2 border-slate-200 bg-white px-3 py-2 text-base md:text-sm focus-within:border-orange-500 focus-within:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-950",
+            "min-h-[44px] flex items-start justify-between rounded-md border-2 border-slate-200 bg-white px-3 py-2 text-base md:text-sm focus-within:border-orange-500 focus-within:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-950",
             {
               "cursor-text": !disabled && selected.length !== 0,
             },
@@ -466,9 +492,10 @@ const MultipleSelector = React.forwardRef<
           onClick={() => {
             if (disabled) return;
             inputRef?.current?.focus();
+            setOpen(true);
           }}
         >
-          <div className="relative flex flex-wrap gap-1">
+          <div className="relative flex flex-wrap gap-1 flex-1">
             {selected.map((option) => {
               return (
                 <Badge
@@ -485,7 +512,7 @@ const MultipleSelector = React.forwardRef<
                   <button
                     type="button"
                     className={cn(
-                      "ml-1 rounded-full outline-none  ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                      "ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2",
                       (disabled || option.fixed) && "hidden"
                     )}
                     onKeyDown={(e) => {
@@ -497,6 +524,10 @@ const MultipleSelector = React.forwardRef<
                       e.preventDefault();
                       e.stopPropagation();
                     }}
+                    onTouchStart={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
                     onClick={() => handleUnselect(option)}
                   >
                     <X className="h-3 w-3 text-muted-foreground hover:text-foreground" />
@@ -504,7 +535,6 @@ const MultipleSelector = React.forwardRef<
                 </Badge>
               );
             })}
-            {/* Avoid having the "Search" Icon */}
             <CommandPrimitive.Input
               {...inputProps}
               ref={inputRef}
@@ -530,7 +560,7 @@ const MultipleSelector = React.forwardRef<
                   : placeholder
               }
               className={cn(
-                "flex-1 self-baseline bg-transparent outline-none placeholder:text-muted-foreground ",
+                "flex-1 self-baseline bg-transparent outline-none placeholder:text-muted-foreground min-w-[50px]",
                 {
                   "w-full": hidePlaceholderWhenSelected,
                   "ml-1": selected.length !== 0,
@@ -539,38 +569,40 @@ const MultipleSelector = React.forwardRef<
               )}
             />
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              setSelected(selected.filter((s) => s.fixed));
-              onChange?.(selected.filter((s) => s.fixed));
-            }}
-            className={cn(
-              "size-5",
-              (hideClearAllButton ||
-                disabled ||
-                selected.length < 1 ||
-                selected.filter((s) => s.fixed).length === selected.length) &&
-                "hidden"
-            )}
-          >
-            <X />
-          </button>
-          <ChevronDownIcon
-            className={cn(
-              "size-5 text-muted-foreground/50",
-              (hideClearAllButton ||
-                disabled ||
-                selected.length >= 1 ||
-                selected.filter((s) => s.fixed).length !== selected.length) &&
-                "hidden"
-            )}
-          />
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => {
+                setSelected(selected.filter((s) => s.fixed));
+                onChange?.(selected.filter((s) => s.fixed));
+              }}
+              className={cn(
+                "size-5",
+                (hideClearAllButton ||
+                  disabled ||
+                  selected.length < 1 ||
+                  selected.filter((s) => s.fixed).length === selected.length) &&
+                  "hidden"
+              )}
+            >
+              <X />
+            </button>
+            <ChevronDownIcon
+              className={cn(
+                "size-5 text-muted-foreground/50",
+                (hideClearAllButton ||
+                  disabled ||
+                  selected.length >= 1 ||
+                  selected.filter((s) => s.fixed).length !== selected.length) &&
+                  "hidden"
+              )}
+            />
+          </div>
         </div>
         <div className="relative">
           {open && (
             <CommandList
-              className="absolute top-1 z-10 w-full rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in"
+              className="absolute top-1 z-50 w-full rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in max-h-[200px] overflow-auto"
               onMouseLeave={() => {
                 setOnScrollbar(false);
               }}
@@ -579,6 +611,9 @@ const MultipleSelector = React.forwardRef<
               }}
               onMouseUp={() => {
                 inputRef?.current?.focus();
+              }}
+              onTouchEnd={() => {
+                setOnScrollbar(false);
               }}
             >
               {isLoading ? (
@@ -607,18 +642,13 @@ const MultipleSelector = React.forwardRef<
                                 e.preventDefault();
                                 e.stopPropagation();
                               }}
-                              onSelect={() => {
-                                if (selected.length >= maxSelected) {
-                                  onMaxSelected?.(selected.length);
-                                  return;
-                                }
-                                setInputValue("");
-                                const newOptions = [...selected, option];
-                                setSelected(newOptions);
-                                onChange?.(newOptions);
+                              onTouchStart={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
                               }}
+                              onSelect={() => handleOptionSelect(option)}
                               className={cn(
-                                "cursor-pointer",
+                                "cursor-pointer min-h-[44px] flex items-center",
                                 option.disable &&
                                   "cursor-default text-muted-foreground"
                               )}
