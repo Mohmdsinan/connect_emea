@@ -6,9 +6,9 @@ function Index() {
   const [filteredRecords, setFilteredRecords] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('All');
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [selectedRole, setSelectedRole] = useState('All');
+  const [loading, setLoading] = useState(true);
 
-  // Fetch data from Airtable
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -18,14 +18,14 @@ function Index() {
       } catch (error) {
         console.error('Error fetching records:', error);
       } finally {
-        setLoading(false); // ✅ Stop loading after fetch
+        setLoading(false);
       }
     };
 
     fetch();
   }, []);
 
-  // Apply filters whenever searchTerm or selectedYear changes
+  // 🔄 Filtering by name, year, and role
   useEffect(() => {
     let temp = [...records];
 
@@ -39,12 +39,16 @@ function Index() {
       temp = temp.filter((record) => record.fields.year === selectedYear);
     }
 
+    if (selectedRole !== 'All') {
+      temp = temp.filter((record) => record.fields.preferred_role === selectedRole);
+    }
+
     setFilteredRecords(temp);
-  }, [searchTerm, selectedYear, records]);
+  }, [searchTerm, selectedYear, selectedRole, records]);
 
   const yearOptions = ['All', ...new Set(records.map((r) => r.fields.year).filter(Boolean))];
+  const roleOptions = ['All', ...new Set(records.map((r) => r.fields.preferred_role).filter(Boolean))];
 
-  // ✅ Show spinner while loading
   if (loading) {
     return (
       <div className="flex items-center justify-center mt-10">
@@ -87,30 +91,52 @@ function Index() {
             </option>
           ))}
         </select>
+
+        <select
+          className="border p-2 rounded w-full md:w-48"
+          value={selectedRole}
+          onChange={(e) => setSelectedRole(e.target.value)}
+        >
+          {roleOptions.map((role, index) => (
+            <option key={index} value={role}>
+              {role === 'All' ? 'All Roles' : role}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="text-center mb-4 font-medium text-gray-800">
         Total Registrations: {filteredRecords.length}
       </div>
 
+      {/* Cards */}
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredRecords.map((record, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow space-y-4"
-          >
-            <h1 className="text-2xl font-bold text-center">{index + 1}</h1>
-            <h2 className="text-xl font-bold mb-2 text-gray-800">{record.fields.Name}</h2>
-            <p className="text-gray-600"><strong>Preferred Role:</strong> {record.fields.preferred_role}</p>
-            <p className="text-gray-600"><strong>Department:</strong> {record.fields.department}</p>
-            <p className="text-gray-600"><strong>Year:</strong> {record.fields.year}</p>
-            <p className="text-gray-600"><strong>Hobby:</strong> {record.fields.hobby}</p>
-            <p className="text-gray-600"><strong>Expectations:</strong> {record.fields.expectations}</p>
-            <p className="text-gray-600"><strong>How did you hear:</strong> {record.fields.how_did_you_hear}</p>
-            <p className="text-gray-600"><strong>Interesting Fact:</strong> {record.fields.interesting_fact}</p>
-            <p className="text-gray-600"><strong>Other Communities:</strong> {record.fields.other_communities}</p>
-          </div>
-        ))}
+        {filteredRecords.map((record, index) => {
+          const { fields } = record;
+
+          return (
+            <div
+              key={index}
+              className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow space-y-3 !select-text"
+            >
+              <h1 className="text-2xl font-bold text-center">{index + 1}</h1>
+              <h2 className="text-xl font-bold text-gray-800">{fields.Name}</h2>
+
+              <p  className='!select-text'><strong>Admission No:</strong> {fields.Admission_No}</p>
+              <p className='!select-text'><strong>Phone:</strong> {fields.Phone_number}</p>
+              <p className='!select-text'><strong>Email:</strong> {fields.email}</p>
+              <p className='!select-text'><strong>Department:</strong> {fields.department}</p>
+              <p className='!select-text'><strong>Year:</strong> {fields.year}</p>
+              <p className='!select-text'><strong>Preferred Role:</strong> {fields.preferred_role}</p>
+              <p className='!select-text'><strong>Hobby:</strong> {fields.hobby}</p>
+              <p className='!select-text'><strong>Expectations:</strong> {fields.expectations}</p>
+              <p className='!select-text'><strong>Reason for Joining:</strong> {fields.reason}</p>
+              <p className='!select-text'><strong>How did you hear?</strong> {fields.how_did_you_hear}</p>
+              <p className='!select-text'><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
+              <p className='!select-text'><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

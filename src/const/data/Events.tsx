@@ -56,7 +56,9 @@ import {
   BootCamp2024,
   Ai_tools,
   Gigxplore,
-  Art_writing
+  Art_writing,
+  Steamit3,
+  TinkerHerHackHackathon3
 } from "@/assets/images/Events";
 
 const Events: Event[] = [
@@ -1440,7 +1442,7 @@ const Events: Event[] = [
     location: "Google Meet",
     description:
       "A hands-on session to guide participants in setting up and enhancing their GitHub profiles.",
-    image: Steamit1,
+    image: Steamit2,
     link: "",
     big_description:
       "Steamit - 2 is an interactive GitHub Profile Setup Session. This event will help participants create and customize their GitHub profiles effectively, showcasing their projects and contributions professionally. It's a chance to strengthen your developer identity and learn best practices for using GitHub as a portfolio.",
@@ -1466,7 +1468,7 @@ const Events: Event[] = [
     location: "Seminar Hall",
     description:
       "A session exploring the idea of the hackathon, 'useless projects' and how it works.",
-    image: Steamit2,
+    image: Steamit1,
     link: "",
     big_description:
       "Steamit brings yet another exciting session! This time, we dive into the world of 'useless projects'. What exactly makes a project useless? Or are they really useless? Join us to discover how unconventional and fun ideas can lead to unexpected learning, creativity, and innovation. Let's rethink what 'useless' really means!",
@@ -1901,7 +1903,59 @@ const Events: Event[] = [
       ),
       gallery: []
     }
+  },
+  {
+  id: 61,
+  title: "SteamIt - 3: How to Push Code to GitHub",
+  date: "07/08/2025",
+  time: "8:00 PM",
+  location: "Google Meet",
+  description: "A practical session on how to push your code to GitHub, organized as part of the SteamIt series.",
+  image: Steamit3,
+  link: "", 
+  big_description: "SteamIt - 3 is a hands-on session under the 'Useless Projects' initiative, designed to guide participants through the process of pushing code to GitHub. Whether you're new to version control or just want to brush up on GitHub basics, this session will help you get comfortable with the workflow.",
+  about: {
+    objectives: "To introduce participants to GitHub and teach them the step-by-step process of pushing code from local repositories to remote repositories.",
+    highlights: (
+      <ul className="list-disc list-inside space-y-1 p-2">
+        <li>Introduction to Git and GitHub</li>
+        <li>Setting up a Git repository</li>
+        <li>Committing changes effectively</li>
+        <li>Pushing code to GitHub</li>
+        <li>Interactive Q&A session</li>
+      </ul>
+    ),
+    gallery: [],
   }
+},
+
+{
+  id: 62,
+  title: "TinkHerHack 3.0",
+  date: "01/02/2025 - 02/02/2025",
+  time: "All day",
+  location: "IEDC Hall",
+  description: "A women-only hackathon organised in collaboration with IEDC EMEA and TinkerHub EMEA — empowering female creators, builders and innovators to prototype, collaborate and compete.",
+  image: TinkerHerHackHackathon3, // add poster image URL if available
+  link: "",  // registration or event link if available
+  big_description: "TinkHerHack 3.0 is a girls-only hackathon bringing together female students, makers and early-career technologists from across the region to learn, build and showcase innovative solutions. In collaboration with IEDC EMEA and TinkerHub EMEA, the event focuses on inclusivity, mentorship and real-world problem solving over two days at the IEDC Hall.",
+  about: {
+    objectives: "To create a supportive environment where women can learn technical and product skills, collaborate with mentors, and build prototypes that address real problems — while fostering community and encouraging continued participation in tech.",
+    highlights: (
+      <ul className="list-disc list-inside space-y-1 p-2">
+        <li>Girls-only hackathon: safe, inclusive space for female makers</li>
+        <li>Collaboration between IEDC EMEA and TinkerHub EMEA</li>
+        <li>Hands-on prototyping and team-building sessions</li>
+        <li>Mentorship from industry experts and local founders</li>
+        <li>Workshops on design, development, pitching and product validation</li>
+        <li>Pitch demo day with prizes and networking opportunities</li>
+        <li>Opportunities for follow-up incubation and community support</li>
+      </ul>
+    ),
+    gallery: [], // add image URLs if you have any photos from previous editions
+  }
+}
+
 
 ];
 

@@ -10,6 +10,9 @@ export { default as ResumeBuilding } from "./Resume_building.png";
 export { default as Shehike01 } from "./sheHike01.jpeg";
 export { default as Shehike02 } from "./Shehike.png";
 export { default as OpenMic01 } from "./open_mic_01.jpeg";
+export { default as TinkHerHack3 } from "./TinkerHack3.jpeg";
+export { default as TinkerHerHackHackathon3} from "./Tinkherhack3.jpeg";
+
 // bootcamp
 export { default as BootCamp2022 } from "./BootCamp2022.jpeg";
 export { default as BootCamp2023 } from "./BootCamp2023.jpeg";
@@ -55,7 +58,6 @@ export { default as AppleEvent } from "./apple_event.jpeg";
 
 
 export { default as AiExplorer } from "./AiExplorer.jpeg";
-export { default as TinkHerHack3 } from "./TinkerHack3.jpeg";
 export { default as ElevateHacknight } from "./ElevateHacknight.jpeg";
 export { default as ProfilePowerup } from "./ProfilePowerUp.jpeg";
 export { default as ContentWriting } from "./ContentWriting.jpeg";
@@ -73,6 +75,7 @@ export { default as Sketchup } from "./sketchup.jpeg"
 export { default as Sketchup2 } from "./sketchup2.jpeg"
 export { default as Steamit1 } from "./steamit1.jpeg"
 export { default as Steamit2 } from "./steamit2.jpeg"
+export { default as Steamit3 } from "./steamit3.jpeg"
 export { default as Toolup_notion } from "./toolup_notion.jpeg"
 export {default as Toolup_airtable } from "./toolup_airtable.jpeg"
 export { default as Untilthen } from "./untilthen.jpeg"

@@ -1,7 +1,7 @@
 import React from 'react'
 import { JoinForm } from './components/Form'
 import img from '@/assets/avatars/joinNowGirl.png'
-// import Closed from '@/assets/images/Us/closed_2.jpeg'
+import Closed from '@/assets/images/Us/closed_2.jpeg'
 
 function Join() {
   return (
@@ -27,7 +27,7 @@ function Join() {
 
 
 
-      {/* <div className='relative'>
+      <div className='relative'>
         <img
          draggable={false} // prevent dragging
          onDragStart={(e) => e.preventDefault()}
@@ -60,11 +60,11 @@ function Join() {
 
       </div>
 
-       */}
+      
       </div>
 
 
-       <div className='flex flex-col lg:flex-row bg-orange-400  mx-auto rounded-xl my-8  p-3 w-full'>
+       {/* <div className='flex flex-col lg:flex-row bg-orange-400  mx-auto rounded-xl my-8  p-3 w-full'>
          <div className='flex items-center flex-col justify-center max-w-[500px] lg:min-w-[350px] xl:min-w-[450px] mx-auto'>
            <h1 className='sm:text-[48px] text-[40px]  text-white mx-auto  flex leading-[55px] flex-col items-center justify-center mb-10'>
              <span>Welcome</span>
@@ -75,7 +75,7 @@ function Join() {
          <div className='bg-white w-full rounded-lg p-4 md:p-10 flex-grow mx-auto'>
            <JoinForm />
          </div>
-       </div>
+       </div> */}
     </div>
   )
 }
