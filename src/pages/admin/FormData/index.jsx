@@ -161,13 +161,14 @@ Thank you!`;
               <p className='!select-text'><strong>How did you hear?</strong> {fields.how_did_you_hear}</p>
               <p className='!select-text'><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
               <p className='!select-text'><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
-              {!fields.Task_Submitted && (
+              <p className='!select-text'><strong>Task Submitted:</strong> {fields.Task_Submitted ? 'Yes' : 'No'}</p>
+              {/* {!fields.Task_Submitted && (
               <button
 
                 onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)} className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors">
                 Aware Message
               </button>
-              )}
+              )} */}
             </div>
           );
         })}
