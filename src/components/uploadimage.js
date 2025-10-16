@@ -17,7 +17,7 @@ const handleImageUpload = async (file) => {
         }
 
         const data = await response.json();
-        console.log("Cloudinary Response:", data);
+        // console.log("Cloudinary Response:", data);
 
         return data.secure_url || null;
     } catch (error) {

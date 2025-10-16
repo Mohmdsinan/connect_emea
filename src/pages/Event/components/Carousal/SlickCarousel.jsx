@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 function SampleNextArrow(props) {
     const { className, style, onClick, color } = props;
     const isDisabled = className && className.includes("slick-disabled");
-    console.log('color:', color);
+    // console.log('color:', color);
     return (
         <div
             className={classNames(className, `rounded-xl flex items-center justify-center   absolute left-[20px] top-[310px] sm:top-[330px] z-10 custom-arrow `,

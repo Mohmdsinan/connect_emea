@@ -119,7 +119,7 @@ function Events() {
             // Sort events by date (newest first)
             eventsData.sort((a, b) => new Date(b.date) - new Date(a.date));
             setEvents(eventsData);
-            console.log(eventsData)
+            // console.log(eventsData)
         } catch (error) {
             console.error("Error fetching events: ", error);
         } finally {
@@ -134,7 +134,7 @@ function Events() {
     // Set form data when editing an event
     useEffect(() => {
         if (editingEvent) {
-            console.log('Editing event:', editingEvent);
+            // console.log('Editing event:', editingEvent);
             setFormData({
                 title: editingEvent.title || '',
                 date: editingEvent.date || '',

@@ -213,12 +213,12 @@ function EventForm({ onSuccess, editingEvent }) {
             if (editingEvent) {
                 // Update existing event
                 await updateDoc(doc(db, "events", editingEvent.id), eventData);
-                console.log("Event updated with ID: ", editingEvent.id);
+                // console.log("Event updated with ID: ", editingEvent.id);
             } else {
                 // Add new event
                 eventData.createdAt = new Date();
                 const docRef = await addDoc(collection(db, "events"), eventData);
-                console.log("Event created with ID: ", docRef.id);
+                // console.log("Event created with ID: ", docRef.id);
             }
 
             // Reset form

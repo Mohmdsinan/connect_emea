@@ -100,7 +100,7 @@ export function JoinForm() {
   async function onSubmit(values) {
     try {
       setLoading(true);
-      console.log("Submitting data:", values); // This will show array format
+      // console.log("Submitting data:", values); // This will show array format
       await createRecord("interns_selection_2025", values, 1);
       setModalStatus("success");
     } catch (error) {
