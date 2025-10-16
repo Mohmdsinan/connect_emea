@@ -1,3 +1,6 @@
+
+
+
 import React, { useEffect, useState } from 'react';
 import { fetchRecords } from '@/utils/airtableService';
 
@@ -7,6 +10,7 @@ function Index() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('All');
   const [selectedRole, setSelectedRole] = useState('All');
+  const [selectedTaskStatus, setSelectedTaskStatus] = useState('All');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +29,32 @@ function Index() {
     fetch();
   }, []);
 
-  // 🔄 Filtering by name, year, and role
+//   const handleAwareMessage = (phoneNumber, name, role) => { 
+//   if (!phoneNumber) return alert("No phone number found!");
+
+//   // ✅ Clean the number (remove +, spaces, dashes, parentheses)
+//   const cleanedNumber = phoneNumber
+//     .replace(/[^\d]/g, "")  // remove everything except digits
+//     .replace(/^0+/, "");    // remove leading zeros if any
+
+//   // ✅ Ensure it starts with country code (assuming India)
+//   const finalNumber = cleanedNumber.startsWith("91")
+//     ? cleanedNumber
+//     : `91${cleanedNumber}`;
+
+//   const message = `Hello ${name}! 👋
+
+// This is a reminder for the Connect Intern Hiring 2026 — ${role} role.
+
+// Please make sure to complete your assigned task today itself, otherwise you will be disqualified from moving to the next step.
+
+// Thank you!`;
+
+//   const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
+//   window.open(url, "_blank");
+// };
+
+  // 🔄 Filtering logic
   useEffect(() => {
     let temp = [...records];
 
@@ -43,39 +72,17 @@ function Index() {
       temp = temp.filter((record) => record.fields.preferred_role === selectedRole);
     }
 
+    if (selectedTaskStatus !== 'All') {
+      const isSubmitted = selectedTaskStatus === 'Yes';
+      temp = temp.filter((record) => !!record.fields.Task_Submitted === isSubmitted);
+    }
+
     setFilteredRecords(temp);
-  }, [searchTerm, selectedYear, selectedRole, records]);
+  }, [searchTerm, selectedYear, selectedRole, selectedTaskStatus, records]);
 
   const yearOptions = ['All', ...new Set(records.map((r) => r.fields.year).filter(Boolean))];
   const roleOptions = ['All', ...new Set(records.map((r) => r.fields.preferred_role).filter(Boolean))];
 
-const handleAwareMessage = (phoneNumber, name, role) => { 
-  if (!phoneNumber) return alert("No phone number found!");
-
-  // ✅ Clean the number (remove +, spaces, dashes, parentheses)
-  const cleanedNumber = phoneNumber
-    .replace(/[^\d]/g, "")  // remove everything except digits
-    .replace(/^0+/, "");    // remove leading zeros if any
-
-  // ✅ Ensure it starts with country code (assuming India)
-  const finalNumber = cleanedNumber.startsWith("91")
-    ? cleanedNumber
-    : `91${cleanedNumber}`;
-
-  const message = `Hello ${name}! 👋
-
-This is a reminder for the Connect Intern Hiring 2026 — ${role} role.
-
-Please make sure to complete your assigned task today itself, otherwise you will be disqualified from moving to the next step.
-
-Thank you!`;
-
-  const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-};
-
-
-  
   if (loading) {
     return (
       <div className="flex items-center justify-center mt-10">
@@ -97,8 +104,9 @@ Thank you!`;
         </p>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-6">
+      {/* 🔽 Filters Section */}
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-6 flex-wrap">
+        {/* Search */}
         <input
           type="text"
           placeholder="Search by Name"
@@ -107,6 +115,7 @@ Thank you!`;
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
+        {/* Year Filter */}
         <select
           className="border p-2 rounded w-full md:w-48"
           value={selectedYear}
@@ -119,6 +128,7 @@ Thank you!`;
           ))}
         </select>
 
+        {/* Role Filter */}
         <select
           className="border p-2 rounded w-full md:w-48"
           value={selectedRole}
@@ -129,6 +139,17 @@ Thank you!`;
               {role === 'All' ? 'All Roles' : role}
             </option>
           ))}
+        </select>
+
+        {/* ✅ Task Submitted Filter */}
+        <select
+          className="border p-2 rounded w-full md:w-48"
+          value={selectedTaskStatus}
+          onChange={(e) => setSelectedTaskStatus(e.target.value)}
+        >
+          <option value="All">All Tasks</option>
+          <option value="Yes">Task Submitted</option>
+          <option value="No">Not Submitted</option>
         </select>
       </div>
 
@@ -162,7 +183,7 @@ Thank you!`;
               <p className='!select-text'><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
               <p className='!select-text'><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
               <p className='!select-text'><strong>Task Submitted:</strong> {fields.Task_Submitted ? 'Yes' : 'No'}</p>
-              {/* {!fields.Task_Submitted && (
+                {/* {!fields.Task_Submitted && (
               <button
 
                 onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)} className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors">
