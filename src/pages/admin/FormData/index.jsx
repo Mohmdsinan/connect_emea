@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from 'react';
 import { fetchRecords } from '@/utils/airtableService';
 
@@ -10,6 +7,7 @@ function Index() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('All');
   const [selectedRole, setSelectedRole] = useState('All');
+  const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [selectedTaskStatus, setSelectedTaskStatus] = useState('All');
   const [loading, setLoading] = useState(true);
 
@@ -29,20 +27,18 @@ function Index() {
     fetch();
   }, []);
 
-  const handleAwareMessage = (phoneNumber, name, role) => { 
-  if (!phoneNumber) return alert("No phone number found!");
+  const handleAwareMessage = (phoneNumber, name, role) => {
+    if (!phoneNumber) return alert("No phone number found!");
 
-  // ✅ Clean the number (remove +, spaces, dashes, parentheses)
-  const cleanedNumber = phoneNumber
-    .replace(/[^\d]/g, "")  // remove everything except digits
-    .replace(/^0+/, "");    // remove leading zeros if any
+    const cleanedNumber = phoneNumber
+      .replace(/[^\d]/g, "")
+      .replace(/^0+/, "");
 
-  // ✅ Ensure it starts with country code (assuming India)
-  const finalNumber = cleanedNumber.startsWith("91")
-    ? cleanedNumber
-    : `91${cleanedNumber}`;
+    const finalNumber = cleanedNumber.startsWith("91")
+      ? cleanedNumber
+      : `91${cleanedNumber}`;
 
-const message = `Hello ${name}! 👋
+    const message = `Hello ${name}! 👋
 
 This is a reminder for the next step of the Connect Intern Hiring 2026 — (${role}) role.
 
@@ -51,9 +47,9 @@ Your *offline interview* is scheduled for *tomorrow between 10:00 AM and 12:30 P
 Please make sure to attend on time.  
 All the best! 💼`;
 
-  const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-};
+    const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
 
   // 🔄 Filtering logic
   useEffect(() => {
@@ -73,16 +69,21 @@ All the best! 💼`;
       temp = temp.filter((record) => record.fields.preferred_role === selectedRole);
     }
 
+    if (selectedDepartment !== 'All') {
+      temp = temp.filter((record) => record.fields.department === selectedDepartment);
+    }
+
     if (selectedTaskStatus !== 'All') {
       const isSubmitted = selectedTaskStatus === 'Yes';
       temp = temp.filter((record) => !!record.fields.Task_Submitted === isSubmitted);
     }
 
     setFilteredRecords(temp);
-  }, [searchTerm, selectedYear, selectedRole, selectedTaskStatus, records]);
+  }, [searchTerm, selectedYear, selectedRole, selectedDepartment, selectedTaskStatus, records]);
 
   const yearOptions = ['All', ...new Set(records.map((r) => r.fields.year).filter(Boolean))];
   const roleOptions = ['All', ...new Set(records.map((r) => r.fields.preferred_role).filter(Boolean))];
+  const departmentOptions = ['All', ...new Set(records.map((r) => r.fields.department).filter(Boolean))];
 
   if (loading) {
     return (
@@ -129,6 +130,19 @@ All the best! 💼`;
           ))}
         </select>
 
+        {/* Department Filter */}
+        <select
+          className="border p-2 rounded w-full md:w-48"
+          value={selectedDepartment}
+          onChange={(e) => setSelectedDepartment(e.target.value)}
+        >
+          {departmentOptions.map((dept, index) => (
+            <option key={index} value={dept}>
+              {dept === 'All' ? 'All Departments' : dept}
+            </option>
+          ))}
+        </select>
+
         {/* Role Filter */}
         <select
           className="border p-2 rounded w-full md:w-48"
@@ -171,31 +185,26 @@ All the best! 💼`;
               <h1 className="text-2xl font-bold text-center">{index + 1}</h1>
               <h2 className="text-xl font-bold text-gray-800">{fields.Name}</h2>
 
-              <p  className='!select-text'><strong>Admission No:</strong> {fields.Admission_No}</p>
-              <p className='!select-text'><strong>Phone:</strong> {fields.Phone_number}</p>
-              <p className='!select-text'><strong>Email:</strong> {fields.email}</p>
-              <p className='!select-text'><strong>Department:</strong> {fields.department}</p>
-              <p className='!select-text'><strong>Year:</strong> {fields.year}</p>
-              <p className='!select-text'><strong>Preferred Role:</strong> {fields.preferred_role}</p>
-              <p className='!select-text'><strong>Hobby:</strong> {fields.hobby}</p>
-              <p className='!select-text'><strong>Expectations:</strong> {fields.expectations}</p>
-              <p className='!select-text'><strong>Reason for Joining:</strong> {fields.reason}</p>
-              <p className='!select-text'><strong>How did you hear?</strong> {fields.how_did_you_hear}</p>
-              <p className='!select-text'><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
-              <p className='!select-text'><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
-              <p className='!select-text'><strong>Task Submitted:</strong> {fields.Task_Submitted ? 'Yes' : 'No'}</p>
-                {/* {!fields.Task_Submitted && (
-              <button
+              <p><strong>Admission No:</strong> {fields.Admission_No}</p>
+              <p><strong>Phone:</strong> {fields.Phone_number}</p>
+              <p><strong>Email:</strong> {fields.email}</p>
+              <p><strong>Department:</strong> {fields.department}</p>
+              <p><strong>Year:</strong> {fields.year}</p>
+              <p><strong>Preferred Role:</strong> {fields.preferred_role}</p>
+              <p><strong>Hobby:</strong> {fields.hobby}</p>
+              <p><strong>Expectations:</strong> {fields.expectations}</p>
+              <p><strong>Reason for Joining:</strong> {fields.reason}</p>
+              <p><strong>How did you hear?</strong> {fields.how_did_you_hear}</p>
+              <p><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
+              <p><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
+              <p><strong>Task Submitted:</strong> {fields.Task_Submitted ? 'Yes' : 'No'}</p>
 
-                onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)} className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors">
+              {/* <button
+                onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)}
+                className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors"
+              >
                 Aware Message
-              </button>
-              )} */}
-                <button
-
-                onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)} className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors">
-                Aware Message
-              </button>
+              </button> */}
             </div>
           );
         })}
