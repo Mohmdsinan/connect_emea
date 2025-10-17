@@ -29,30 +29,31 @@ function Index() {
     fetch();
   }, []);
 
-//   const handleAwareMessage = (phoneNumber, name, role) => { 
-//   if (!phoneNumber) return alert("No phone number found!");
+  const handleAwareMessage = (phoneNumber, name, role) => { 
+  if (!phoneNumber) return alert("No phone number found!");
 
-//   // ✅ Clean the number (remove +, spaces, dashes, parentheses)
-//   const cleanedNumber = phoneNumber
-//     .replace(/[^\d]/g, "")  // remove everything except digits
-//     .replace(/^0+/, "");    // remove leading zeros if any
+  // ✅ Clean the number (remove +, spaces, dashes, parentheses)
+  const cleanedNumber = phoneNumber
+    .replace(/[^\d]/g, "")  // remove everything except digits
+    .replace(/^0+/, "");    // remove leading zeros if any
 
-//   // ✅ Ensure it starts with country code (assuming India)
-//   const finalNumber = cleanedNumber.startsWith("91")
-//     ? cleanedNumber
-//     : `91${cleanedNumber}`;
+  // ✅ Ensure it starts with country code (assuming India)
+  const finalNumber = cleanedNumber.startsWith("91")
+    ? cleanedNumber
+    : `91${cleanedNumber}`;
 
-//   const message = `Hello ${name}! 👋
+const message = `Hello ${name}! 👋
 
-// This is a reminder for the Connect Intern Hiring 2026 — ${role} role.
+This is a reminder for the next step of the Connect Intern Hiring 2026 — (${role}) role.
 
-// Please make sure to complete your assigned task today itself, otherwise you will be disqualified from moving to the next step.
+Your *offline interview* is scheduled for *tomorrow between 10:00 AM and 12:30 PM* at the *College Incubation Center (near Mahagony)*.
 
-// Thank you!`;
+Please make sure to attend on time.  
+All the best! 💼`;
 
-//   const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
-//   window.open(url, "_blank");
-// };
+  const url = `https://wa.me/${finalNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+};
 
   // 🔄 Filtering logic
   useEffect(() => {
@@ -190,6 +191,11 @@ function Index() {
                 Aware Message
               </button>
               )} */}
+                <button
+
+                onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)} className="mt-4 w-full bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition-colors">
+                Aware Message
+              </button>
             </div>
           );
         })}
