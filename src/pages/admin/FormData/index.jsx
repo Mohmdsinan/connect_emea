@@ -198,6 +198,13 @@ All the best! 💼`;
               <p><strong>Interesting Fact:</strong> {fields.interesting_fact}</p>
               <p><strong>Other Communities:</strong> {fields.other_communities?.join(', ') || 'None'}</p>
               <p><strong>Task Submitted:</strong> {fields.Task_Submitted ? 'Yes' : 'No'}</p>
+            {fields.Task_Link && (  <p>
+                <strong>Task Link:</strong>
+                <a href={fields.Task_Link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline ml-1">
+                  (View Here)
+                </a> 
+              </p>
+            )}
 
               {/* <button
                 onClick={() => handleAwareMessage(fields.Phone_number, fields.Name, fields.preferred_role)}
