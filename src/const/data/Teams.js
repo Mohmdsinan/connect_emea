@@ -258,7 +258,7 @@ const InternsData = [
         position: positions[11],
         image: Sinan,//Sinan,
         email: 'sinankdty@gmail.com',
-        phone: '(940) 069-9044 ',
+        phone: '+91 94006 99044 ',
         status: 'Active',
         place: 'Kerala',
         social: {
@@ -880,7 +880,23 @@ const InternsData = [
             github: '',
             instagram: 'https://www.instagram.com/irsha.adtogro/'
         },
-    }
+    },
+    {
+        id: 24,
+        name: 'Mohammed Shamil P',
+        role: roles[3],
+        position: positions[11],
+        image: ShamilP,//Shamil,
+        email: 'sinankdty@gmail.com',
+        phone: '+91 94006 99044 ',
+        status: 'Active',
+        place: 'Kerala',
+        social: {
+            linkedin: 'https://www.linkedin.com/in/mohammed-sinan-285400326?',
+            github: '',
+            instagram: 'https://www.instagram.com/__sinxn_k'
+        },
+    },
 ];
 
 

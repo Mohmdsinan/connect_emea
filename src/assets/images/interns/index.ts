@@ -35,6 +35,7 @@ export { default as Swalih } from "./Swalih.png"
 export { default as ShanaShirin } from "./ShanaShirin.png"
 export { default as Sinan } from "./sinan.png"
 export { default as Salmanjnr } from "./salmanjnr.png"
+export { default as ShamilP } from "./ShamilP.png"
 
 
 
